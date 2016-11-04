@@ -1,0 +1,15 @@
+﻿<Project>
+  <PropertyGroup>
+    <Site Server="conjunctiondemo" UserName="sitecore\admin" IsRemoteSitecore="True" />
+  </PropertyGroup>
+  <File Include="layouts\MainLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{0596E1BA-3630-4A1B-9884-8A7DED841022}</Item>
+  </File>
+  <File Include="/layouts/MainLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{0596E1BA-3630-4A1B-9884-8A7DED841022}</Item>
+  </File>
+  <File Include="Views\Layouts\ViewLayout1.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0" />
+  <File Include="/Views/Layouts/ViewLayout1.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{C352ECD3-A970-4F2D-9A1A-AA343525B8C4}</Item>
+  </File>
+</Project>
