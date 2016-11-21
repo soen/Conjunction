@@ -1,0 +1,116 @@
+<project site="conjunctiondemo" format="Zip Package" targetfilefolder="wwwroot">
+  <Metadata>
+    <metadata>
+      <PackageName>Conjunction</PackageName>
+      <Author>Søren Engel</Author>
+      <Version>0.1</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme />
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/system/Modules/Conjunction/{73A63B56-A08B-4C1A-B97C-81FFE586FD0F}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/{4E33163D-4460-4E20-9BF1-86409D1A9D37}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/{1E556B95-2646-4BE4-A7C5-114DE023CE98}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/ComparisonOperator/{BBC556B4-5CC2-4DB2-AA25-36ACCA5E7333}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/ComparisonOperatorFolder/{9D6AB533-B3B5-4799-A257-F1EAE8B3C844}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/LogicalOperator/{5C28B108-98F6-4840-AE14-F3633B2550BA}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/LogicalOperatorFolder/{DEE098A0-22E5-456D-AE48-4595E96A308F}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/SearchQueryGrouping/{159D9956-AADC-4B31-9F70-39BF74E14BF1}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/SearchQueryRoot/{818A0CA7-1388-48BC-9E07-851314C288CB}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/SearchQueryRule/{F6FDFD70-26D0-4472-A118-97B65A6BF189}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_ComparisonOperator/{E40D481F-C867-4C40-92CA-225E2B2F686E}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_IndexableEntityConfigurator/{D5BB1DD5-647D-4D51-90C6-249A0BA53BD3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_LogicalOperator/{5BA911F7-45AB-40E7-B7D1-19F54AEDE9F8}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryGrouping/{B016F73B-11CF-4E43-AEAC-1A52D90C4346}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryRule/{1FD87DBC-396F-4DBE-8933-234FF8FA45B6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/ComparisonOperator/__Standard Values/{EA179340-670F-493F-B2B5-10F7D7180EEB}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/ComparisonOperatorFolder/__Standard Values/{3262C169-D38E-44BC-99F1-7BF1C5FBD087}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/LogicalOperator/__Standard Values/{B0CA092B-7E41-4977-B634-99A01C645E9E}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/LogicalOperatorFolder/__Standard Values/{76EFFD7D-AAC2-4535-995E-0FB9ADFC91A7}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/SearchQueryGrouping/__Standard Values/{02A3DB9B-5AFE-489F-99F9-1FC3CE2642DE}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/SearchQueryRoot/__Standard Values/{AD9D70F8-5C1D-4E99-BF0B-AFA18CAD1363}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/SearchQueryRule/__Standard Values/{6CEB5F43-97F3-4BF5-B69F-F503D6D10A8F}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_ComparisonOperator/ComparisonOperator/{760B8D9C-F81D-4E00-9B40-FC3839CC371C}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_ComparisonOperator/ComparisonOperator/ComparisonOperatorType/{0E2333A1-688D-4EFA-BEAE-6CE1D835B36D}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_IndexableEntityConfigurator/IndexableEntityConfigurator/{C1B93A34-44A6-41E9-A9F1-7CF30C38B9B6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_IndexableEntityConfigurator/IndexableEntityConfigurator/IndexableEntityConfiguratorConfiguredIndexableEntityType/{BEE28558-0A5D-4EE1-B54F-A9D25596A249}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_LogicalOperator/LogicalOperator/{63EA05DC-052B-4984-8D4F-07A6AFEF1589}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_LogicalOperator/LogicalOperator/LogicalOperatorType/{C736C637-704E-4B89-ACD3-863E97C56300}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryGrouping/SearchQueryGrouping/{0C9B1083-D70A-42CE-A8B0-3C445648D234}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryGrouping/SearchQueryGrouping/SearchQueryGroupingLogicalOperator/{F024EAF0-F10D-4AC9-A7DA-A280B0AE1AF9}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryRule/SearchQueryRule/{F08D08DB-82F4-4241-A63D-DE77D132F579}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryRule/SearchQueryRule/SearchQueryRuleAssociatedPropertyName/{B31481A1-8140-4E1A-B489-3DD21634C22D}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryRule/SearchQueryRule/SearchQueryRuleComparisonOperator/{20E7EFE4-7460-4CBE-9352-7940FC5013D8}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryRule/SearchQueryRule/SearchQueryRuleDynamicValueProvidingParameter/{46660B55-18C3-4D3B-8F6E-7F3CB3949318}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Conjunction/Foundation/_SearchQueryRule/SearchQueryRule/SearchQueryRuleDefaultValue/{BD5AABFB-A3DD-425B-8084-AEAA981FD3EE}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/{EF59903B-6BA8-4CBB-B780-81B424650C12}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/{AD18BF73-825D-482A-BB38-B1B6A339FB62}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/LogicalOperators/{DC1CBC06-90C3-4CC1-8050-9CFE14CA608A}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/Between/{4C7EA48F-6CA1-477D-9C81-F3A425F89FAD}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/Contains/{51FDA925-EFE0-4653-A8B1-85A346F40856}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/Equal/{2EC21D01-DC09-4D24-8F60-19D507F8BD7E}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/GreaterThanOrEqual/{7E887B99-51FD-40EE-BAFA-28FF53BCCB25}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/LessThanOrEqual/{D4391BC3-6086-46F0-99F9-E71053DFEC1E}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/LogicalOperators/And/{71154B95-016A-43D2-B024-89A324764FBF}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Conjunction/Settings/LogicalOperators/Or/{740112FE-89DD-4588-A8A1-A0DE137B88A7}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Items</Name>
+    </xitems>
+    <xfiles>
+      <Entries />
+      <Converter>
+        <FileToEntryConverter>
+          <Root />
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>
