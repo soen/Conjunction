@@ -4,6 +4,9 @@ using Sitecore.Data;
 
 namespace Conjunction.Foundation.Core.Infrastructure.TypeConverters
 {
+  /// <summary>
+  /// Provides a type converter to convert <see cref="ID"/> objects to and from various other representations.
+  /// </summary>
   public class SitecoreIDConverter : TypeConverter
   {
     public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)

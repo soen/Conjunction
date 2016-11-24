@@ -3,6 +3,11 @@ using Conjunction.Foundation.Core.Model.Processing;
 
 namespace Conjunction.Foundation.Core.Model
 {
+  /// <summary>
+  /// Represents a search query grouping that defines a group of one or more 
+  /// search query elements, and their logical relationship to each other.
+  /// </summary>
+  /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
   public class SearchQueryGrouping<T> : ISearchQueryElement<T> where T : IndexableEntity, new()
   {
     public SearchQueryGrouping(LogicalOperator logicalOperator) : this(logicalOperator, new List<ISearchQueryElement<T>>())

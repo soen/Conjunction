@@ -2,15 +2,22 @@
 using System.ComponentModel;
 using Conjunction.Foundation.Core.Infrastructure;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
 {
+  /// <summary>
+  /// Represents a Sitecore configured search query element provider, accepting a 
+  /// <see cref="Item"/> root, which gets transformed into a <see cref="ISearchQueryElement{T}"/> root.
+  /// </summary>
   public class SitecoreConfiguredSearchQueryElementProvider : ISearchQueryElementProvider
   {
     private readonly Item _searchQueryRootItem;
 
     public SitecoreConfiguredSearchQueryElementProvider(Item searchQueryRootItem)
     {
+      Assert.ArgumentNotNull(searchQueryRootItem, "The specified searchQueryRootItem cannot be null");
+
       if (searchQueryRootItem.IsDerived(Constants.Templates.SearchQueryRoot.TemplateId) == false)
         throw new ArgumentException();
 

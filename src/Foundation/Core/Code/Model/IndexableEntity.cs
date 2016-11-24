@@ -2,6 +2,9 @@
 
 namespace Conjunction.Foundation.Core.Model
 {
+  /// <summary>
+  /// Represents the base class of an indexable entity that is used when querying data from the search index.
+  /// </summary>
   public abstract class IndexableEntity : SearchResultItem
   {
     // TODO: Create computed index field to handle multi-site solution item url's

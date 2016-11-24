@@ -9,6 +9,11 @@ using Sitecore.ContentSearch.Linq.Utilities;
 
 namespace Conjunction.Foundation.Core.Model.Processing.Processors
 {
+  /// <summary>
+  /// Represents a visitor that can build up a predicate of type <see cref="Expression{T}" /> 
+  /// of <see cref="Func{T, Boolean}" /> from search query elements.
+  /// </summary>
+  /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
   public class SearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T> where T : IndexableEntity, new()
   {
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;
@@ -151,6 +156,9 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
       return _outputPredicate;
     }
 
+    /// <summary>
+    /// Represents the context being used within the <see cref="SearchQueryPredicateBuilder{T}"/>
+    /// </summary>
     private class PredicateBuilderContext
     {
       public PredicateBuilderContext(Expression<Func<T, bool>> predicate, LogicalOperator logicalOperator)

@@ -10,10 +10,19 @@ using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Repositories
 {
+  /// <summary>
+  /// Represents the main entry point for retrieving a <see cref="SearchResult{T}"/>
+  /// from a given <see cref="SearchCriteria{T}"/>.
+  /// </summary>
   public class SearchResultRepository
   {
-    public SearchResult<T> GetSearchResult<T>(SearchCriteria<T> searchCriteria) 
-      where T : IndexableEntity, new()
+    /// <summary>
+    /// Performs a query using the provided <paramref name="searchCriteria"/> to retrieve a <see cref="SearchResult{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
+    /// <param name="searchCriteria"></param>
+    /// <returns>A <see cref="SearchResult{T}"/></returns>
+    public SearchResult<T> GetSearchResult<T>(SearchCriteria<T> searchCriteria) where T : IndexableEntity, new()
     {
       SearchResult<T> retVal;
 
@@ -30,11 +39,11 @@ namespace Conjunction.Foundation.Core.Model.Repositories
                                  .IsLatestVersion()
                                  .Filter(predicate);
 
+          // TODO: Implement support for facets
           // TODO: Implement sorting and paging (as part of the SearchQueryCriteria<> class)
 
           var searchResults = queryable.GetResults();
-
-          // TODO: Implement support for facets
+          
           retVal = new SearchResult<T>(searchResults.TotalSearchResults,
                                        searchResults.Hits.Select(x => x.Document).ToList());
         }

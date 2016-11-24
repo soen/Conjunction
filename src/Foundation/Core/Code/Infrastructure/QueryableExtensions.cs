@@ -4,6 +4,10 @@ using Sitecore.ContentSearch.SearchTypes;
 
 namespace Conjunction.Foundation.Core.Infrastructure
 {
+  /// <summary>
+  /// Provides extension functionalities for the <see cref="IQueryable{T}"/> type to be used
+  /// in the context of working with <see cref="SearchResultItem"/> types.
+  /// </summary>
   public static class QueryableExtensions
   {
     public static IQueryable<T> IsContentItem<T>(this IQueryable<T> query) where T : SearchResultItem

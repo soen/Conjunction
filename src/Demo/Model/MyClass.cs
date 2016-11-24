@@ -4,6 +4,9 @@ using Sitecore.Data;
 
 namespace Demo.Model
 {
+  /// <summary>
+  /// This is a sample implementation of the <see cref="IndexableEntity"/> base type.
+  /// </summary>
   public class MyClass : IndexableEntity
   {
     public IEnumerable<ID> TemplateIds { get; set; }

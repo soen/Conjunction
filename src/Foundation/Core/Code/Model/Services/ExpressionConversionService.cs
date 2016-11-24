@@ -7,6 +7,9 @@ using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Services
 {
+  /// <summary>
+  /// Provides functionalities for constructing expression trees, based on a given property selector and value. 
+  /// </summary>
   public static class ExpressionConversionService
   {
     public static Expression<Func<T, bool>> ToEquals<T>(Expression<Func<T, object>> propertySelector, object value)

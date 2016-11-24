@@ -5,6 +5,10 @@ using Conjunction.Foundation.Core.Model.Services;
 
 namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 {
+  /// <summary>
+  /// Represents a query string based value provider, where the dynamic values required by 
+  /// the <see cref="SearchQueryRule{T}"/> elements are resolved from query string name/value pairs.
+  /// </summary>
   public class QueryStringSearchQueryValueProvider : ISearchQueryValueProvider
   {
     private readonly NameValueCollection _parameterNameValuePairs;
