@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Code")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Conjunction.Foundation.Core")]
+[assembly: AssemblyDescription("A Sitecore utility designed to create configurable and personalizable queries for either the Lucene or Solr search engine using Sitecore's ContentSearch API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Code")]
+[assembly: AssemblyCompany("Søren Engel")]
+[assembly: AssemblyProduct("Conjunction.Foundation.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
