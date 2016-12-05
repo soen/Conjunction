@@ -43,13 +43,16 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
     private ISearchQueryElement<T> GetSearchQueryElementFor<T>(Item item)
       where T : IndexableEntity, new()
     {
-      if (item.HasChildren == false)
+      if (item.IsDerived(Constants.Templates._SearchQueryRule.TemplateId))
         return GetSearchQueryRuleFor<T>(item);
 
       var searchQueryGrouping = new SearchQueryGrouping<T>(GetConfiguredLogicalOperator(item));
 
       foreach (Item child in item.Children)
-        searchQueryGrouping.SearchQueryElements.Add(GetSearchQueryElementFor<T>(child));
+      {
+        var searchQueryElement = GetSearchQueryElementFor<T>(child);
+        searchQueryGrouping.SearchQueryElements.Add(searchQueryElement);
+      }
 
       return searchQueryGrouping;
     }

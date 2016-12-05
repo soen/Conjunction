@@ -2,7 +2,7 @@
 
 namespace Conjunction.Foundation.Core
 {
-  internal class Constants
+  public class Constants
   {
     public struct SearchOptions
     {
