@@ -1,5 +1,9 @@
 language: csharp
 solution: Conjunction.sln
+before_install:
+  - mkdir -p .nuget
+  - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  - mono .nuget/nuget.exe # Output NuGet's version number
 install:
-  - nuget sources add -Name "Official Sitecore" -Source "https://sitecore.myget.org/F/sc-packages/api/v3/index.json"
-  - nuget restore Conjunction.sln
+  - mono .nuget/nuget.exe sources add -Name "Official Sitecore" -Source "https://sitecore.myget.org/F/sc-packages/api/v3/index.json"
+  - mono .nuget/nuget.exe restore Conjunction.sln -Verbosity detailed
