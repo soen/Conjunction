@@ -18,7 +18,7 @@ namespace Conjunction.Foundation.Core.Tests
     public void TestMethod1()
     {
       // TODO: The value parameters should be provided by the query string in the URL, here it's hardcoded for testing
-      var valueProviderParameterNameValuePairs = new NameValueCollection
+      /*var valueProviderParameterNameValuePairs = new NameValueCollection
       {
         {"$x", "My display name"},
         {"$y", "Test name"},
@@ -38,7 +38,7 @@ namespace Conjunction.Foundation.Core.Tests
 
       var myClass = new MyClass();
       var x = myClass.Name;
-    }
+    }*/
   }
 
   class MyClass : IndexableEntity
