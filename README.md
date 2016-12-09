@@ -1,4 +1,4 @@
-# Conjunction
+# Conjunction [![Build status](https://ci.appveyor.com/api/projects/status/58dsw7syni0dsxp1?svg=true)](https://ci.appveyor.com/project/Saturate/conjunction) [![Build Status](https://travis-ci.org/soen/Conjunction.svg?branch=master)](https://travis-ci.org/soen/Conjunction)
 Conjunction is a utility for Sitecore that solves the issue of creating configurable and personalizable queries for either the Lucene or Solr search engine, using Sitecore's ContentSearch API as the backbone.
 
 ## Features
