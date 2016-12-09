@@ -1,0 +1,8 @@
+version: 1.0.{build}
+nuget:
+  project_feed: true
+build:
+  verbosity: normal
+platform: Any CPU
+before_build:
+  - nuget restore
