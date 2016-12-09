@@ -1,3 +1,4 @@
 language: csharp
 solution: Conjunction.sln
-  - nuget restore NuGet.config -Verbosity detailed
+install:
+  - nuget restore solution-name.sln
