@@ -1,4 +1,4 @@
 language: csharp
 solution: Conjunction.sln
 install:
-  - nuget restore solution-name.sln
+  - nuget restore Conjunction.sln
