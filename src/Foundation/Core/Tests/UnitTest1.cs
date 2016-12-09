@@ -37,8 +37,8 @@ namespace Conjunction.Foundation.Core.Tests
       SearchResult<MyClass> searchResult = searchResultRepository.GetSearchResult(searchQueryCriteria);
 
       var myClass = new MyClass();
-      var x = myClass.Name;
-    }*/
+      var x = myClass.Name;*/
+    }
   }
 
   class MyClass : IndexableEntity
