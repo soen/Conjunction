@@ -1,7 +1,9 @@
-﻿using Sitecore.Data;
+﻿using System.Diagnostics.CodeAnalysis;
+using Sitecore.Data;
 
 namespace Conjunction.Foundation.Core
 {
+  [ExcludeFromCodeCoverage]
   public class Constants
   {
     public struct SearchOptions
@@ -14,6 +16,11 @@ namespace Conjunction.Foundation.Core
       public struct SearchQueryRoot
       {
         public static ID TemplateId = new ID("{818A0CA7-1388-48BC-9E07-851314C288CB}");
+      }
+
+      public struct _IndexableEntityConfigurator
+      {
+        public static ID TemplateId = new ID("{D5BB1DD5-647D-4D51-90C6-249A0BA53BD3}");
       }
 
       public struct _SearchQueryGrouping
