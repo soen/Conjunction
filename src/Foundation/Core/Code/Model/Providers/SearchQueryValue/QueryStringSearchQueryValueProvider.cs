@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using Conjunction.Foundation.Core.Infrastructure;
 using Conjunction.Foundation.Core.Model.Services;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 {
@@ -15,11 +16,15 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 
     public QueryStringSearchQueryValueProvider(NameValueCollection parameterNameValuePairs)
     {
+      Assert.ArgumentNotNull(parameterNameValuePairs, "parameterNameValuePairs");
+
       _parameterNameValuePairs = parameterNameValuePairs;
     }
 
     public object GetValueForSearchQueryRule<T>(SearchQueryRule<T> searchQueryRule) where T : IndexableEntity, new()
     {
+      Assert.ArgumentNotNull(searchQueryRule, "searchQueryRule");
+
       object retVal;
 
       var value = GetDefaultValueOrDynamicValueProvidedByParameter(searchQueryRule);

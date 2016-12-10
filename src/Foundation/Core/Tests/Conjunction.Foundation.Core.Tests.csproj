@@ -118,7 +118,8 @@
   <ItemGroup>
     <Compile Include="Model\Providers\Indexing\SitecoreDefaultIndexNameProviderTests.cs" />
     <Compile Include="Model\Providers\SearchQueryElement\SitecoreConfiguredSearchQueryElementProviderTests.cs" />
-    <Compile Include="Model\Providers\SearchQueryElement\TestIndexableEntity.cs" />
+    <Compile Include="Model\Providers\SearchQueryValue\QueryStringSearchQueryValueProviderTests.cs" />
+    <Compile Include="Model\TestIndexableEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
