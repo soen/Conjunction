@@ -9,6 +9,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.Indexing
 {
   public class SitecoreDefaultIndexNameProviderTests
   {
+    [RequireLicense]
     [Theory]
     [InlineData("master")]
     [InlineData("web")]

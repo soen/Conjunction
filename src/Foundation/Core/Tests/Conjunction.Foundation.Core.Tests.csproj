@@ -120,6 +120,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Infrastructure\ExpressionUtilsTests.cs" />
     <Compile Include="Model\Providers\Indexing\SitecoreDefaultIndexNameProviderTests.cs" />
     <Compile Include="Model\Providers\SearchQueryElement\SitecoreConfiguredSearchQueryElementProviderTests.cs" />

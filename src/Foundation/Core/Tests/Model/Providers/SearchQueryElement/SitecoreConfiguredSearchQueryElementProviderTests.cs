@@ -26,6 +26,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
     private const string InvalidComparisonOperator = "InvalidComparisonOperator";
     private const string ValidPropertyNameForTestIndexableEntityType = "Name";
 
+    [RequireLicense]
     [Fact]
     public void Ctor_SearchQueryRootItemIsNull_ThrowsException()
     {
@@ -39,6 +40,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       act.ShouldThrow<ArgumentNullException>();
     }
 
+    [RequireLicense]
     [Fact]
     public void Ctor_ItemIsNotSearchQueryRootItem_ThrowsException()
     {
@@ -58,6 +60,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Fact]
     public void GetSearchQueryElementRoot_ConfiguredEntityTypeForSearchQueryRootItemIsNotSet_ThrowsException() /* More specific which exception */
     {
@@ -85,6 +88,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Fact]
     public void GetSearchQueryElementRoot_ConfiguredEntityTypeForSearchQueryRootItemIsInvalid_ThrowsException() /* More specific which exception */
     {
@@ -113,6 +117,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Fact]
     public void GetSearchQueryElementRoot_LogicalOperatorForSearchQueryGroupingItemIsInvalid_ThrowsException() /* More specific which exception */
     {
@@ -142,6 +147,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Fact]
     public void GetSearchQueryElementRoot_ComparisonOperatorForSearchQueryRuleItemIsInvalid_ThrowsException() /* More specific which exception */
     {
@@ -183,6 +189,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Theory]
     [InlineData(null)]
     [InlineData("")]
@@ -226,6 +233,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Theory]
     [InlineData(ValidLogicalOperatorAnd, LogicalOperator.And)]
     [InlineData(ValidLogicalOperatorOr, LogicalOperator.Or)]
@@ -260,6 +268,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Theory]
     [InlineData(ValidComparisonOperatorEquals, ComparisonOperator.Equal, "Name", "Foo", "")]
     [InlineData(ValidComparisonOperatorGreaterThanOrEqual, ComparisonOperator.GreaterThanOrEqual, "CreatedDate", "01-01-0001", "")]
@@ -317,6 +326,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       }
     }
 
+    [RequireLicense]
     [Theory]
     [InlineData(ValidLogicalOperatorAnd, LogicalOperator.And)]
     [InlineData(ValidLogicalOperatorOr, LogicalOperator.Or)]
