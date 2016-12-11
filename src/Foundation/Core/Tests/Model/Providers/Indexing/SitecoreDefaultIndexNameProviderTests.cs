@@ -12,7 +12,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.Indexing
     [Theory]
     [InlineData("master")]
     [InlineData("web")]
-    public void IndexName_ShouldReturnSitecoreDatabaseIndex_WhenUsingSpecificDatabase(string dbName)
+    public void IndexName_UsingSpecificDatabase_ReturnSitecoreDatabaseIndex(string dbName)
     {
       // Arrange
       var fakeSite = new FakeSiteContext(new StringDictionary { {"database", dbName } });
