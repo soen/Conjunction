@@ -34,7 +34,7 @@ namespace Conjunction.Foundation.Core.Model.Services
       {
         var typeConverter = TypeDescriptor.GetConverter(type);
         if (typeConverter.CanConvertFrom(value.GetType()))
-          retVal = typeConverter.ConvertFromString(value);
+          retVal = typeConverter.ConvertFromInvariantString(value);
       }
       catch
       {
