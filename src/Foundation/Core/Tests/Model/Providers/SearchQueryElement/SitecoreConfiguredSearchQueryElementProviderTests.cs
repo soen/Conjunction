@@ -7,6 +7,7 @@ using Conjunction.Foundation.Core.Infrastructure;
 using Conjunction.Foundation.Core.Model;
 using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
 using FluentAssertions;
+using Sitecore.Data.Items;
 using Sitecore.FakeDb;
 using Xunit;
 
@@ -25,19 +26,21 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
     private const string InvalidComparisonOperator = "InvalidComparisonOperator";
     private const string ValidPropertyNameForTestIndexableEntityType = "Name";
 
-    public void GetSearchQuerymentRoot_SearchQueryRootItemIsNull_ThrowsException()
+    [Fact]
+    public void Ctor_SearchQueryRootItemIsNull_ThrowsException()
     {
       // Arrange
-      var sut = new SitecoreConfiguredSearchQueryElementProvider(null);
+      Item searchQueryRootItem = null;
 
       // Act
-      Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
+      Action act = () => new SitecoreConfiguredSearchQueryElementProvider(searchQueryRootItem);
 
       // Assert
       act.ShouldThrow<ArgumentNullException>();
     }
 
-    public void GetSearchQuerymentRoot_ItemIsNotSearchQueryRootItem_ThrowsException()
+    [Fact]
+    public void Ctor_ItemIsNotSearchQueryRootItem_ThrowsException()
     {
       using (var db = new Db
       {
@@ -45,11 +48,10 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         new DbItem("InvalidSearchQueryRootItem")
       })
       {
-        var item = db.GetItem("/sitecore/content/invalidsearchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/invalidsearchqueryrootitem");
 
         // Act
-        Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
+        Action act = () => new SitecoreConfiguredSearchQueryElementProvider(searchQueryRootItem);
 
         // Assert
         act.ShouldThrow<ArgumentException>();
