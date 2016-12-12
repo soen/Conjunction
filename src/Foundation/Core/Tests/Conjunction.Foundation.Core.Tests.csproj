@@ -120,13 +120,15 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Model\Services\ExpressionConversionServiceTests.cs" />
+    <Compile Include="RequireLicenseDiscoverer.cs" />
     <Compile Include="Infrastructure\ExpressionUtilsTests.cs" />
     <Compile Include="Model\Providers\Indexing\SitecoreDefaultIndexNameProviderTests.cs" />
     <Compile Include="Model\Providers\SearchQueryElement\SitecoreConfiguredSearchQueryElementProviderTests.cs" />
     <Compile Include="Model\Providers\SearchQueryValue\QueryStringSearchQueryValueProviderTests.cs" />
     <Compile Include="Model\TestIndexableEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequireLicenseAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Code\Conjunction.Foundation.Core.csproj">
@@ -141,7 +143,6 @@
   <ItemGroup>
     <Folder Include="Model\Processing\" />
     <Folder Include="Model\Repositories\" />
-    <Folder Include="Model\Services\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
