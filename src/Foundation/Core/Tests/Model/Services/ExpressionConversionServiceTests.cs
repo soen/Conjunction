@@ -108,7 +108,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Services
     }
 
     [Fact]
-    public void ToLessThanOrEqual_PropertySelectorIsNotNullAndValueIsSet_ReturnsPropertyToLessThanOrEqualsValueExpression()
+    public void ToLessThanOrEqual_PropertySelectorIsNotNullAndValueIsSet_ReturnsPropertyLessThanOrEqualsValueExpression()
     {
       // Arrange
       var value = 1;
