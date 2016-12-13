@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using Conjunction.Foundation.Core.Infrastructure;
 using Conjunction.Foundation.Core.Model.Services;
 using FluentAssertions;
+using Sitecore.ContentSearch.Linq;
+using Sitecore.Data;
 using Xunit;
 
 namespace Conjunction.Foundation.Core.Tests.Model.Services
@@ -163,6 +168,107 @@ namespace Conjunction.Foundation.Core.Tests.Model.Services
       // Assert
       Assert.Equal(actual.Compile().Invoke(indexableEntity),
                    expected.Compile().Invoke(indexableEntity));
+    }
+
+    [Fact]
+    public void ToEnumerableContains_PropertySelectorIsNull_ThrowsException()
+    {
+      // Arrange
+      Expression<Func<TestIndexableEntity, object>> propertySelector = null;
+
+      // Act
+      Action act = () => ExpressionConversionService.ToEnumerableContains(propertySelector, string.Empty);
+
+      // Assert
+      act.ShouldThrow<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void ToEnumerableContains_PropertySelectorIsNotNullAndValueIsSet_ReturnsEnumerablePropertyContainsValueExpression()
+    {
+      // Arrange
+      var value = new ID(Guid.Empty);
+      var indexableEntity = new TestIndexableEntity { Paths = new List<ID> { value } };
+      Expression<Func<TestIndexableEntity, object>> expected = x => x.Paths.Contains(value);
+
+      // Act
+      var actual = ExpressionConversionService.ToEnumerableContains<TestIndexableEntity>(x => x.Paths, value);
+
+      // Assert
+      Assert.Equal(actual.Compile().Invoke(indexableEntity),
+                   expected.Compile().Invoke(indexableEntity));
+    }
+
+    [Fact]
+    public void ToBetween_PropertySelectorIsNull_ThrowsException()
+    {
+      // Arrange
+      Expression<Func<TestIndexableEntity, object>> propertySelector = null;
+
+      // Act
+      Action act = () => ExpressionConversionService.ToBetween(propertySelector, string.Empty, string.Empty);
+
+      // Assert
+      act.ShouldThrow<ArgumentNullException>();
+    }
+
+    [Theory]
+    [MemberData(nameof(ToBetween_PropertySelectorTypeAndMinAndMaxValuesAreNotOfMatchingType_ThrowsException_Data))]
+    public void ToBetween_PropertySelectorTypeAndMinAndMaxValuesAreNotOfMatchingType_ThrowsException(string propertyName, object minValue, object maxValue)
+    {
+      // Arrange
+      var propertySelector = ExpressionUtils.GetPropertySelector<TestIndexableEntity, object>(propertyName);
+
+      // Act
+      Action act = () => ExpressionConversionService.ToBetween(propertySelector, minValue, maxValue);
+
+      // Assert
+      act.ShouldThrow<InvalidOperationException>();
+    }
+
+    public static IEnumerable<object[]> ToBetween_PropertySelectorTypeAndMinAndMaxValuesAreNotOfMatchingType_ThrowsException_Data
+    {
+      get
+      {
+        yield return new object[] { "SomeInteger", new DateTime(1985, 09, 14), new DateTime(1987, 12, 16) };
+        yield return new object[] { "SomeInteger", DateTime.MinValue, 1 };
+        yield return new object[] { "SomeInteger", 1, DateTime.MaxValue };
+      }
+    }
+
+    [Theory]
+    [MemberData(nameof(ToBetween_PropertySelectorIsNotNullAndLowerAndUpperValuesAreSet_Data))]
+    public void ToBetween_PropertySelectorIsNotNullAndLowerAndUpperValuesAreSet_ReturnsPropertyBetweenLowerAndUpperValuesExpression(string propertyName, object minValue, object maxValue, Inclusion inclusion)
+    {
+      // Arrange
+      var propertySelector = ExpressionUtils.GetPropertySelector<TestIndexableEntity, object>(propertyName);
+      var indexableEntity = new TestIndexableEntity
+      {
+        SomeInteger = 1,
+        SomeFloat = 1f,
+        SomeDouble = 100,
+        CreatedDate = DateTime.Now
+      };
+
+      Expression<Func<TestIndexableEntity, object>> expected = x => propertySelector.Between(minValue, maxValue, inclusion);
+
+      // Act
+      var actual = ExpressionConversionService.ToBetween(propertySelector, minValue, maxValue, inclusion);
+
+      // Assert
+      Assert.Equal(actual.Compile().Invoke(indexableEntity),
+                   expected.Compile().Invoke(indexableEntity));
+    }
+
+    public static IEnumerable<object[]> ToBetween_PropertySelectorIsNotNullAndLowerAndUpperValuesAreSet_Data
+    {
+      get
+      {
+        yield return new object[] { "CreatedDate", new DateTime(1985, 09, 14), new DateTime(1987, 12, 16), Inclusion.Both };
+        yield return new object[] { "SomeInteger", 10, int.MaxValue, Inclusion.Upper };
+        yield return new object[] { "SomeDouble", 0.1, 3.14, Inclusion.Lower };
+        yield return new object[] { "SomeFloat", -10f, 10f, Inclusion.None };
+      }
     }
   }
 }
