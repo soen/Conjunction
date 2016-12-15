@@ -125,6 +125,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Model\Services\ExpressionConversionServiceTests.cs" />
+    <Compile Include="Model\Services\SearchQueryValueConversionServiceTests.cs" />
     <Compile Include="RequireLicenseDiscoverer.cs" />
     <Compile Include="Infrastructure\ExpressionUtilsTests.cs" />
     <Compile Include="Model\Providers\Indexing\SitecoreDefaultIndexNameProviderTests.cs" />

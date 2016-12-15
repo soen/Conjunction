@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using Conjunction.Foundation.Core.Infrastructure.TypeConverters;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Services
 {
@@ -24,6 +25,8 @@ namespace Conjunction.Foundation.Core.Model.Services
     /// <returns></returns>
     public static object ToTypedValue(Type valueType, string value)
     {
+      Assert.ArgumentNotNull(valueType, "The specified value type cannot be null");
+
       object retVal = null;
       var type = valueType;
 
