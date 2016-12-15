@@ -10,6 +10,14 @@ using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Repositories
 {
+  // TODO: Rewrite this class the following way:
+  // 1) Make it implement an interface that exposes a ISearchIndex property and IProviderSearchContext property
+  // 2) Refactor the GetPredicateFromSearchQueryCriteria to use the properties defined in 1)
+  // 3) Let the ISearchElementVisitor expose a new method 'GetResult' or something, where it is generically typed what the input and output is.
+  // 4) Let this class take in an ISearchElementVisitor interface object, and use that instead of new'ing up the concrete implementation directly.
+  // 5) Use Bastard DI such that the default ctor uses the SearchQueryPredicateBuilder unless another ISearchElementVisitor is defined.
+  // 6) Create a Decorator component, that allows the client to consume this implementation and make it even more strong, in terms of custom caching and alike...
+
   /// <summary>
   /// Represents the main entry point for retrieving a <see cref="SearchResult{T}"/>
   /// from a given <see cref="SearchCriteria{T}"/>.
