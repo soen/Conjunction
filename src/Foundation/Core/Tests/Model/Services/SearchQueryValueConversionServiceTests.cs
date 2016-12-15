@@ -39,7 +39,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Services
 
     [Theory]
     [MemberData(nameof(ToTypedValue_ValueCanBeConvertedIntoValueType_ReturnsTypedValue_Data))]
-    public void ToTypedValue_ValueCanBeConvertedIntoValueType_ReturnsTypedValue(Type valueType, string rawValue, object expectedTypedValue)
+    public void ToTypedValue_ValueCanBeConvertedIntoValueType_ReturnsTypedValue
+      (Type valueType, string rawValue, object expectedTypedValue)
     {
       // Act
       var actual = SearchQueryValueConversionService.ToTypedValue(valueType, rawValue);
@@ -91,5 +92,51 @@ namespace Conjunction.Foundation.Core.Tests.Model.Services
       actual.ShouldBeEquivalentTo(expected);
     }
 
+    [Fact]
+    public void TryConvertToRangeValueParts_ValueIsNull_ThrowsException()
+    {
+      // Arrange
+      string value = null;
+      Tuple<string, string> rangeValueParts;
+
+      // Acts
+      Action act = () => SearchQueryValueConversionService.TryConvertToRangeValueParts(value, out rangeValueParts);
+
+      // Assert
+      act.ShouldThrow<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void TryConvertToRangeValueParts_ValueIsNotInValidRangeFormat_ReturnsNull()
+    {
+      // Arrange
+      string value = "1:2";
+      Tuple<string, string> actualRangeValueParts;
+
+      // Acts
+      var actual = SearchQueryValueConversionService.TryConvertToRangeValueParts(value, out actualRangeValueParts);
+
+      // Assert
+      actual.Should().BeFalse();
+      actualRangeValueParts.Should().BeNull();
+    }
+
+    [Theory]
+    [InlineData("[1:2]", "1", "2")]
+    [InlineData("[1;2]", "1", "2")]
+    public void TryConvertToRangeValueParts_ValueIsValidRangeFormat_ReturnsRangeValueParts
+      (string value, string firstPart, string secondPart)
+    {
+      // Arrange
+      Tuple<string, string> actualRangeValueParts;
+      Tuple<string, string> expectedRangeValueParts = new Tuple<string, string>(firstPart, secondPart);
+
+      // Acts
+      var actual = SearchQueryValueConversionService.TryConvertToRangeValueParts(value, out actualRangeValueParts);
+
+      // Assert
+      actual.Should().BeTrue();
+      actualRangeValueParts.ShouldBeEquivalentTo(expectedRangeValueParts);
+    }
   }
 }

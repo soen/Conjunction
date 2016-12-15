@@ -59,6 +59,8 @@ namespace Conjunction.Foundation.Core.Model.Services
     /// <returns></returns>
     public static bool TryConvertToRangeValueParts(string value, out Tuple<string, string> rangeValueParts)
     {
+      Assert.ArgumentNotNull(value, "The specified value cannot be null");
+
       bool retVal;
       const string rangeValuePattern = @"^\[([^\.]+)(;|:)([^\.]+)\]$";
 
