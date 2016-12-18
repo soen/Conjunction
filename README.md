@@ -17,8 +17,6 @@ Conjunction has some interesting parts that are worth mentioning, including:
 - Uses the ContentSearch API as the underlying interface for querying search results
 - Enables extensibility
 
-If you want to know more about the motivation behind creating this utility, check out my presentation [Advanced Search in Sitecore using Solr - Or the story about, how you can leverage the ContentSearch API to create a more generic, configurable way, of working with search queries in Sitecore](https://speakerdeck.com/soen/advanced-search-in-sitecore-using-solr).
-
 ## Installation instructions
 Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) instance running on you machince.
 
