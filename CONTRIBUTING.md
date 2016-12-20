@@ -4,14 +4,13 @@ When contributing to this repository, please first discuss the change you wish t
 
 Please note there is a code of conduct, please follow it in all your interactions with the project.
 
-## Pull Request Process
+## Reporting Issues and Asking Questions
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. You may merge the Pull Request in once you have the sign-off of at least one other project maintainer, that has reviewed the changes you want to merge.
+Before opening an issue, please search the [issue tracker](https://github.com/soen/Conjunction/issues) to make sure your issue hasn't already been reported.
 
 ## Development
 
-Visit the issue tracker to find a list of open issues that need attention.
+Visit the [issue tracker](https://github.com/soen/Conjunction/issues) to find a list of open issues that need attention.
 
 Fork, then clone the repo:
 
@@ -54,3 +53,6 @@ To publish the documentation, run the following:
 ```
 npm run docs:publish
 ```
+
+### Sending a Pull Request
+TODO...
