@@ -1,7 +1,6 @@
 <p align="center">
   <img src="conjunction-logo.png">
-</p>
-
+</p> 
 
 Conjunction is a utility for Sitecore that solves the issue of creating configurable and personalizable queries for either the Lucene or Solr search engine, using Sitecore's ContentSearch API as the backbone.
 
@@ -24,22 +23,16 @@ Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) ins
 - Install Conjunction Sitecore package. You can find the required Sitecore package [here](Conjunction.zip), which contains the nessecary Sitecore templates and items required to configure search queries from Sitecore.
 
 ## Documentation
-* [Introduction](...)
-* [Basics](...)
-* [Advanced](...)
-* [Troubleshooting](...)
-* [Glossary](...)
-* [API Reference](...)
+* [Introduction](/docs/introduction/README.md)
+* [Basics](/docs/basics/README.md)
+* [Advanced](/docs/advanced/README.md)
+* [Troubleshooting](/docs/Troubleshooting.md)
+* [Glossary](/docs/Glossary.md)
+* [API Reference](/docs/api/README.md)
+* [Change Log](/CHANGELOG.md)
 
 ## Where to get help
 If you have questions or bugs, feel free to open an issue. Alternative, you can also reach me on the Sitecore Community Slack (for now, send me a private message at soren.engel) or on Twitter (@soren_engel).
 
-## Contribution guidelines
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
-
-## Change Log
-This project adheres to [Semantic Versioning](http://semver.org/).  
-Every release, along with the migration instructions, is documented on the Github [Releases](https://github.com/soen/conjunction/releases) page.
-
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
