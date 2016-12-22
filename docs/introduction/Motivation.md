@@ -6,7 +6,7 @@ In this section you will be given the motivation behind why Conjunction was crea
 
 When working with search features in Sitecore it is best practice that you use the ContentSearch API developed by Sitecore. The ContentSearch API makes our life as developers easier, since it provides an abstraction over the low level details of working with native search technologies, such as Lucene, Solr or most recently Azure Search.  
 
-> If you haven't worked with the ContentSearch API before, you can get a good introduction by following the two part series [A re-introduction to the ContentSearch API in Sitecore](https://soen.ghost.io/a-re-introduction-to-the-contentsearch-api-in-sitecore-part-1/).
+> If you haven't worked with the ContentSearch API before, you can get a basic introduction by following the two part series [A re-introduction to the ContentSearch API in Sitecore](https://soen.ghost.io/a-re-introduction-to-the-contentsearch-api-in-sitecore-part-1/).
 
 At a very high-level perspective, when implementing a search query, you will probably go though the following steps:
 1. Figure out what you should query
