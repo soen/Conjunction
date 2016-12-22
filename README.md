@@ -17,10 +17,10 @@ Conjunction has some interesting parts that are worth mentioning, including:
 - Enables extensibility
 
 ## Installation instructions
-Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) instance running on you machince.
+Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) instance running on you machine.
 
-- Install Conjunction binaries. This is as simple as adding the Conjunction.Foundation.Core NuGet package to your project.
-- Install Conjunction Sitecore package. You can find the required Sitecore package [here](Conjunction.zip), which contains the nessecary Sitecore templates and items required to configure search queries from Sitecore.
+- Install Conjunction binaries. This is as simple as adding the [Conjunction.Foundation.Core](https://www.nuget.org/packages/Conjunction.Foundation.Core/) NuGet package to your project.
+- Install Conjunction Sitecore package. You can find the required Sitecore package [here](https://github.com/soen/Conjunction/blob/master/Conjunction.zip), which contains the nessecary Sitecore templates and items required to configure search queries from Sitecore.
 
 ## Documentation
 * [Introduction](/docs/introduction/README.md)
@@ -32,7 +32,7 @@ Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) ins
 * [Change Log](/CHANGELOG.md)
 
 ## Where to get help
-If you have questions or bugs, feel free to open an issue. Alternative, you can also reach me on the Sitecore Community Slack (for now, send me a private message at soren.engel) or on Twitter (@soren_engel).
+If you have questions or bugs, feel free to open an issue. Alternative, you can also reach me on the [Sitecore Community Slack](https://sitecorechat.slack.com) (for now, send me a private message at soren.engel) or on Twitter ([@soren_engel](https://twitter.com/soren_engel)).
 
 ## License
 This project is licensed under the MIT License.
