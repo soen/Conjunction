@@ -4,19 +4,19 @@ This section documents the complete Conjunction API.
 
 ## Namespaces
 
-* ``Conjunction.Foundation.Core.Infrastructure``
-* ``Conjunction.Foundation.Core.Infrastructure.TypeConverters``
-* ``Conjunction.Foundation.Core.Model``
-* ``Conjunction.Foundation.Core.Model.Processing``
-* ``Conjunction.Foundation.Core.Model.Processing.Processors``
-* ``Conjunction.Foundation.Core.Model.Providers``
-* ``Conjunction.Foundation.Core.Model.Providers.Indexing``
-* ``Conjunction.Foundation.Core.Model.Providers.SearchQueryElement``
-* ``Conjunction.Foundation.Core.Model.Providers.SearchQueryValue``
-* ``Conjunction.Foundation.Core.Model.Repositories``
-* ``Conjunction.Foundation.Core.Model.Services``
+* Conjunction.Foundation.Core.Infrastructure
+* Conjunction.Foundation.Core.Infrastructure.TypeConverters
+* Conjunction.Foundation.Core.Model
+* Conjunction.Foundation.Core.Model.Processing
+* Conjunction.Foundation.Core.Model.Processing.Processors
+* Conjunction.Foundation.Core.Model.Providers
+* Conjunction.Foundation.Core.Model.Providers.Indexing
+* Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
+* Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
+* Conjunction.Foundation.Core.Model.Repositories
+* Conjunction.Foundation.Core.Model.Services
 
-## ``Conjunction.Foundation.Core.Infrastructure``
+## Conjunction.Foundation.Core.Infrastructure
 
 ### Classes
 * ``ExpressionUtils``
@@ -60,7 +60,7 @@ Provides extension functionalities for working with Sitecore Template types.
 
 * ``bool IsDerived(this Template template, ID templateId)``
 
-## ``Conjunction.Foundation.Core.Infrastructure.TypeConverters``
+## Conjunction.Foundation.Core.Infrastructure.TypeConverters
 
 ### Classes
 
@@ -72,7 +72,7 @@ Provides a type converter to convert ID objects to and from various other repres
 
 **Parent:** ``TypeConverter``
 
-## ``Conjunction.Foundation.Core.Model``
+## Conjunction.Foundation.Core.Model
 
 ### Classes
 
@@ -220,7 +220,7 @@ The base abstraction for all search query elements.
  **Parameters:** ``ISearchQueryElementVisitor<T> visitor``  
  The visitor to visit this search query element with.
 
-## ``Conjunction.Foundation.Core.Model.Processing``
+## Conjunction.Foundation.Core.Model.Processing
 
 ### Interfaces
 
@@ -245,7 +245,7 @@ Represents a visitor for search query elements.
  **Parameters:** ``SearchQueryRule<T> searchQueryRule``  
  The search query rule to visit.
 
-## ``Conjunction.Foundation.Core.Model.Processing.Processors``
+## Conjunction.Foundation.Core.Model.Processing.Processors
 
 ### Classes
 
@@ -259,7 +259,7 @@ Represents a visitor that can build up a predicate of type ``Expression<Func<T, 
 
 * ``Expression<Func<T, bool>> GetPredicate()``
 
-## ``Conjunction.Foundation.Core.Model.Providers``
+## Conjunction.Foundation.Core.Model.Providers
 
 ### Interfaces
 * ``IIndexNameProvider``
