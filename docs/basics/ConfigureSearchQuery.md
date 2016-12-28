@@ -20,17 +20,17 @@ With the search query root configured, the next step is to create a few **Search
 
 ![](images/basic-insert-search-query-rule.png)
 
-The first search query rule we are going to create should be named *WhereCreatedDateIsGreaterThanOrEqual*, and have the following field configuration:
+The first search query rule we are going to create will be named *WhereCreatedDateIsGreaterThanOrEqual*, and have the following field configuration:
 
 ![](images/basic-configure-search-query-rule-defaultvalue.png)
 
 Taking it from the top, the first field *Associated Property Name* ties the search query rule together with a given property that is defined on the indexable entity model specified on the search query root item. The next field *Comparison Operator* specifies how the associated property should be compared (using binary operators) to a given value that can either be dynamic or static. Using a dynamic value, we need to specify the name of the dynamic value we want to retrieve using the *Dynamic Value Providing Parameter* field, whereas we simply need to provide the raw value when the default value using the *Default Value* field. If we look at the rule as a whole it says that the associated property ``CreatedDate`` should be *greater than or equal* to a given default value of the 1st of January in year one - while not the most intriguing search query rule, this search query rule demonstrates how we can utilize default values for feeding in static configuration to our search query definitions.
 
-The second search query rule we will be creating should be named *WhereNameEquals*, and have the following field configuration:
+The second search query rule we will be creating will be named *WhereNameEquals*, and have the following field configuration:
 
 ![](images/basic-configure-search-query-rule-dynamicvalue.png)
 
-Like the first search query rule we defined, this search query rule is set to use the property ``Name`` of the defined indexable entity model, which should be *equal* to the value being dynamically delivered by the dynamic value providing parameter, named ``$x``. In practice this means that the search query rule will react to changes to values being provided by the parameter ``$x``, and swap in the value it finds for that parameter in runtime, before making the actual comparison.
+Like the first search query rule we defined, this search query rule is set to use the property ``Name`` of the defined indexable entity model, which should be *equal* to the value being dynamically delivered by the dynamic value providing parameter, named ``$x``. In contrary to using the default value, as we saw in the first search query rule, this search query rule will react to changes to values being provided by the parameter ``$x``, and swap in the value it finds for that parameter in runtime, before making the actual comparison. This technique is usable for feeding in informations that requires involment of dynamic sources, such as the end-user providing the name of the indexable entity model.
 
 ## Next steps
 
