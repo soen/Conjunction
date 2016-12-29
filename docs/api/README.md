@@ -4,25 +4,25 @@ This section documents the complete Conjunction API.
 
 ## Namespaces
 
-* Conjunction.Foundation.Core.Infrastructure
-* Conjunction.Foundation.Core.Infrastructure.TypeConverters
-* Conjunction.Foundation.Core.Model
-* Conjunction.Foundation.Core.Model.Processing
-* Conjunction.Foundation.Core.Model.Processing.Processors
-* Conjunction.Foundation.Core.Model.Providers
-* Conjunction.Foundation.Core.Model.Providers.Indexing
-* Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
-* Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
-* Conjunction.Foundation.Core.Model.Repositories
-* Conjunction.Foundation.Core.Model.Services
+* [Conjunction.Foundation.Core.Infrastructure](#conjunctionfoundationcoreinfrastructure)
+* [Conjunction.Foundation.Core.Infrastructure.TypeConverters](#conjunctionfoundationcoreinfrastructuretypeConverters)
+* [Conjunction.Foundation.Core.Model](#conjunctionfoundationcoremodel)
+* [Conjunction.Foundation.Core.Model.Processing](#conjunctionfoundationcoremodelprocessing)
+* [Conjunction.Foundation.Core.Model.Processing.Processors](#conjunctionfoundationcoremodelprocessingprocessors)
+* [Conjunction.Foundation.Core.Model.Providers](#conjunctionfoundationcoremodelproviders)
+* [Conjunction.Foundation.Core.Model.Providers.Indexing](#conjunctionfoundationcoremodelprovidersindexing)
+* [Conjunction.Foundation.Core.Model.Providers.SearchQueryElement](#conjunctionfoundationcoremodelproviderssearchqueryelement)
+* [Conjunction.Foundation.Core.Model.Providers.SearchQueryValue](#conjunctionfoundationcoremodelproviderssearchqueryvalue)
+* [Conjunction.Foundation.Core.Model.Repositories](#conjunctionfoundationcoremodelrepositories)
+* [Conjunction.Foundation.Core.Model.Services](#conjunctionfoundationcoremodelservices)
 
 ## Conjunction.Foundation.Core.Infrastructure
 
 ### Classes
-* ``ExpressionUtils``
-* ``ItemExtensions``
-* ``QueryableExtensions``
-* ``TemplateExtensions``
+* [``ExpressionUtils``](#expressionutils)
+* [``ItemExtensions``](#itemextensions)
+* [``QueryableExtensions``](#queryableextensions)
+* [``TemplateExtensions``](#templateextensions)
 
 ### ``ExpressionUtils``
 
@@ -64,7 +64,7 @@ Provides extension functionalities for working with Sitecore Template types.
 
 ### Classes
 
-* ``SitecoreIDConverter``
+* [``SitecoreIDConverter``](#sitecoreidconverter)
 
 ### ``SitecoreIDConverter``
 
@@ -76,22 +76,21 @@ Provides a type converter to convert ID objects to and from various other repres
 
 ### Classes
 
-* ``ComparisonOperator``
-* ``IndexableEntity``
-* ``LogicalOperator``
-* ``RangeValue``
-* ``SearchCriteria<T>``
-* ``SearchQueryGrouping<T>``
-* ``SearchQueryRule<T>``
-* ``SearchResult<T>``
+* [``ComparisonOperator``](#comparisonoperator)
+* [``IndexableEntity``](#indexableentity)
+* [``LogicalOperator``](#logicaloperator)
+* [``SearchCriteria<T>``](#searchcriteriat)
+* [``SearchQueryGrouping<T>``](#searchquerygroupingt)
+* [``SearchQueryRule<T>``](#searchqueryrulet)
+* [``SearchResult<T>``](#searchresultt)
 
 ### Interfaces
 
-* ``ISearchQueryElement<T>``
+* [``ISearchQueryElement<T>``](#isearchqueryelementt)
 
 ### ``ComparisonOperator``
 
-Represents the set of comparison operators a ``SearchQueryRule<T>`` can be configured to use, when comparing its selected property against its dynamically provided value or default value.
+Represents the set of comparison operators a [``SearchQueryRule<T>``](#searchqueryrulet) can be configured to use, when comparing its selected property against its dynamically provided value or default value.
 
 **Parent:** ``Enum``
 
@@ -143,7 +142,7 @@ Represents the base class of an indexable entity that is used when querying data
 **Parent:** ``SearchResultItem``
 
 ### ``LogicalOperator``
-Represents the set of logical operators a ``SearchQueryGrouping<T>`` can be configured to use, in order to determine the logical relationship between its children.
+Represents the set of logical operators a [``SearchQueryGrouping<T>``](#searchquerygroupingt) can be configured to use, in order to determine the logical relationship between its children.
 
 **Parent:** ``Enum``
 
@@ -158,50 +157,52 @@ Represents the set of logical operators a ``SearchQueryGrouping<T>`` can be conf
 ### ``SearchCriteria<T>``
 Represents the search criteria that holds information about the search query elements that describes what needs to be queried, how values needed by the search query elements can be retrived, as well as the search index resposible for delivering the results.
 
-**Remarks**:  The search criteria is used when querying the ``SearchResultRepository`` to retrieve a ``SearchResult<T>``.
+**Remarks**:  The search criteria is used when querying the [``SearchResultRepository``](#searchresultrepository) to retrieve a [``SearchResult<T>``](#searchresultt).
 
-**Generic type T:** The type of ``IndexableEntity`` implementation to use.
+**Generic type T:** The type of [``IndexableEntity``](#indexableentity) implementation to use.
 
 #### Properties
 
 * ``string IndexName get;``
-* ``IIndexNameProvider IndexNameProvider get;``
+* [``IIndexNameProvider``](#iindexnameprovider) ``IndexNameProvider get;``
 * ``string SearchPath get;``
-* ``ISearchQueryElementProvider SearchQueryElementProvider get;``
-* ``ISearchQueryElement<T> SearchQueryElementRoot get;``
-* ``ISearchQueryValueProvider SearchQueryValueProvider get;``
+* [``ISearchQueryElementProvider``](#isearchqueryelementprovider) ``SearchQueryElementProvider get;``
+* [``ISearchQueryElement<T>``](#isearchqueryelementt) ``SearchQueryElementRoot get;``
+* [``ISearchQueryValueProvider``](#isearchqueryvalueprovider) ``SearchQueryValueProvider get;``
 
 ### ``SearchQueryGrouping<T>``
 
 Represents a search query grouping that defines a group of one or more search query elements, and their logical relationship to each other.
 
-**Implements:** ``ISearchQueryElement<T>``
+**Implements:** [``ISearchQueryElement<T>``](#isearchqueryelementt)
 
-**Generic type T:** The type of ``IndexableEntity`` implementation to use.
+**Generic type T:** The type of [``IndexableEntity``](#indexableentity) implementation to use.
 
 #### Properties
 
-* ``LogicalOperator LogicalOperator get;``
-* ``ICollection<ISearchQueryElement<T>> SearchQueryElements get;``
+* [``LogicalOperator``](#logicaloperator) ``LogicalOperator get;``
+* ``ICollection<``[``ISearchQueryElement<T>``](#isearchqueryelementt)``> SearchQueryElements get;``
 
 ### ``SearchQueryRule<T>``
 
 Represents a search query rule that defines how a given property of type ``T`` should be compared againts either a dynamically provided value or default value.
 
-**Implements:** ``ISearchQueryElement<T>``
+**Implements:** [``ISearchQueryElement<T>``](#isearchqueryelementt)
 
-**Generic type T:** The type of ``IndexableEntity`` implementation to use.
+**Generic type T:** The type of [``IndexableEntity``](#indexableentity) implementation to use.
 
 #### Properties
 
-* ``LogicalOperator LogicalOperator get;``
-* ``ICollection<ISearchQueryElement<T>> SearchQueryElements get;``
+* ``Expression<Func<T, object>> PropertySelector get;``
+* [``ComparisonOperator``](#comparisonoperator) ``ComparisonOperator get;``
+* ``string DynamicValueProvidingParameter get;``
+* ``string DefaultValue get;``
 
 ### ``SearchResult<T>``
 
-Represents the search result returned from querying a specific ``SearchCriteria<T>`` using the ``SearchResultRepository``. 
+Represents the search result returned from querying a specific [``SearchCriteria<T>``](#searchcriteriat) using the [``SearchResultRepository``](#searchresultrepository). 
 
-**Generic type T:** The type of ``IndexableEntity`` implementation to use.
+**Generic type T:** The type of [``IndexableEntity``](#indexableentity) implementation to use.
 
 #### Properties
 
@@ -215,41 +216,41 @@ The base abstraction for all search query elements.
 #### Methods
 
 * ``void Accept(ISearchQueryElementVisitor<T> visitor)``  
- *Dispatches to the specific visit method for this search query element type. For example, ``SearchQueryRule<T>`` will call into ``VisitSearchQueryRule``.*  
+ *Dispatches to the specific visit method for this search query element type. For example, [``SearchQueryRule<T>``](#searchqueryrulet) will call into ``VisitSearchQueryRule``.*  
 
- **Parameters:** ``ISearchQueryElementVisitor<T> visitor``  
- The visitor to visit this search query element with.
+ **Parameters:**   
+ [``ISearchQueryElementVisitor<T>``](#isearchqueryelementvisitort) visitor: The visitor to visit this search query element with.
 
 ## Conjunction.Foundation.Core.Model.Processing
 
 ### Interfaces
 
-* ``ISearchQueryElementVisitor<T>``
+* [``ISearchQueryElementVisitor<T>``](#isearchqueryelementvisitort)
 
 ### ``ISearchQueryElementVisitor<T>``
 
 Represents a visitor for search query elements.
 
 * ``void VisitSearchQueryGroupingBegin(SearchQueryGrouping<T> searchQueryGrouping)``  
- *Visits the SearchQueryGrouping<T> before it visits its children.*  
+ *Visits the [``SearchQueryGrouping<T>``](#searchquerygroupingt) before it visits its children.*  
 
- **Parameters:** ``SearchQueryGrouping<T> searchQueryGrouping``  
- The search query grouping to visit.
+ **Parameters:**   
+ [``SearchQueryGrouping<T>``](#searchquerygroupingt) ``searchQueryGrouping``: The search query grouping to visit.
 
 * ``void VisitSearchQueryGroupingEnd()``  
- *Visits the ``SearchQueryGrouping<T>`` after it has visited its children.*
+ *Visits the [``SearchQueryGrouping<T>``](#searchquerygroupingt) after it has visited its children.*
 
 * ``void VisitSearchQueryRule(SearchQueryRule<T> searchQueryRule)``  
- *Visits the ``SearchQueryRule<T>``.*  
+ *Visits the [``SearchQueryRule<T>``](#searchqueryrulet)`.*  
 
- **Parameters:** ``SearchQueryRule<T> searchQueryRule``  
- The search query rule to visit.
+ **Parameters:**  
+ [``SearchQueryRule<T>``] ``searchQueryRule``: The search query rule to visit.
 
 ## Conjunction.Foundation.Core.Model.Processing.Processors
 
 ### Classes
 
-* ``SearchQueryPredicateBuilder<T>``
+* [``SearchQueryPredicateBuilder<T>``](#searchquerypredicatebuildert)
 
 ### ``SearchQueryPredicateBuilder<T>``
 
@@ -262,9 +263,10 @@ Represents a visitor that can build up a predicate of type ``Expression<Func<T, 
 ## Conjunction.Foundation.Core.Model.Providers
 
 ### Interfaces
-* ``IIndexNameProvider``
-* ``ISearchQueryElementProvider``
-* ``ISearchQueryValueProvider``
+
+* [``IIndexNameProvider``](#iindexnameprovider)
+* [``ISearchQueryElementProvider``](#isearchqueryelementprovider)
+* [``ISearchQueryValueProvider``](#isearchqueryvalueprovider)
 
 ### ``IIndexNameProvider``
 
@@ -276,16 +278,106 @@ Provides functionality to deliver the index name that will be used when performi
 
 ### ``ISearchQueryElementProvider``
 
-Provides functionality to retrieve a ``ISearchQueryElement<T>`` root element from a given configuration.
+Provides functionality to retrieve a [``ISearchQueryElement<T>``](#isearchqueryelementt) root element from a given configuration.
 
 #### Methods
 
-* ``ISearchQueryElement<T> GetSearchQueryElementRoot<T>()``
+* [``ISearchQueryElement<T>``](#isearchqueryelementt) ``GetSearchQueryElementRoot<T>()``
 
 ### ``ISearchQueryValueProvider``
 
-Provides functionality for retrieving dynamically provided values used by ``SearchQueryRule<T>`` elements.
+Provides functionality for retrieving dynamically provided values used by [``SearchQueryRule<T>``](#searchqueryrulet) elements.
 
 #### Methods
 
 * ``object GetValueForSearchQueryRule<T>(SearchQueryRule<T> searchQueryRule)``
+
+## Conjunction.Foundation.Core.Model.Providers.Indexing
+
+### Classes
+
+* [``SitecoreDefaultIndexNameProvider``](#sitecoredefaultindexnameprovider)
+
+### ``SitecoreDefaultIndexNameProvider``
+
+Represents the default index name provider for Sitecore that, based on the ``Context``, will resolve the either the Master or Web index.
+
+**Implements:** [``IIndexNameProvider``](#iindexnameprovider)
+
+#### Properties
+
+* ``string IndexName get;``
+
+## Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
+
+### Classes
+
+* [``SitecoreConfiguredSearchQueryElementProvider``](#sitecoreconfiguredsearchqueryelementprovider)
+
+### ``SitecoreConfiguredSearchQueryElementProvider``
+
+Represents a Sitecore configured search query element provider, accepting a Item root, which gets transformed into a [``ISearchQueryElement<T>``](#isearchqueryelementt) root.
+
+**Implements:** [``ISearchQueryElementProvider``](#isearchqueryelementprovider)
+
+##  Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
+
+### Classes
+
+* [``QueryStringSearchQueryValueProvider``](#querystringsearchqueryvalueprovider)
+
+### ``QueryStringSearchQueryValueProvider``
+
+Represents a query string based value provider, where the dynamic values required by the [``SearchQueryRule<T>``](#searchqueryrulet) elements are resolved from query string name/value pairs.
+
+**Implements:** [``ISearchQueryValueProvider``](#isearchqueryvalueprovider)
+
+## Conjunction.Foundation.Core.Model.Repositories
+
+### Classes
+
+* [``SearchResultRepository``](#searchresultrepository)
+
+### ``SearchResultRepository``
+
+Represents the main entry point for retrieving a [``SearchResult<T>``](#searchresultt) from a given [``SearchCriteria<T>``](#searchcriteriat).
+
+#### Methods
+
+* ``SearchResult<T> GetSearchResult<T>(SearchCriteria<T> searchCriteria)``  
+ *Performs a query using the provided searchCriteria to retrieve a [``SearchResult<T>``](#searchresultt).*  
+ **Returns**: [``SearchResult<T>``](#searchresultt)
+
+## Conjunction.Foundation.Core.Model.Services
+
+### Classes
+
+ * [``ExpressionConversionService``](#expressionconversionservice)
+ * [``SearchQueryValueConversionService``](#searchqueryvalueconversionservice)
+
+### ``ExpressionConversionService``
+
+Provides functionalities for constructing expression trees, based on a given property selector and value.
+
+#### Methods
+
+* ``Expression<Func<T, bool>> ToBetween<T>(Expression<Func<T, object>> propertySelector, object lowerValue, object upperValue, Inclusion inclusion)``
+* ``Expression<Func<T, bool>> ToContains<T>(Expression<Func<T, object>> propertySelector, string value)``
+* ``Expression<Func<T, bool>> ToEnumerableContains<T>(Expression<Func<T, object>> propertySelector, object value)``
+* ``Expression<Func<T, bool>> ToEquals<T>(Expression<Func<T, object>> propertySelector, object value)``
+* ``Expression<Func<T, bool>> ToGreaterThanOrEqual<T>(Expression<Func<T, object>> propertySelector, object value)``
+* ``Expression<Func<T, bool>> ToLessThanOrEqual<T>(Expression<Func<T, object>> propertySelector, object value)``
+
+### ``SearchQueryValueConversionService``
+
+Provides functionalities for converting raw String values into typed values.
+
+#### Methods
+
+* ``object ToTypedValue(Type valueType, string value)``  
+ *Converts the value to the specified valueType.*  
+ **Parameters:**  
+ ``Type valueType``: The value type that the specified value needs to be converted into.  
+ ``string value``: The value that needs to be converted.  
+
+* ``bool TryConvertToRangeValueParts(string value, Tuple<string, string> rangeValueParts)``
