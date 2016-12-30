@@ -31,8 +31,5 @@ Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) ins
 * [API Reference](/docs/api/README.md)
 * [Change Log](/CHANGELOG.md)
 
-## Where to get help
-If you have questions or bugs, feel free to open an issue. Alternative, you can also reach me on the [Sitecore Community Slack](https://sitecorechat.slack.com) (for now, send me a private message at soren.engel) or on Twitter ([@soren_engel](https://twitter.com/soren_engel)).
-
 ## License
 This project is licensed under the MIT License.
