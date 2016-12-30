@@ -48,7 +48,7 @@ To watch and rebuild documentation when changes occur, run the following:
 npm run docs:watch
 ```
 
-The docs will be served at http://localhost:4000.
+The docs will be served at [http://localhost:4000](http://localhost:4000).
 
 #### Publishing the Docs
 
