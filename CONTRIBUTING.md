@@ -20,6 +20,8 @@ git clone https://github.com/your-username/conjunction.git
 
 ### Tests
 
+Tests are located in the ``*.Tests`` projects and are using [xUnit.net](https://xunit.github.io/). By default, the test projects use [Visual Studio runner](https://github.com/xunit/visualstudio.xunit) to run the tests.
+
 ### Docs
 
 Improvements to the documentation are always welcome. In the docs we abide by typographic rules, so instead of ' you should use '. Same goes for “ ” and dashes (—) where appropriate. These rules only apply to the text, not to code blocks.
@@ -57,4 +59,17 @@ npm run docs:publish
 ```
 
 ### Sending a Pull Request
-TODO...
+
+In general, the contribution workflow looks like this:
+
+* Open a new issue in the [issue tracker](https://github.com/soen/Conjunction/issues).
+* Fork the repo.
+* Create a new feature branch based off the master branch.
+* Make sure all tests pass.
+* Submit a pull request, referencing any issues it addresses.
+
+Please try to keep your pull request focused in scope and avoid including unrelated commits.
+
+After you have submitted your pull request, I'll get back to you as soon as possible.
+
+Thank you for contributing!
