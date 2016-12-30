@@ -4,7 +4,7 @@ With the custom ``ToyBall`` indexable model in place, the next step is to config
 
 ## Creating the Search Query Root
 
-Navigate over to the Content Editor and create a new *search query root* item by right-clicking anywhere in the content tree, then click insert, and *Insert from template*. From here, open the folder *Conjunction, Foundation*, and from here select the template named **Search Query Root**:
+Navigate over to the Content Editor and create a new *search query root* item by right-clicking anywhere in the content tree, then click insert, and *Insert from template*. From here, open the folder */Conjunction/Foundation*, and from here select the template named **Search Query Root**:
 
 ![](images/basic-insert-search-query-root.png)
 
