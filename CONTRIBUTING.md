@@ -2,7 +2,7 @@
 
 When contributing to this repository, please first discuss the change you wish to make via issue before making a change. 
 
-Please note there is a code of conduct, please follow it in all your interactions with the project.
+Please note there is a [code of conduct](CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
 
 ## Reporting Issues and Asking Questions
 
@@ -17,6 +17,8 @@ Fork, then clone the repo:
 ```
 git clone https://github.com/your-username/conjunction.git
 ```
+
+### Tests
 
 ### Docs
 
