@@ -6,13 +6,19 @@ Conjunction is centered around a few core concepts:
 
 As the name implies, configurable search revolves around the idea of making search queries configurable, rather than statically coded within your Sitecore solution. Looking at it from the perspective of the different actors involved there is the *power user*, the *end-user* and the *underlying search index technology*, which are all connected through Conjunction, as the powerful engine that facilites the communication between these three actors.
 
-![The concept "Configurable Search"](images/conjunction_concept.png)
+<p align="center">
+  <img src="images/conjunction_concept.png">
+</p>
 
 The power user configures the search queries to fit the business requirements. Once the search queries have been configured, these are readable from Conjunction. When an end-user tries to view the search results, a request is send to Conjunction to retrieve the results of the configured search queries, combined with the information provided as input to the search queries from the end-user. Having the the configured search query decorated with the input from the end-user, Conjunction dispatches a request to the underlying search index technology, which then evaluate the decorated search query, and finally returns a set of matching search results that can be presented to the (happy) end-user.
 
 ## The search query root, grouping and rule
 
 When you are building a configurable search query, you are actually building a hierarchy consisting of small search query element parts - or simply, **search query elements**. A search query element can either be a search query root, a search query grouping or a search query rule. 
+
+<p align="center">
+  <img src="images/conjunction-searchqueryelements.png">
+</p>
 
 The **search query root** is the top-level element of the search query element hierarchy, which defines the most general characteristics of the entire search query configuration. A **search query grouping** defines a group of one or more search query elements, and their logical relationship to each other. Lastly, the **search query rule** defines how a given field in the search index should be queried, like *the title should contain the value 'x'* or *the created date should be between the 1st of January and 15th of September*.
 
