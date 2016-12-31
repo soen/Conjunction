@@ -6,4 +6,4 @@ In this guide, we'll walk through the process of setting up a simple search quer
 * [Configuring the search query](ConfigureSearchQuery.md)
 * [Retrieving the search results](RetrieveSearchResults.md)
 
-> Note: This guide assumes that you have an existing Visual Studio project, or have created one to be used by this guide. If not, start by creating a new Visual Studio Web project, and install Conjunction using the installation instructions found [here](https://soen.github.io/Conjunction/#installation-instructions).
+> **Note**: This guide assumes that you have an existing Visual Studio project, or have created one to be used by this guide. If not, start by creating a new Visual Studio Web project, and install Conjunction using the installation instructions found [here](https://soen.github.io/Conjunction/#installation-instructions).

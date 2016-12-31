@@ -34,6 +34,10 @@ Provides functionality to retrieve a Search Query Root from a given configuratio
 
 Provides functionality for retrieving dynamically provided values used by Search Query Rule elements.
 
+## Search Criteria
+
+Holds information about the search query elements that describes what needs to be queried, how values needed by the search query elements can be retrieved, as well as the search index resposible for delivering the results.
+
 ## Logical Operator
 
 Represents the set of logical operators a Search Query Grouping can be configured to use, in order to determine the logical relationship between its children.

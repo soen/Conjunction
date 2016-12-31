@@ -155,7 +155,7 @@ Represents the set of logical operators a [``SearchQueryGrouping<T>``](#searchqu
  **return** ``LogicalOperator``
 
 ### ``SearchCriteria<T>``
-Represents the search criteria that holds information about the search query elements that describes what needs to be queried, how values needed by the search query elements can be retrived, as well as the search index resposible for delivering the results.
+Represents the search criteria that holds information about the search query elements that describes what needs to be queried, how values needed by the search query elements can be retrieved, as well as the search index resposible for delivering the results.
 
 **Remarks**:  The search criteria is used when querying the [``SearchResultRepository``](#searchresultrepository) to retrieve a [``SearchResult<T>``](#searchresultt).
 
