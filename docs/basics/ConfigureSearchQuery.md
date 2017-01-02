@@ -1,4 +1,4 @@
-# Configuring the search query
+# Configuring the Search Query
 
 With the custom ``ToyBall`` indexable model in place, the next step is to configure the search query elements inside Sitecore.
 
@@ -8,7 +8,7 @@ Navigate over to the Content Editor in your Sitecore solution and create a new *
 
 ![](images/basic-insert-search-query-root.png)
 
-When the template has been selected, enter a given name and click on the *Insert* button to create the search query root item. Once you have created the search query root item, select it in the content tree in order to edit its fields:  
+When the template has been selected, enter a given name and click on the *Insert* button to create the search query root item. Once you have created the search query root item, select it in the content tree in order to edit its fields:
 
 ![](images/basic-configure-search-query-root.png)
 
