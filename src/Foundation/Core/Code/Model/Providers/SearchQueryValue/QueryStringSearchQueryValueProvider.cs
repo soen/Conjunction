@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using Conjunction.Foundation.Core.Infrastructure;
 using Conjunction.Foundation.Core.Model.Services;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 {
@@ -15,7 +16,8 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 
     public QueryStringSearchQueryValueProvider(NameValueCollection parameterNameValuePairs)
     {
-      _parameterNameValuePairs = parameterNameValuePairs;
+			Assert.ArgumentNotNull(parameterNameValuePairs, "The specified parameterNameValuePairs cannot be null");
+			_parameterNameValuePairs = parameterNameValuePairs;
     }
 
     public object GetValueForSearchQueryRule<T>(SearchQueryRule<T> searchQueryRule) where T : IndexableEntity, new()
