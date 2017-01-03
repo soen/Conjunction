@@ -244,7 +244,7 @@ Represents a visitor for search query elements.
  *Visits the [``SearchQueryRule<T>``](#searchqueryrulet)`.*  
 
  **Parameters:**  
- [``SearchQueryRule<T>``] ``searchQueryRule``: The search query rule to visit.
+ [``SearchQueryRule<T>``](#searchqueryrulet) ``searchQueryRule``: The search query rule to visit.
 
 ## Conjunction.Foundation.Core.Model.Processing.Processors
 
