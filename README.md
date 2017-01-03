@@ -17,7 +17,7 @@ Conjunction has some interesting parts that are worth mentioning, including:
 - Enables extensibility
 
 ## Installation instructions
-Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) instance running on you machine.
+Before installing Conjunction, you'll need a working Sitecore 8.0 (or later) instance running on your machine.
 
 - Install Conjunction binaries. This is as simple as adding the [Conjunction.Foundation.Core](https://www.nuget.org/packages/Conjunction.Foundation.Core/) NuGet package to your project.
 - Install Conjunction Sitecore package. You can find the required Sitecore package [here](https://github.com/soen/Conjunction/blob/master/Conjunction.zip), which contains the nessecary Sitecore templates and items required to configure search queries from Sitecore.
