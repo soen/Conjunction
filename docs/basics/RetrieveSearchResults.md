@@ -10,9 +10,9 @@ In order to retrieve the search results, we first need to configure Conjunction 
 * Search Query Element Value Provider
 * Index Name Provider 
 
-The **Search Query Element Provider** is resposible for retrieving a search query root from a given configuration. In this example, we want to retrieve the search query root from Sitecore, and for this we use the default Sitecore search query element provider implementation that ships with Conjunction.
+The **Search Query Element Provider** is resposible for retrieving a search query root from a given configuration. In this example, we want to retrieve the search query root from the previously configured search query root item in Sitecore, and for this we use the default Sitecore search query element provider implementation that ships with Conjunction.
 
-First we need to get the search query root item from Sitecore. In this case, we simply retrieve the previously configured search query root item, by fetching the item using its ID. Once we have the search query root item, this has to get passed to the Sitecore search query element provider that will transform the configurion of the search query root item into an internal search query element representation that Conjunction can work with:
+First we get the search query root item from Sitecore by fetching the search query root item using its ID. Once we have the search query root item, this has to get passed to the Sitecore search query element provider that will transform the configurion of the search query root item into an internal search query element representation that Conjunction can work with:
 
 ```csharp
   Item searchQueryRootItem = Sitecore.Context.Database.GetItem("itemId");
@@ -58,6 +58,8 @@ When the search result repository has retrieved the search result, you can acces
   int totalSearchResultCount = searchResult.TotalSearchResults; 
   IEnumerable<ToyBall> searchResults = searchResult.Hits;
 ```
+
+If you want a more complete example, showing how all the individual pieces fit together in a complete web application, please refer to the [MVC demo example](../introduction/Examples.md#the-mvc-demo-example).
 
 ## Next steps
 
