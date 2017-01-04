@@ -1,6 +1,6 @@
 # Motivation
 
-In this section you will be given the motivation behind why Conjunction was created, and what it tries to solve. Most of the content within this section is based on the presentation, [Advanced Search in Sitecore using Solr - Or the story about, how you can leverage the ContentSearch API to create a more generic, configurable way, of working with search queries in Sitecore](https://speakerdeck.com/soen/advanced-search-in-sitecore-using-solr), that was presented at a Sitecore User Group meeting, late 2016, where Conjunction was first presented to the public.
+In this section you'll be given the motivation behind why Conjunction was created, and what it tries to solve. Most of the content within this section is based on the presentation, [Advanced Search in Sitecore using Solr - Or the story about, how you can leverage the ContentSearch API to create a more generic, configurable way, of working with search queries in Sitecore](https://speakerdeck.com/soen/advanced-search-in-sitecore-using-solr), that was presented at a Sitecore User Group meeting, late 2016, where Conjunction was first presented to the public.
 
 ## How we would normally use the search capabilities in Sitecore
 
