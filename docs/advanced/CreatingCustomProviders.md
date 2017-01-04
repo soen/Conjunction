@@ -1,27 +1,75 @@
 # Creating Custom Providers
 
+In this section, we'll be looking at how to create your own custom provider implementations for retrieval of search query elements, dynamic values and index names.
+
 ## Custom search query element provider
+
+By default, Conjunction ships with a search query element provider that allows Conjunction to consume a Sitecore configured search query root, along with all its children.
+
+If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new class that implements the ``ISearchQueryElementProvider`` interface. 
+
+You can find more inspiration in creating your own implementation by refering to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) class.
 
 ## Custom search query element value provider
 
+So far we've seen that Conjunction ships with a default value provider that allows search query rules to fetch dynamically provided values from the query string. However, there may be situations where you don't want to use the query string for providing the dynamic values, whereas you can instead create your own implementation.
+
+There are two ways you can do this:
+
+1. Create a new implementation that implements the ``ISearchQueryValueProvider`` interface
+2. Extend the ``SearchQueryValueProviderBase`` class
+
+Choosing option one will give you full control over how the value provider works, and whether you want it to react to single or range values, or something completely new. Option two gives you a bit more functionality out-of-the-box, such as converting the dynamic value found from some given source, into a typed single, or ranged, value that the search query rule can use.
+
+In this example, let's assume that we want to create our own custom value provider, capable of delivering values from fields in a custom database. In the database we have a table with two columns, *name* and *value*. Furthermore, assuming that we already have a repository that enables retrieving the value of given row, where the name matches some input. 
+
+Assuming that we want to leverage as much of the built-in functionaly as possible, we choose to go with option number two for the implementation, this could look something like this: 
+
 ```csharp
-  public class CustomDatabaseSearchQueryValueProvider : ISearchQueryValueProvider
+  using Conjunction.Foundation.Core.Model.Providers.SearchQueryValue;
+
+  public class DatabaseSearchQueryValueProvider : SearchQueryValueProviderBase
   {
-    public object GetValueForSearchQueryRule<T>(SearchQueryRule<T> searchQueryRule) where T : IndexableEntity, new()
+    private readonly CustomDatabaseRepository _customDatabaseRepository;
+
+    public DatabaseSearchQueryValueProvider(CustomDatabaseRepository customDatabaseRepository)
     {
-      throw new System.NotImplementedException();
+      _customDatabaseRepository = customDatabaseRepository;
+    }
+
+    // Note: When implementing the SearchQueryValueProviderBase class, we'll need to implement this method
+    // that is responsible for extracting the value required by a given dynamic value providing parameter
+    protected override string GetDefaultValueOrDynamicValueProvidedByParameter<T>(SearchQueryRule<T> searchQueryRule) 
+      where T : IndexableEntity, new()
+    {
+      string value;
+
+      if (string.IsNullOrWhiteSpace(searchQueryRule.DynamicValueProvidingParameter))
+        value = searchQueryRule.DefaultValue;
+      else
+      {
+        var valueProviderParameterName = searchQueryRule.DynamicValueProvidingParameter;
+        value = _customDatabaseRepository.GetValueForName(valueProviderParameterName);
+      }
+
+      return value;
     }
   }
+}
 ```
+
+If you want to go with option number one, we recommend that you take a closer look on how the ``SearchQueryValueProviderBase`` and ``QueryStringSearchQueryValueProvider`` classes are implemented.
 
 ## A Domain Index Name Provider
 
 In the [basics](../basics/RetrieveSearchResults.md#the-three-providers) walkthrough there is a note saying, that you should favor using [*domain indexes*](https://soen.ghost.io/tackling-the-challenges-of-architecting-a-search-indexing-infrastructure-in-sitecore-part-2#howshouldthesearchindexesbeorganized), as they give you much smaller, yet concise and cohesive indexes to work with.
 
-The following code snippet shows an example on how you can create your own custom index name provider, which follows the domain index pattern for the toy domain that we have seen in the previous examples:
+The following code snippet shows an example on how you can create your own custom index name provider using the ``IIndexNameProvider`` interface, which follows the domain index pattern for the toy domain that we have seen in the previous examples:
 
 ```csharp
-  public class ToyIndexNameProvider : Conjunction.Foundation.Core.Model.Providers.IIndexNameProvider
+  using Conjunction.Foundation.Core.Model.Providers;
+
+  public class ToyIndexNameProvider : IIndexNameProvider
   {
     private readonly Sitecore.Data.Database _contentOrContextDatabase;
 

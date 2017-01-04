@@ -14,7 +14,7 @@ As described in the [basics](../basics/ConfigureSearchQuery.md#configuring-the-s
 4. From the new search query grouping item, create two new Search Query Grouping items, named *E* with the logical operator set to *AND* and *F* with the logical operator set to *AND*, and a new Search Query Rule item, named *G*
 5. Inside the newly created search query grouping, create a new Search Query Rule item, named *H* for the first search query grouping and two named *I* and *J* for the second search query grouping
 
-If you've follows the steps, you should now have a search query item structure that looks similar to this:
+If you've followed the steps, you should now have a search query item structure that looks similar to this:
 
 <p align="center">
   <img src="images/advanced-nested-search-query.png">
