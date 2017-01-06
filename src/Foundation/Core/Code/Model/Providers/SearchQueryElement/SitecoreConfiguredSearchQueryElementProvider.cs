@@ -12,22 +12,27 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
   /// </summary>
   public class SitecoreConfiguredSearchQueryElementProvider : ISearchQueryElementProvider
   {
-    private readonly Item _searchQueryRootItem;
-
-    public SitecoreConfiguredSearchQueryElementProvider(Item searchQueryRootItem)
+    private readonly Func<Item> _getSearchQueryRootItem;
+    
+    public SitecoreConfiguredSearchQueryElementProvider(Func<Item> getSearchQueryRootItem)
     {
-      Assert.ArgumentNotNull(searchQueryRootItem, "The specified searchQueryRootItem cannot be null");
+      Assert.ArgumentNotNull(getSearchQueryRootItem, "getSearchQueryRootItem");
 
-      if (searchQueryRootItem.IsDerived(Constants.Templates.SearchQueryRoot.TemplateId) == false)
-        throw new ArgumentException();
-
-      _searchQueryRootItem = searchQueryRootItem;
+      _getSearchQueryRootItem = getSearchQueryRootItem;
     }
 
     public ISearchQueryElement<T> GetSearchQueryElementRoot<T>() where T : IndexableEntity, new()
     {
-      VerifyConfiguredIndexableEntityType<T>(_searchQueryRootItem);
-      return GetSearchQueryElementFor<T>(_searchQueryRootItem);
+      Item searchQueryRootItem = _getSearchQueryRootItem();
+
+      if (searchQueryRootItem == null)
+        throw new ArgumentException("The searchQueryRootItem cannot be null");
+
+      if (searchQueryRootItem.IsDerived(Constants.Templates.SearchQueryRoot.TemplateId) == false)
+        throw new ArgumentException();
+
+      VerifyConfiguredIndexableEntityType<T>(searchQueryRootItem);
+      return GetSearchQueryElementFor<T>(searchQueryRootItem);
     }
 
     private void VerifyConfiguredIndexableEntityType<T>(Item item) where T : IndexableEntity, new()

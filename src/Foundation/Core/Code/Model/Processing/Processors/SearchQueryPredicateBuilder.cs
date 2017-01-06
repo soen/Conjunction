@@ -14,7 +14,8 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
   /// of <see cref="Func{T, Boolean}" /> from search query elements.
   /// </summary>
   /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
-  public class SearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T> where T : IndexableEntity, new()
+  public class SearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T, Expression<Func<T, bool>>> 
+    where T : IndexableEntity, new()
   {
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;
     private readonly ISearchQueryValueProvider _searchQueryValueProvider;
@@ -151,7 +152,7 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
       return predicate;
     }
 
-    public Expression<Func<T, bool>> GetPredicate()
+    public Expression<Func<T, bool>> GetOutput()
     {
       return _outputPredicate;
     }

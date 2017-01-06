@@ -88,6 +88,8 @@
     <Compile Include="Infrastructure\TemplateExtensions.cs" />
     <Compile Include="Infrastructure\TypeConverters\SitecoreIDConverter.cs" />
     <Compile Include="Model\ComparisonOperator.cs" />
+    <Compile Include="Model\Repositories\ISearchResultRepository.cs" />
+    <Compile Include="Model\SearchConfiguration.cs" />
     <Compile Include="Model\ISearchQueryElement.cs" />
     <Compile Include="Model\LogicalOperator.cs" />
     <Compile Include="Model\Processing\ISearchQueryElementVisitor.cs" />

@@ -28,13 +28,13 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
 
     [RequireLicense]
     [Fact]
-    public void Ctor_SearchQueryRootItemIsNull_ThrowsException()
+    public void Ctor_SearchQueryRootItemFuncIsNull_ThrowsException()
     {
       // Arrange
-      Item searchQueryRootItem = null;
+      Func<Item> getSearchQueryRootItem = null;
 
       // Act
-      Action act = () => new SitecoreConfiguredSearchQueryElementProvider(searchQueryRootItem);
+      Action act = () => new SitecoreConfiguredSearchQueryElementProvider(getSearchQueryRootItem);
 
       // Assert
       act.ShouldThrow<ArgumentNullException>();
@@ -42,7 +42,28 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
 
     [RequireLicense]
     [Fact]
-    public void Ctor_ItemIsNotSearchQueryRootItem_ThrowsException()
+    public void GetSearchQueryElementRoot_ItemIsNull_ThrowsException()
+    {
+      using (var db = new Db
+      {
+        // Arrange
+        new DbItem("InvalidSearchQueryRootItem")
+      })
+      {
+        Item searchQueryRootItem = null;
+        var provider = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
+
+        // Act
+        Action act = () => provider.GetSearchQueryElementRoot<TestIndexableEntity>();
+
+        // Assert
+        act.ShouldThrow<ArgumentException>();
+      }
+    }
+
+    [RequireLicense]
+    [Fact]
+    public void GetSearchQueryElementRoot_ItemIsNotSearchQueryRootItem_ThrowsException()
     {
       using (var db = new Db
       {
@@ -51,9 +72,10 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       })
       {
         var searchQueryRootItem = db.GetItem("/sitecore/content/invalidsearchqueryrootitem");
+        var provider = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
-        Action act = () => new SitecoreConfiguredSearchQueryElementProvider(searchQueryRootItem);
+        Action act = () => provider.GetSearchQueryElementRoot<TestIndexableEntity>();
 
         // Assert
         act.ShouldThrow<ArgumentException>();
@@ -77,8 +99,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         }
       })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -106,8 +128,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         }
       })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -136,8 +158,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         }
       })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -178,8 +200,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
           }
         })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -222,8 +244,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
           }
         })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -255,8 +277,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         }
       })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         var actual = sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -309,8 +331,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         }
       })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         var actual = sut.GetSearchQueryElementRoot<TestIndexableEntity>();
@@ -385,8 +407,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
         }
       })
       {
-        var item = db.GetItem("/sitecore/content/searchqueryrootitem");
-        var sut = new SitecoreConfiguredSearchQueryElementProvider(item);
+        var searchQueryRootItem = db.GetItem("/sitecore/content/searchqueryrootitem");
+        var sut = new SitecoreConfiguredSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
         var actual = sut.GetSearchQueryElementRoot<TestIndexableEntity>();

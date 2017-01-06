@@ -12,13 +12,13 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
   /// </summary>
   public class QueryStringSearchQueryValueProvider : ISearchQueryValueProvider
   {
-    private readonly NameValueCollection _parameterNameValuePairs;
+    private readonly Func<NameValueCollection> _getParameterNameValuePairs;
 
-    public QueryStringSearchQueryValueProvider(NameValueCollection parameterNameValuePairs)
+    public QueryStringSearchQueryValueProvider(Func<NameValueCollection> getParameterNameValuePairs)
     {
-      Assert.ArgumentNotNull(parameterNameValuePairs, "parameterNameValuePairs");
+      Assert.ArgumentNotNull(getParameterNameValuePairs, "getParameterNameValuePairs");
 
-      _parameterNameValuePairs = parameterNameValuePairs;
+      _getParameterNameValuePairs = getParameterNameValuePairs;
     }
 
     public object GetValueForSearchQueryRule<T>(SearchQueryRule<T> searchQueryRule) where T : IndexableEntity, new()
@@ -57,7 +57,13 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
       else
       {
         var valueProviderParameterName = searchQueryRule.DynamicValueProvidingParameter;
-        value = _parameterNameValuePairs[valueProviderParameterName];
+
+        var parameterNameValuePairs = _getParameterNameValuePairs();
+
+        if (parameterNameValuePairs == null)
+          throw new InvalidOperationException("The parameterNameValuePairs cannot be null");
+
+        value = parameterNameValuePairs[valueProviderParameterName];
       }
 
       return value;
