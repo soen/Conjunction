@@ -30,15 +30,15 @@ Assuming that we want to leverage as much of the built-in functionality as possi
 
   public class DatabaseSearchQueryValueProvider : SearchQueryValueProviderBase
   {
-    private readonly CustomDatabaseRepository _customDatabaseRepository;
+    // NOTE: The custom database repository would be some custom logic implemented in your solution
+    private readonly ICustomDatabaseRepository _customDatabaseRepository;
 
-    public DatabaseSearchQueryValueProvider(CustomDatabaseRepository customDatabaseRepository)
+    public DatabaseSearchQueryValueProvider(ICustomDatabaseRepository customDatabaseRepository)
     {
       _customDatabaseRepository = customDatabaseRepository;
     }
 
-    // Note: When implementing the SearchQueryValueProviderBase class, we'll need to implement this method
-    // that is responsible for extracting the value required by a given dynamic value providing parameter
+    // NOTE: We'll need to implement this method responsible for extracting the value required by a given dynamic value providing parameter
     protected override string GetDefaultValueOrDynamicValueProvidedByParameter<T>(SearchQueryRule<T> searchQueryRule) 
       where T : IndexableEntity, new()
     {
