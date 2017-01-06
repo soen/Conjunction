@@ -145,6 +145,7 @@
     <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheSearchResultRepositoryDecorator.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Model\MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
