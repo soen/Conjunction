@@ -35,7 +35,7 @@ namespace Conjunction.Foundation.Core.Model.Repositories
     {
     }
 
-    public ISearchIndex SearchIndex => ContentSearchManager.GetIndex(_searchConfiguration.IndexName);
+    public ISearchIndex SearchIndex => ContentSearchManager.GetIndex(_searchConfiguration.IndexNameProvider.IndexName);
     
     /// <summary>
     /// Performs a query using the provided <paramref name="searchCriteria"/> to retrieve a <see cref="SearchResult{T}"/>.

@@ -18,7 +18,5 @@ namespace Conjunction.Foundation.Core.Model
     public ISearchQueryValueProvider SearchQueryValueProvider { get; }
 
     public IIndexNameProvider IndexNameProvider { get; }
-
-    public string IndexName => IndexNameProvider.IndexName;
   }
 }
