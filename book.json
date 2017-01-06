@@ -1,5 +1,5 @@
 { 
   "gitbook": ">=3.2.1",
   "title": "Conjunction",
-  "plugins": ["anchorjs"]
+  "plugins": ["anchorjs", "-highlight", "sunlight-highlighter"]
 }
