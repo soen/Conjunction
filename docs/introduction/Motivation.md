@@ -8,8 +8,8 @@ When working with search features in Sitecore it is best practice that you use t
 
 > **Tip**: If you haven't worked with the ContentSearch API before, you can get a basic introduction by following the two part series [A re-introduction to the ContentSearch API in Sitecore](https://soen.ghost.io/a-re-introduction-to-the-contentsearch-api-in-sitecore-part-1/).
 
-At a very high-level perspective, when implementing a search query, you will probably go though the following steps:
-1. Figure out what you should query
+At a very high-level perspective, when implementing a search query, you'll be going through the following steps:
+1. Find out what you should query
 2. Create your custom search query logic
 3. Present the search results to the end-user
 

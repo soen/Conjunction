@@ -8,7 +8,9 @@ Before configuring the search queries within Sitecore, the first thing we have t
 Assuming that you already have a Visual Studio Web project with Conjunction installed using the [Conjunction.Foundation.Core](https://www.nuget.org/packages/Conjunction.Foundation.Core/) package, create a new type that inherits from the ``IndexableEntity`` type named ``ToyBall``:
 
 ```csharp
-  public class ToyBall : Conjunction.Foundation.Core.Model.IndexableEntity
+  using Conjunction.Foundation.Core.Model;
+
+  public class ToyBall : IndexableEntity
   {
     // code omitted for now ...    
   }

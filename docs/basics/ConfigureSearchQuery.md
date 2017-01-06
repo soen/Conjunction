@@ -12,9 +12,11 @@ When the template has been selected, enter a given name and click on the *Insert
 
 ![](images/basic-configure-search-query-root.png)
 
-By default, the search query root item has two fields that needs to be configured, the **configured indexable entity type** and the **logical operator**. The configured indexable entity type is used to specify the indexable entity model being used when configuring search query rules. Set the name of the configured indexable entity type to be the fully qualified name of the ``ToyBall`` type we just created in the previous step - in this example, the assembly containing the ``ToyBall`` type reside in the assembly ``Demo`` under the namespace ``Demo.Model``, your fully qualified name may vary depending on your assembly name. 
+By default, the search query root item has two fields that needs to be configured, the **configured indexable entity type** and the **logical operator**. The configured indexable entity type is used to specify the indexable entity model being used when configuring search query rules. Set the name of the configured indexable entity type to be the fully qualified name of the ``ToyBall`` type we just created in the previous step 
 
-In addition, the logicial operator field defines the logical relationship between the child search query elements. For now, simply set it to *And*, meaning that the overall search query will use a logical *AND* operator to determine the logical relationship between the individual search queries from its child search query elements.
+> **Note**: In this example, the assembly containing the ``ToyBall`` type reside in the assembly ``Demo`` under the namespace ``Demo.Model``. Your fully qualified name may vary depending on your assembly name. 
+
+In addition, the logical operator field defines the *logical relationship between the child search query elements*. For now, simply set it to *And*, meaning that the overall search query will use a logical *AND* operator to determine the logical relationship between the individual search queries from its child search query elements.
 
 ## Creating a set of Search Query Rules
 

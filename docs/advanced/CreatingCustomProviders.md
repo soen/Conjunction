@@ -6,9 +6,9 @@ In this section, we'll be looking at how to create your own custom provider impl
 
 By default, Conjunction ships with a search query element provider that allows Conjunction to consume a Sitecore configured search query root, along with all its children.
 
-If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new class that implements the ``ISearchQueryElementProvider`` interface. 
+If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new type that implements the ``ISearchQueryElementProvider`` interface. 
 
-You can find more inspiration in creating your own implementation by refering to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) class.
+> **Note**: You can find more inspiration on creating your own implementation by refering to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) class.
 
 ## Custom search query element value provider
 
@@ -17,7 +17,7 @@ So far we've seen that Conjunction ships with a default value provider that allo
 There are two ways you can do this:
 
 1. Create a new implementation that implements the ``ISearchQueryValueProvider`` interface
-2. Extend the ``SearchQueryValueProviderBase`` class
+2. Extend the ``SearchQueryValueProviderBase`` type
 
 Choosing option one will give you full control over how the value provider works, and whether you want it to react to single or range values, or something completely new. Option two gives you a bit more functionality out-of-the-box, such as converting the dynamic value found from some given source, into a typed single, or ranged, value that the search query rule can use.
 
@@ -58,7 +58,7 @@ Assuming that we want to leverage as much of the built-in functionaly as possibl
 }
 ```
 
-If you want to go with option number one, we recommend that you take a closer look on how the ``SearchQueryValueProviderBase`` and ``QueryStringSearchQueryValueProvider`` classes are implemented.
+If you want to go with option number one, we recommend that you take a closer look on how the ``SearchQueryValueProviderBase`` and ``QueryStringSearchQueryValueProvider`` types are implemented.
 
 ## A Domain Index Name Provider
 
