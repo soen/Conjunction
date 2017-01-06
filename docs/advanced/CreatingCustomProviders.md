@@ -6,9 +6,9 @@ In this section, we'll be looking at how to create your own custom provider impl
 
 By default, Conjunction ships with a search query element provider that allows Conjunction to consume a Sitecore configured search query root, along with all its children.
 
-If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new type that implements the ``ISearchQueryElementProvider`` interface. 
+If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new type that implements the [``ISearchQueryElementProvider``](../api/README.md#isearchqueryelementprovider) interface. 
 
-> **Note**: You can find more inspiration on creating your own implementation by refering to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) class.
+> **Note**: You can find more inspiration on creating your own implementation by refering to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) implementation.
 
 ## Custom search query element value provider
 
@@ -16,14 +16,14 @@ So far we've seen that Conjunction ships with a default value provider that allo
 
 There are two ways you can do this:
 
-1. Create a new implementation that implements the ``ISearchQueryValueProvider`` interface
-2. Extend the ``SearchQueryValueProviderBase`` type
+1. Create a new implementation that implements the [``ISearchQueryValueProvider``](../api/README.md#isearchqueryvalueprovider) interface
+2. Extend the [``SearchQueryValueProviderBase``](../api/README.md#searchqueryvalueproviderbase) type
 
 Choosing option one will give you full control over how the value provider works, and whether you want it to react to single or range values, or something completely new. Option two gives you a bit more functionality out-of-the-box, such as converting the dynamic value found from some given source, into a typed single, or ranged, value that the search query rule can use.
 
 In this example, let's assume that we want to create our own custom value provider, capable of delivering values from fields in a custom database. In the database we have a table with two columns, *name* and *value*. Furthermore, assuming that we already have a repository that enables retrieving the value of given row, where the name matches some input. 
 
-Assuming that we want to leverage as much of the built-in functionaly as possible, we choose to go with option number two for the implementation, this could look something like this: 
+Assuming that we want to leverage as much of the built-in functionality as possible, we'll choose to go with option number two for the implementation. This could look something like this: 
 
 ```csharp
   using Conjunction.Foundation.Core.Model.Providers.SearchQueryValue;
@@ -58,13 +58,13 @@ Assuming that we want to leverage as much of the built-in functionaly as possibl
 }
 ```
 
-If you want to go with option number one, we recommend that you take a closer look on how the ``SearchQueryValueProviderBase`` and ``QueryStringSearchQueryValueProvider`` types are implemented.
+If you want to go with option number one, we recommend that you take a closer look on how the [``SearchQueryValueProviderBase``](../api/README.md#searchqueryvalueproviderbase) and [``QueryStringSearchQueryValueProvider``](../api/README.md#querystringsearchqueryvalueprovider) types are implemented.
 
 ## A Domain Index Name Provider
 
 In the [basics](../basics/RetrieveSearchResults.md#the-three-providers) walkthrough there is a note saying, that you should favor using [*domain indexes*](https://soen.ghost.io/tackling-the-challenges-of-architecting-a-search-indexing-infrastructure-in-sitecore-part-2#howshouldthesearchindexesbeorganized), as they give you much smaller, yet concise and cohesive indexes to work with.
 
-The following code snippet shows an example on how you can create your own custom index name provider using the ``IIndexNameProvider`` interface, which follows the domain index pattern for the toy domain that we have seen in the previous examples:
+The following code snippet shows an example on how you can create your own custom index name provider using the [``IIndexNameProvider``](../api/README.md#iindexnameprovider) interface, which follows the domain index pattern for the toy domain that we have seen in the previous examples:
 
 ```csharp
   using Conjunction.Foundation.Core.Model.Providers;
@@ -91,4 +91,4 @@ The following code snippet shows an example on how you can create your own custo
 
 In essence, when creating a custom index name provider, the only thing you have to worry about implementing is the property named *IndexName*. In this code snippet, we simply say that we want to return an index name which follows the following naming convention *toy_databaseName_index*. If we are running in the context of the Web database, the name of the index will be *toy_web_index*, etc. 
 
-If all of your domain indexes follows the same naming convention, you could extend this code snippet, such that the constructor takes in the name of a given index, making a more generic domain index name provider - that is up to you.
+> **Tip**: If all of your domain indexes follows the same naming convention, you could extend this code snippet, such that the constructor takes in the name of a given index, making a more generic domain index name provider - that is up to you.

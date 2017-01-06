@@ -12,22 +12,22 @@ In order to retrieve the search results, we first need to configure Conjunction 
 
 The **Search Query Element Provider** is resposible for retrieving a search query root from a given configuration. In this example, we want to retrieve the search query root from the previously configured search query root item in Sitecore, and for this we use the default Sitecore search query element provider implementation that ships with Conjunction.
 
-First we get the search query root item from Sitecore by fetching the search query root item using its ID. Once we have the search query root item, this has to get passed to the Sitecore search query element provider that will transform the configurion of the search query root item into an internal search query element representation that Conjunction can work with:
+First we get the search query root item from Sitecore by fetching the search query root item using its ID. Once we have the search query root item, this has to get passed to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) provider type, that will transform the configuration of the search query root item into an internal search query element representation that Conjunction can work with:
 
 ```csharp
   Item searchQueryRootItem = Sitecore.Context.Database.GetItem("itemId");
   var elementProvider = new SitecoreConfiguredSearchQueryElementProvider(searchQueryRootItem);
 ```
 
-For retrieving dynamically provided values used by search query rule elements, we use a different provider named a **Search Query Element Value Provider**. In this example, we make use of another provider implementation that comes with Conjunction, which is capable of retrieving values from a query string, named ``QueryStringSearchQueryValueProvider``:
+For retrieving dynamically provided values used by search query rule elements, we use a different provider named a **Search Query Element Value Provider**. In this example, we make use of another provider implementation that comes with Conjunction, which is capable of retrieving values from a query string, named [``QueryStringSearchQueryValueProvider``](../api/README.md#querystringsearchqueryvalueprovider):
 
 ```csharp
   var valueProvider = new QueryStringSearchQueryValueProvider(Request.QueryString);
 ```
 
-> **Note**: Essentially, the ``QueryStringSearchQueryValueProvider`` works by interpreting the name/value pairs, coming from the query string of a web request as dynamic values, making these ready for the search query rules. Once interpreted, these values gets served to the search query rules needing the value tied together with a given *dynamic value providing parameter*, when the search query is performed.
+> **Note**: Essentially, the [``QueryStringSearchQueryValueProvider``](../api/README.md#querystringsearchqueryvalueprovider) works by interpreting the name/value pairs, coming from the query string of a web request as dynamic values, making these ready for the search query rules. Once interpreted, these values gets served to the search query rules needing the value tied together with a given *dynamic value providing parameter*, when the search query is performed.
 
-The last bit of configuration that has to be set up is the **Index Name Provider** that is used to deliver the index name that will be used when performing search queries. In this example, we specify that we want to retrieve results from the default Sitecore master/web index, using the default Sitecore index name provider within Conjunction, named ``SitecoreDefaultIndexNameProvider``:
+The last bit of configuration that has to be set up is the **Index Name Provider** that is used to deliver the index name that will be used when performing search queries. In this example, we specify that we want to retrieve results from the default Sitecore master/web index, using the default Sitecore index name provider within Conjunction, named [``SitecoreDefaultIndexNameProvider``](../api/README.md#sitecoredefaultindexNameprovider):
 
 ```csharp
   var indexNameProvider = new SitecoreDefaultIndexNameProvider();
@@ -37,7 +37,7 @@ The last bit of configuration that has to be set up is the **Index Name Provider
 
 ## The Search Criteria
 
-With the configuration in place, the next step is to pass the configured providers to the **Search Criteria** using the ``SearchCriteria<T>`` type, where the generic type ``T`` is constrained to be a subtype of the ``IndexableEntity`` type:
+With the configuration in place, the next step is to pass the configured providers to the **Search Criteria** using the [``SearchCriteria<T>``](../api/README.md#searchcriteriat) type, where the generic type ``T`` is constrained to be a subtype of the [``IndexableEntity``](../api/README.md#indexableentity) type:
 
 ```csharp
   var criteria = new SearchCriteria<ToyBall>(elementProvider, valueProvider, indexNameProvider);
@@ -47,7 +47,7 @@ You can think of the search criteria as a object holding information about the s
 
 ## The Search Results 
 
-Finally, we pass the search criteria to the **Search Result Repository**, using the using the ``SearchResultRepository`` type, that retrieves the search result of type ``SearchResult<T>``. Again, the generic type ``T`` is constrained to be a subtype of the ``IndexableEntity`` type:
+Finally, we pass the search criteria to the **Search Result Repository**, using the using the  [``SearchResultRepository``](../api/README.md#searchresultrepository) type, that retrieves the search result of type [``SearchResult<T>``](../api/README.md#searchresultt). Again, the generic type ``T`` is constrained to be a subtype of the [``IndexableEntity``](../api/README.md#indexableentity) type:
 
 ```csharp
   var repository = new SearchResultRepository();
