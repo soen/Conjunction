@@ -4,7 +4,7 @@
   /// Represents a visitor for search query elements.
   /// </summary>
   /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
-  public interface ISearchQueryElementVisitor<T, out TOutput> where T : IndexableEntity, new()
+  public interface ISearchQueryElementVisitor<T> where T : IndexableEntity, new()
   {
     /// <summary>
     /// Visits the <see cref="SearchQueryGrouping{T}" /> before it visits its children.
@@ -22,7 +22,5 @@
     /// </summary>
     /// <param name="searchQueryRule">The search query rule to visit.</param>    
     void VisitSearchQueryRule(SearchQueryRule<T> searchQueryRule);
-
-    TOutput GetOutput();
   }
 }

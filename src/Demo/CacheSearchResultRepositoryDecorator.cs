@@ -1,4 +1,7 @@
 ﻿using Conjunction.Foundation.Core.Model;
+using Conjunction.Foundation.Core.Model.Processing;
+using Conjunction.Foundation.Core.Model.Providers.Indexing;
+using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
 using Conjunction.Foundation.Core.Model.Repositories;
 using Sitecore.ContentSearch;
 
@@ -17,6 +20,12 @@ namespace Demo
     {
       _searchResultRepository = searchResultRepository;
     }
+
+    public ISearchQueryElementProvider SearchQueryElementProvider => _searchResultRepository.SearchQueryElementProvider;
+
+    public IIndexNameProvider IndexNameProvider => _searchResultRepository.IndexNameProvider;
+
+    public ISearchQueryPredicateBuilder<T> SearchQueryPredicateBuilder => _searchResultRepository.SearchQueryPredicateBuilder;
 
     public ISearchIndex SearchIndex => _searchResultRepository.SearchIndex;
 

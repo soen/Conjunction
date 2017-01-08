@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryValue
 {
-  public class QueryStringSearchQueryValueProviderTests
+  public class NameValuePairSearchQueryValueProviderTests
   {
     private const string TestIndexableEntityPropertyName = "Name";
     private const string TestIndexableEntityPropertySomeInteger = "SomeInteger";
@@ -21,7 +21,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryValue
       Func<NameValueCollection> getParameterNameValuePairs = null;
 
       // Act
-      Action act = () => new QueryStringSearchQueryValueProvider(getParameterNameValuePairs);
+      Action act = () => new NameValuePairSearchQueryValueProvider(getParameterNameValuePairs);
 
       // Assert
       act.ShouldThrow<ArgumentNullException>();
@@ -33,7 +33,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryValue
       // Arrange
       SearchQueryRule<TestIndexableEntity> searchQueryRule = null;
       var parameterNameValuePairs = new NameValueCollection();
-      var sut = new QueryStringSearchQueryValueProvider(() => parameterNameValuePairs);
+      var sut = new NameValuePairSearchQueryValueProvider(() => parameterNameValuePairs);
 
       // Act
       Action act = () => sut.GetValueForSearchQueryRule(searchQueryRule);
@@ -50,7 +50,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryValue
       var searchQueryRule = new SearchQueryRule<TestIndexableEntity>(propertySelector, ComparisonOperator.Equal, ParameterName);
       var parameterValue = "someValue";
       var parameterNameValuePairs = new NameValueCollection { { ParameterName, parameterValue} };
-      var sut = new QueryStringSearchQueryValueProvider(() => parameterNameValuePairs);
+      var sut = new NameValuePairSearchQueryValueProvider(() => parameterNameValuePairs);
 
       // Act
       var actual = sut.GetValueForSearchQueryRule(searchQueryRule);
@@ -68,7 +68,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryValue
       var parameterValue = "[1:2]";
       var parameterNameValuePairs = new NameValueCollection { { ParameterName, parameterValue } };
       var expectedValue = new RangeValue(1, 2);
-      var sut = new QueryStringSearchQueryValueProvider(() => parameterNameValuePairs);
+      var sut = new NameValuePairSearchQueryValueProvider(() => parameterNameValuePairs);
 
       // Act
       var actual = sut.GetValueForSearchQueryRule(searchQueryRule);
@@ -86,7 +86,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryValue
       var propertySelector = ExpressionUtils.GetPropertySelector<TestIndexableEntity, object>(TestIndexableEntityPropertyName);
       var searchQueryRule = new SearchQueryRule<TestIndexableEntity>(propertySelector, ComparisonOperator.Equal, defaultValue: defaultValue);
       var parameterNameValuePairs = new NameValueCollection();
-      var sut = new QueryStringSearchQueryValueProvider(() => parameterNameValuePairs);
+      var sut = new NameValuePairSearchQueryValueProvider(() => parameterNameValuePairs);
 
       // Act
       var actual = sut.GetValueForSearchQueryRule(searchQueryRule);

@@ -34,7 +34,7 @@ namespace Conjunction.Foundation.Core.Model
 
     public string DefaultValue { get; }
 
-    public void Accept<TOutput>(ISearchQueryElementVisitor<T, TOutput> visitor)
+    public void Accept(ISearchQueryElementVisitor<T> visitor)
     {
       visitor.VisitSearchQueryRule(this);
     }

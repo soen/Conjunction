@@ -8,7 +8,5 @@
     }
 
     public string SearchPath { get; }
-
-    // TODO: Add paging, sorting, facets, etc here...
   }
 }

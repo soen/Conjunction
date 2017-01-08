@@ -3,29 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Conjunction.Foundation.Core.Infrastructure;
-using Conjunction.Foundation.Core.Model.Providers;
+using Conjunction.Foundation.Core.Model.Providers.SearchQueryValue;
 using Conjunction.Foundation.Core.Model.Services;
 using Sitecore.ContentSearch.Linq.Utilities;
+using Sitecore.Diagnostics;
 
-namespace Conjunction.Foundation.Core.Model.Processing.Processors
+namespace Conjunction.Foundation.Core.Model.Processing
 {
-  /// <summary>
-  /// Represents a visitor that can build up a predicate of type <see cref="Expression{T}" /> 
-  /// of <see cref="Func{T, Boolean}" /> from search query elements.
-  /// </summary>
-  /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
-  public class SearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T, Expression<Func<T, bool>>> 
-    where T : IndexableEntity, new()
+  public class DefaultSearchQueryPredicateBuilder<T> : ISearchQueryPredicateBuilder<T> where T : IndexableEntity, new()
   {
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;
-    private readonly ISearchQueryValueProvider _searchQueryValueProvider;
-
     private Expression<Func<T, bool>> _outputPredicate;
     
-    public SearchQueryPredicateBuilder(ISearchQueryValueProvider searchQueryValueProvider)
+    public DefaultSearchQueryPredicateBuilder(ISearchQueryValueProvider searchQuerySearchQueryValueProvider)
     {
+      Assert.ArgumentNotNull(searchQuerySearchQueryValueProvider, "searchQueryValueProvider");
+
+      SearchQueryValueProvider = searchQuerySearchQueryValueProvider;
       _predicateBuilderContext = new Stack<PredicateBuilderContext>();
-      _searchQueryValueProvider = searchQueryValueProvider;
     }
 
     public void VisitSearchQueryGroupingBegin(SearchQueryGrouping<T> searchQueryGrouping)
@@ -62,7 +57,7 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
 
     public void VisitSearchQueryRule(SearchQueryRule<T> searchQueryRule)
     {
-      var value = _searchQueryValueProvider.GetValueForSearchQueryRule(searchQueryRule);
+      var value = SearchQueryValueProvider.GetValueForSearchQueryRule(searchQueryRule);
       if (value == null)
         return;
 
@@ -152,13 +147,15 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
       return predicate;
     }
 
+    public ISearchQueryValueProvider SearchQueryValueProvider { get; }
+
     public Expression<Func<T, bool>> GetOutput()
     {
       return _outputPredicate;
     }
 
     /// <summary>
-    /// Represents the context being used within the <see cref="SearchQueryPredicateBuilder{T}"/>
+    /// Represents the context being used within the <see cref="DefaultSearchQueryPredicateBuilder{T}"/>
     /// </summary>
     private class PredicateBuilderContext
     {

@@ -1,18 +1,19 @@
-﻿using Sitecore.Data;
+﻿using Sitecore;
+using Sitecore.Data;
 
 namespace Conjunction.Foundation.Core.Model.Providers.Indexing
 {
   /// <summary>
-  /// Represents the default index name provider for Sitecore that, based on the <see cref="Sitecore.Context"/>,
+  /// Represents the default index name provider for Sitecore that, based on the <see cref="Context"/>,
   /// will resolve the either the Master or Web index. 
   /// </summary>
-  public class SitecoreDefaultIndexNameProvider : IIndexNameProvider
+  public class DefaultSitecoreIndexNameProvider : IIndexNameProvider
   {
     private readonly Database _contentOrContextDatabase;
 
-    public SitecoreDefaultIndexNameProvider()
+    public DefaultSitecoreIndexNameProvider()
     {
-      _contentOrContextDatabase = Sitecore.Context.ContentDatabase ?? Sitecore.Context.Database;
+      _contentOrContextDatabase = Context.ContentDatabase ?? Context.Database;
     }
 
     public string IndexName

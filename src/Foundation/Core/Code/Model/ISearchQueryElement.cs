@@ -14,6 +14,6 @@ namespace Conjunction.Foundation.Core.Model
     /// <see cref="ISearchQueryElementVisitor{T}.VisitSearchQueryRule" />.
     /// </summary>
     /// <param name="visitor">The visitor to visit this search query element with.</param>
-    void Accept<TOutput>(ISearchQueryElementVisitor<T, TOutput> visitor);
+    void Accept(ISearchQueryElementVisitor<T> visitor);
   }
 }

@@ -3,7 +3,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using Conjunction.Foundation.Core.Infrastructure;
 using Conjunction.Foundation.Core.Model.Processing;
-using Conjunction.Foundation.Core.Model.Processing.Processors;
+using Conjunction.Foundation.Core.Model.Providers.Indexing;
+using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq;
 using Sitecore.ContentSearch.Linq.Utilities;
@@ -17,25 +18,26 @@ namespace Conjunction.Foundation.Core.Model.Repositories
   /// </summary>
   public class SearchResultRepository<T> : ISearchResultRepository<T> where T : IndexableEntity, new()
   {
-    private readonly SearchConfiguration _searchConfiguration;
-    private readonly ISearchQueryElementVisitor<T, Expression<Func<T, bool>>> _searchQueryElementVisitor;
-
-    public SearchResultRepository(SearchConfiguration searchConfiguration, 
-                                  ISearchQueryElementVisitor<T, Expression<Func<T, bool>>> searchQueryElementVisitor)
+    public SearchResultRepository(ISearchQueryElementProvider searchQueryElementProvider, 
+                                  IIndexNameProvider indexNameProvider, 
+                                  ISearchQueryPredicateBuilder<T> searchQueryPredicateBuilder)
     {
-      Assert.ArgumentNotNull(searchConfiguration, "searchConfiguration");
-      Assert.ArgumentNotNull(searchQueryElementVisitor, "searchQueryElementVisitor");
+      Assert.ArgumentNotNull(searchQueryElementProvider, "searchQueryElementProvider");
+      Assert.ArgumentNotNull(indexNameProvider, "indexNameProvider");
+      Assert.ArgumentNotNull(searchQueryPredicateBuilder, "searchQueryPredicateBuilder");
 
-      _searchConfiguration = searchConfiguration;
-      _searchQueryElementVisitor = searchQueryElementVisitor;
+      SearchQueryElementProvider = searchQueryElementProvider;
+      IndexNameProvider = indexNameProvider;
+      SearchQueryPredicateBuilder = searchQueryPredicateBuilder;
     }
 
-    public SearchResultRepository(SearchConfiguration searchConfiguration) 
-      : this(searchConfiguration, new SearchQueryPredicateBuilder<T>(searchConfiguration.SearchQueryValueProvider))
-    {
-    }
+    public ISearchQueryElementProvider SearchQueryElementProvider { get; }
 
-    public ISearchIndex SearchIndex => ContentSearchManager.GetIndex(_searchConfiguration.IndexNameProvider.IndexName);
+    public IIndexNameProvider IndexNameProvider { get; }
+
+    public ISearchQueryPredicateBuilder<T> SearchQueryPredicateBuilder { get; }
+
+    public ISearchIndex SearchIndex => ContentSearchManager.GetIndex(IndexNameProvider.IndexName);
     
     /// <summary>
     /// Performs a query using the provided <paramref name="searchCriteria"/> to retrieve a <see cref="SearchResult{T}"/>.
@@ -61,8 +63,6 @@ namespace Conjunction.Foundation.Core.Model.Repositories
                                  .IsLatestVersion()
                                  .Filter(predicate);
 
-          // TODO: Implement support for sorting, paging and facets (as part of the SearchCriteria class)
-
           var searchResults = queryable.GetResults();
           
           retVal = new SearchResult<T>(searchResults.TotalSearchResults,
@@ -79,10 +79,10 @@ namespace Conjunction.Foundation.Core.Model.Repositories
 
     private Expression<Func<T, bool>> GetPredicateFromSearchQueryCriteria(SearchCriteria searchCriteria)
     {
-      var searchQueryElementRoot = _searchConfiguration.SearchQueryElementProvider.GetSearchQueryElementRoot<T>();
-      searchQueryElementRoot.Accept(_searchQueryElementVisitor);
+      var searchQueryElementRoot = SearchQueryElementProvider.GetSearchQueryElementRoot<T>();
+      searchQueryElementRoot.Accept(SearchQueryPredicateBuilder);
 
-      Expression<Func<T, bool>> searchQueryPredicate = _searchQueryElementVisitor.GetOutput();
+      Expression<Func<T, bool>> searchQueryPredicate = SearchQueryPredicateBuilder.GetOutput();
       Expression<Func<T, bool>> searchPathConstraint = x => x.Path.StartsWith(searchCriteria.SearchPath.ToLower());
       
       return searchQueryPredicate.And(searchPathConstraint);

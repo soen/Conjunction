@@ -1,4 +1,4 @@
-﻿namespace Conjunction.Foundation.Core.Model.Providers
+﻿namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 {
   /// <summary>
   /// Provides functionality for retrieving dynamically provided values used by <see cref="SearchQueryRule{T}"/> elements.

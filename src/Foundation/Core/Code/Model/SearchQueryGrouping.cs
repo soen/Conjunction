@@ -24,7 +24,7 @@ namespace Conjunction.Foundation.Core.Model
 
     public ICollection<ISearchQueryElement<T>> SearchQueryElements { get; }
 
-    public void Accept<TOutput>(ISearchQueryElementVisitor<T, TOutput> visitor)
+    public void Accept(ISearchQueryElementVisitor<T> visitor)
     {
       visitor.VisitSearchQueryGroupingBegin(this);
 

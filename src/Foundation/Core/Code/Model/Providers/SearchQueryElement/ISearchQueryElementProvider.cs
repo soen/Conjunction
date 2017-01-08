@@ -1,4 +1,4 @@
-﻿namespace Conjunction.Foundation.Core.Model.Providers
+﻿namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
 {
   /// <summary>
   /// Provides functionality to retrieve a <see cref="ISearchQueryElement{T}"/> root element
