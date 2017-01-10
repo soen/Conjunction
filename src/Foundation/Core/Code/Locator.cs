@@ -3,7 +3,7 @@ using Conjunction.Foundation.Core.Model.Factories;
 
 namespace Conjunction.Foundation.Core
 {
-  internal class Locator
+  internal static class Locator
   {
     private static readonly IMutableDependencyResolver MutableDependencyResolver;
 
