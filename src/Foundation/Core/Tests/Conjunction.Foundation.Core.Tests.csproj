@@ -124,6 +124,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Model\Repositories\SearchResultRepositoryTests.cs" />
     <Compile Include="Model\Services\ExpressionConversionServiceTests.cs" />
     <Compile Include="Model\Services\SearchQueryValueConversionServiceTests.cs" />
     <Compile Include="RequireLicenseDiscoverer.cs" />
@@ -147,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\Processing\" />
-    <Folder Include="Model\Repositories\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

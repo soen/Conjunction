@@ -5,10 +5,8 @@ namespace Conjunction.Foundation.Core.Model.Factories
 {
   public class SearchQueryRuleFactory : ISearchQueryRuleFactory
   {
-    private readonly IComparisonOperatorFactory _comparisonOperatorFactory;
-
     public SearchQueryRuleFactory() 
-      : this(new ComparisonOperatorFactory())
+      : this(Locator.Current.GetInstance<IComparisonOperatorFactory>())
     {
     }
 
@@ -16,15 +14,17 @@ namespace Conjunction.Foundation.Core.Model.Factories
     {
       Assert.ArgumentNotNull(comparisonOperatorFactory, "comparisonOperatorFactory");
 
-      _comparisonOperatorFactory = comparisonOperatorFactory;
+      ComparisonOperatorFactory = comparisonOperatorFactory;
     }
+
+    public IComparisonOperatorFactory ComparisonOperatorFactory { get; }
 
     public SearchQueryRule<T> Create<T>(string associatedPropertyName, string configuredComparisonOperator, 
                                         string dynamicValueProvidingParameter = null, string defaultValue = null) 
       where T : IndexableEntity, new()
     {
       var propertySelector = ExpressionUtils.GetPropertySelector<T, object>(associatedPropertyName);
-      var comparisonOperator = _comparisonOperatorFactory.Create(configuredComparisonOperator);
+      var comparisonOperator = ComparisonOperatorFactory.Create(configuredComparisonOperator);
 
       return new SearchQueryRule<T>(
         propertySelector,

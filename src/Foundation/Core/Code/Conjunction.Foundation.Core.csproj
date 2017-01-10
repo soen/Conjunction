@@ -82,11 +82,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Infrastructure\MutableDependencyResolver.cs" />
     <Compile Include="Infrastructure\ExpressionUtils.cs" />
-    <Compile Include="Infrastructure\ItemExtensions.cs" />
-    <Compile Include="Infrastructure\QueryableExtensions.cs" />
-    <Compile Include="Infrastructure\TemplateExtensions.cs" />
+    <Compile Include="Infrastructure\IDependencyResolver.cs" />
+    <Compile Include="Infrastructure\ItemMixins.cs" />
+    <Compile Include="Infrastructure\QueryableMixins.cs" />
+    <Compile Include="Infrastructure\TemplateMixins.cs" />
     <Compile Include="Infrastructure\TypeConverters\SitecoreIDConverter.cs" />
+    <Compile Include="Locator.cs" />
     <Compile Include="Model\ComparisonOperator.cs" />
     <Compile Include="Model\Factories\ComparisonOperatorFactory.cs" />
     <Compile Include="Model\Factories\IComparisonOperatorFactory.cs" />
@@ -116,7 +119,6 @@
     <Compile Include="Model\SearchQueryGrouping.cs" />
     <Compile Include="Model\IndexableEntity.cs" />
     <Compile Include="Model\SearchResult.cs" />
-    <Compile Include="Model\SearchResultRepositoryBuilder.cs" />
     <Compile Include="Model\Services\ExpressionConversionService.cs" />
     <Compile Include="Model\Services\SearchQueryValueConversionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

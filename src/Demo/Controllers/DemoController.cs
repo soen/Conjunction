@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using Conjunction.Foundation.Core.Model;
+using Conjunction.Foundation.Core.Model.Processing;
+using Conjunction.Foundation.Core.Model.Providers.Indexing;
 using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
 using Conjunction.Foundation.Core.Model.Providers.SearchQueryValue;
 using Conjunction.Foundation.Core.Model.Repositories;
@@ -23,30 +25,32 @@ namespace Demo.Controllers
     {
       // == Constructing the SearchResultRepository instance ==
 
-      // You can choose to either use the builder, where you specify the element- and value providers:
+      //// You can choose to either use the builder, where you specify the element- and value providers:
 
-      var searchResultRepositoryBuilder = new SearchResultRepositoryBuilder<T>()
-        .WithElementProvider(new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item))
-        .WithValueProvider(new NameValuePairSearchQueryValueProvider(() => Request.QueryString));
-        
-        // Note: If you want to swap out default predicate-builder, you can do so like this: 
-        //.WithPredicateBuilder(new DefaultSearchQueryPredicateBuilder<T>(new NameValuePairSearchQueryValueProvider(() => Request.QueryString)))
+      //var builder = new SearchResultRepositoryBuilder<T>();
 
-        // Note: By default, Conjunction uses Sitecore's master/web index. You should create your own indexNameProvider, and
-        //       swap the default one out, like so:
-        //.WithIndexNameProvider(new CustomDomainIndexNameProvider());
-      
-      // Once the builder is configured, you can create the searchResultRepository by calling the 'Create()' method:  
-      return searchResultRepositoryBuilder.Create();
+      //var searchResultRepository = builder.Create(
+      //  new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item),
+      //  new NameValuePairSearchQueryValueProvider(() => Request.QueryString)
+      //);
 
+      //return searchResultRepository;
+
+      // Note: By default, the builder uses the built-in predicate builder implemenation. 
+      // If you want to swap out default predicate-builder, you can do so like this: 
+      //.WithPredicateBuilder(new DefaultSearchQueryPredicateBuilder<T>(new NameValuePairSearchQueryValueProvider(() => Request.QueryString)))
+
+      // Note: By default, Conjunction uses Sitecore's master/web index. You should create your own indexNameProvider, and
+      //       swap the default one out, like so:
+      //.WithIndexNameProvider(new CustomDomainIndexNameProvider());
 
       // Or you can simply compose the objects together yourself:
 
-      //return new SearchResultRepository<T>(
-      //    new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item),
-      //    new DefaultSitecoreIndexNameProvider(),
-      //    new DefaultSearchQueryPredicateBuilder<T>(new NameValuePairSearchQueryValueProvider(() => Request.QueryString))
-      //);
+      return new SearchResultRepository<T>(
+          new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item),
+          new DefaultSitecoreIndexNameProvider(),
+          new DefaultSearchQueryPredicateBuilder<T>(new NameValuePairSearchQueryValueProvider(() => Request.QueryString))
+      );
     }
 
     public ActionResult Index()

@@ -12,31 +12,34 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
   /// </summary>
   public class SitecoreSearchQueryElementProvider : ISearchQueryElementProvider
   {
-    private readonly Func<Item> _getSearchQueryRootItem;
-    private readonly ISearchQueryRuleFactory _searchQueryRuleFactory;
-    private readonly ISearchQueryGroupingFactory _searchQueryGroupingFactory;
+    private readonly Func<Item> _searchQueryRootItemFactory;
 
-    public SitecoreSearchQueryElementProvider(Func<Item> getSearchQueryRootItem)
-      : this(getSearchQueryRootItem, new SearchQueryRuleFactory(), new SearchQueryGroupingFactory())
+    public SitecoreSearchQueryElementProvider(Func<Item> searchQueryRootItemFactory)
+      : this(searchQueryRootItemFactory, 
+             Locator.Current.GetInstance<ISearchQueryRuleFactory>(),
+             Locator.Current.GetInstance<ISearchQueryGroupingFactory>())
     {
     }
 
-    public SitecoreSearchQueryElementProvider(Func<Item> getSearchQueryRootItem,
+    public SitecoreSearchQueryElementProvider(Func<Item> searchQueryRootItemFactory,
                                               ISearchQueryRuleFactory searchQueryRuleFactory,
                                               ISearchQueryGroupingFactory searchQueryGroupingFactory)
     {
-      Assert.ArgumentNotNull(getSearchQueryRootItem, "getSearchQueryRootItem");
+      Assert.ArgumentNotNull(searchQueryRootItemFactory, "searchQueryRootItemFactory");
       Assert.ArgumentNotNull(searchQueryRuleFactory, "searchQueryRuleFactory");
       Assert.ArgumentNotNull(searchQueryGroupingFactory, "searchQueryGroupingFactory");
 
-      _getSearchQueryRootItem = getSearchQueryRootItem;
-      _searchQueryRuleFactory = searchQueryRuleFactory;
-      _searchQueryGroupingFactory = searchQueryGroupingFactory;
+      _searchQueryRootItemFactory = searchQueryRootItemFactory;
+      SearchQueryRuleFactory = searchQueryRuleFactory;
+      SearchQueryGroupingFactory = searchQueryGroupingFactory;
     }
+
+    public ISearchQueryRuleFactory SearchQueryRuleFactory { get; }
+    public ISearchQueryGroupingFactory SearchQueryGroupingFactory { get; }
 
     public ISearchQueryElement<T> GetSearchQueryElementRoot<T>() where T : IndexableEntity, new()
     {
-      Item searchQueryRootItem = _getSearchQueryRootItem();
+      Item searchQueryRootItem = _searchQueryRootItemFactory();
 
       if (searchQueryRootItem == null)
         throw new ArgumentException("The searchQueryRootItem cannot be null");
@@ -99,7 +102,7 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
       var defaultValue =
         item.Fields[Constants.Fields._SearchQueryRule.DefaultValue].Value;
 
-      return _searchQueryRuleFactory.Create<T>(
+      return SearchQueryRuleFactory.Create<T>(
         associatedPropertyName, configuredComparisonOperator, dynamicValueProvidingParameter, defaultValue);
     }
 
@@ -108,7 +111,7 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryElement
       var configuredLogicalOperator =
         item.Fields[Constants.Fields._SearchQueryGrouping.SearchQueryGroupingLogicalOperator].Value;
 
-      return _searchQueryGroupingFactory.Create<T>(configuredLogicalOperator);
+      return SearchQueryGroupingFactory.Create<T>(configuredLogicalOperator);
     }
   }
 }

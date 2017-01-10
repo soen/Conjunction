@@ -4,10 +4,8 @@ namespace Conjunction.Foundation.Core.Model.Factories
 {
   public class SearchQueryGroupingFactory : ISearchQueryGroupingFactory
   {
-    private readonly ILogicalOperatorFactory _logicalOperatorFactory;
-
     public SearchQueryGroupingFactory() 
-      : this(new LogicalOperatorFactory())
+      : this(Locator.Current.GetInstance<ILogicalOperatorFactory>())
     {
     }
 
@@ -15,12 +13,14 @@ namespace Conjunction.Foundation.Core.Model.Factories
     {
       Assert.ArgumentNotNull(logicalOperatorFactory, "logicalOperatorFactory");
 
-      _logicalOperatorFactory = logicalOperatorFactory;
+      LogicalOperatorFactory = logicalOperatorFactory;
     }
+
+    public ILogicalOperatorFactory LogicalOperatorFactory { get; }
 
     public SearchQueryGrouping<T> Create<T>(string configuredLogicalOperator) where T : IndexableEntity, new()
     {
-      var logicalOperator = _logicalOperatorFactory.Create(configuredLogicalOperator);
+      var logicalOperator = LogicalOperatorFactory.Create(configuredLogicalOperator);
       return new SearchQueryGrouping<T>(logicalOperator);
     }
   }
