@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Infrastructure\IMutableDependencyResolver.cs" />
     <Compile Include="Infrastructure\MutableDependencyResolver.cs" />
     <Compile Include="Infrastructure\ExpressionUtils.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />

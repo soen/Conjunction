@@ -5,15 +5,17 @@ namespace Conjunction.Foundation.Core
 {
   internal class Locator
   {
+    private static readonly IMutableDependencyResolver MutableDependencyResolver;
+
     static Locator()
     {
-      Current = new MutableDependencyResolver();
-      Initialize(Current);
+      MutableDependencyResolver = new MutableDependencyResolver();
+      Initialize(MutableDependencyResolver);
     }
+    
+    public static IDependencyResolver Current => MutableDependencyResolver;
 
-    public static IDependencyResolver Current { get; }
-
-    private static void Initialize(IDependencyResolver dependencyResolver)
+    private static void Initialize(IMutableDependencyResolver dependencyResolver)
     {
       dependencyResolver.Register<IComparisonOperatorFactory>(() => new ComparisonOperatorFactory());
       dependencyResolver.Register<ILogicalOperatorFactory>(() => new LogicalOperatorFactory());
