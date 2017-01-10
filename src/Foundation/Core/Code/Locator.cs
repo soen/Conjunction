@@ -10,17 +10,17 @@ namespace Conjunction.Foundation.Core
     static Locator()
     {
       MutableDependencyResolver = new MutableDependencyResolver();
-      Initialize(MutableDependencyResolver);
+      Initialize();
     }
     
     public static IDependencyResolver Current => MutableDependencyResolver;
 
-    private static void Initialize(IMutableDependencyResolver dependencyResolver)
+    private static void Initialize()
     {
-      dependencyResolver.Register<IComparisonOperatorFactory>(() => new ComparisonOperatorFactory());
-      dependencyResolver.Register<ILogicalOperatorFactory>(() => new LogicalOperatorFactory());
-      dependencyResolver.Register<ISearchQueryRuleFactory>(() => new SearchQueryRuleFactory());
-      dependencyResolver.Register<ISearchQueryGroupingFactory>(() => new SearchQueryGroupingFactory());
+      MutableDependencyResolver.Register<IComparisonOperatorFactory>(() => new ComparisonOperatorFactory());
+      MutableDependencyResolver.Register<ILogicalOperatorFactory>(() => new LogicalOperatorFactory());
+      MutableDependencyResolver.Register<ISearchQueryRuleFactory>(() => new SearchQueryRuleFactory());
+      MutableDependencyResolver.Register<ISearchQueryGroupingFactory>(() => new SearchQueryGroupingFactory());
     }
   }
 }
