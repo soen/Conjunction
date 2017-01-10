@@ -23,33 +23,14 @@ namespace Demo.Controllers
     private ISearchResultRepository<T> CreateSearchResultRepository<T>()
       where T : IndexableEntity, new()
     {
-      // == Constructing the SearchResultRepository instance ==
-
-      //// You can choose to either use the builder, where you specify the element- and value providers:
-
-      //var builder = new SearchResultRepositoryBuilder<T>();
-
-      //var searchResultRepository = builder.Create(
-      //  new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item),
-      //  new NameValuePairSearchQueryValueProvider(() => Request.QueryString)
-      //);
-
-      //return searchResultRepository;
-
-      // Note: By default, the builder uses the built-in predicate builder implemenation. 
-      // If you want to swap out default predicate-builder, you can do so like this: 
-      //.WithPredicateBuilder(new DefaultSearchQueryPredicateBuilder<T>(new NameValuePairSearchQueryValueProvider(() => Request.QueryString)))
-
-      // Note: By default, Conjunction uses Sitecore's master/web index. You should create your own indexNameProvider, and
-      //       swap the default one out, like so:
-      //.WithIndexNameProvider(new CustomDomainIndexNameProvider());
-
-      // Or you can simply compose the objects together yourself:
+      var elementProvider = new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item);
+      var indexNameProvider = new DefaultSitecoreIndexNameProvider();
+      var valueProvider = new NameValuePairSearchQueryValueProvider(() => Request.QueryString);
 
       return new SearchResultRepository<T>(
-          new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item),
-          new DefaultSitecoreIndexNameProvider(),
-          new DefaultSearchQueryPredicateBuilder<T>(new NameValuePairSearchQueryValueProvider(() => Request.QueryString))
+          elementProvider,
+          indexNameProvider,
+          new DefaultSearchQueryPredicateBuilder<T>(valueProvider)  // NOTE: This part of the API will be cleaned up!
       );
     }
 
