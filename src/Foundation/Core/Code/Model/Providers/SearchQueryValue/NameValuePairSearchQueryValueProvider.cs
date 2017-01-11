@@ -10,13 +10,13 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
   /// </summary>
   public class NameValuePairSearchQueryValueProvider : SearchQueryValueProviderBase
   {
-    private readonly Func<NameValueCollection> _nameValuePairsFactory;
+    private readonly Func<NameValueCollection> _nameValuePairFactory;
 
-    public NameValuePairSearchQueryValueProvider(Func<NameValueCollection> nameValuePairsFactory)
+    public NameValuePairSearchQueryValueProvider(Func<NameValueCollection> nameValuePairFactory)
     {
-      Assert.ArgumentNotNull(nameValuePairsFactory, "nameValuePairsFactory");
+      Assert.ArgumentNotNull(nameValuePairFactory, "nameValuePairFactory");
 
-      _nameValuePairsFactory = nameValuePairsFactory;
+      _nameValuePairFactory = nameValuePairFactory;
     }
     
     protected override string GetRawDefaultOrDynamicValueProvidedByParameter<T>(SearchQueryRule<T> searchQueryRule)
@@ -28,7 +28,7 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
       else
       {
         var valueProviderParameterName = searchQueryRule.DynamicValueProvidingParameter;
-        var nameValuePairs = _nameValuePairsFactory();
+        var nameValuePairs = _nameValuePairFactory();
 
         if (nameValuePairs == null)
           throw new InvalidOperationException("The nameValuePairs cannot be null");

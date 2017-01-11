@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using Conjunction.Foundation.Core.Model;
-using Conjunction.Foundation.Core.Model.Processing;
 using Conjunction.Foundation.Core.Model.Providers.Indexing;
 using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
 using Conjunction.Foundation.Core.Model.Providers.SearchQueryValue;
@@ -24,14 +23,12 @@ namespace Demo.Controllers
       where T : IndexableEntity, new()
     {
       var elementProvider = new SitecoreSearchQueryElementProvider(() => RenderingContext.Current.Rendering.Item);
-      var indexNameProvider = new DefaultSitecoreIndexNameProvider();
       var valueProvider = new NameValuePairSearchQueryValueProvider(() => Request.QueryString);
 
-      return new SearchResultRepository<T>(
-          elementProvider,
-          indexNameProvider,
-          new DefaultSearchQueryPredicateBuilder<T>(valueProvider)  // NOTE: This part of the API will be cleaned up!
-      );
+      var builder = new SearchResultRepositoryBuilder<T>()
+                       .WithIndexNameProvider<DefaultSitecoreIndexNameProvider>();
+
+      return builder.Create(elementProvider, valueProvider);
     }
 
     public ActionResult Index()

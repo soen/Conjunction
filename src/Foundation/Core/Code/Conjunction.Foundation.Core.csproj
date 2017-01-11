@@ -120,6 +120,7 @@
     <Compile Include="Model\SearchQueryGrouping.cs" />
     <Compile Include="Model\IndexableEntity.cs" />
     <Compile Include="Model\SearchResult.cs" />
+    <Compile Include="Model\SearchResultRepositoryBuilder.cs" />
     <Compile Include="Model\Services\ExpressionConversionService.cs" />
     <Compile Include="Model\Services\SearchQueryValueConversionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
