@@ -15,11 +15,11 @@ namespace Conjunction.Foundation.Core.Model.Processing
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;
     private Expression<Func<T, bool>> _outputPredicate;
     
-    public DefaultSearchQueryPredicateBuilder(ISearchQueryValueProvider searchQuerySearchQueryValueProvider)
+    public DefaultSearchQueryPredicateBuilder(ISearchQueryValueProvider searchQueryValueProvider)
     {
-      Assert.ArgumentNotNull(searchQuerySearchQueryValueProvider, "searchQueryValueProvider");
+      Assert.ArgumentNotNull(searchQueryValueProvider, "searchQueryValueProvider");
 
-      SearchQueryValueProvider = searchQuerySearchQueryValueProvider;
+      SearchQueryValueProvider = searchQueryValueProvider;
       _predicateBuilderContext = new Stack<PredicateBuilderContext>();
     }
 
@@ -62,9 +62,6 @@ namespace Conjunction.Foundation.Core.Model.Processing
         return;
 
       var predicate = GetPredicateFromSearchQueryRule(searchQueryRule, value);
-      if (predicate == null)
-        return;
-
       var builderContext = _predicateBuilderContext.Peek();
 
       switch (builderContext.LogicalOperator)
@@ -84,7 +81,7 @@ namespace Conjunction.Foundation.Core.Model.Processing
 
     private static Expression<Func<T, bool>> GetPredicateFromSearchQueryRule(SearchQueryRule<T> searchQueryRule, object value)
     {
-      Expression<Func<T, bool>> predicate = null;
+      Expression<Func<T, bool>> predicate;
             
       switch (searchQueryRule.ComparisonOperator)
       {
@@ -105,9 +102,8 @@ namespace Conjunction.Foundation.Core.Model.Processing
           break;
 
         case ComparisonOperator.Between:
-          var rangeValue = value as RangeValue;
-          if (rangeValue != null)
-            predicate = ExpressionConversionService.ToBetween(searchQueryRule.PropertySelector, rangeValue.LowerValue, rangeValue.UpperValue);
+          var rangeValue = (RangeValue) value;
+          predicate = ExpressionConversionService.ToBetween(searchQueryRule.PropertySelector, rangeValue.LowerValue, rangeValue.UpperValue);
           break;
 
         case ComparisonOperator.GreaterThan:
@@ -157,7 +153,7 @@ namespace Conjunction.Foundation.Core.Model.Processing
     /// <summary>
     /// Represents the context being used within the <see cref="DefaultSearchQueryPredicateBuilder{T}"/>
     /// </summary>
-    private class PredicateBuilderContext
+    private sealed class PredicateBuilderContext
     {
       public PredicateBuilderContext(Expression<Func<T, bool>> predicate, LogicalOperator logicalOperator)
       {

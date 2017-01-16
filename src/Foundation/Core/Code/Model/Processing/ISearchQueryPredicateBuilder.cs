@@ -12,7 +12,7 @@ namespace Conjunction.Foundation.Core.Model.Processing
   public interface ISearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T> where T : IndexableEntity, new()
   {
     ISearchQueryValueProvider SearchQueryValueProvider { get; }
-
+    
     Expression<Func<T, bool>> GetOutput();
   }
 }

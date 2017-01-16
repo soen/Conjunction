@@ -28,7 +28,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
 
     [RequireLicense]
     [Fact]
-    public void Ctor_SearchQueryRootItemFuncIsNull_ThrowsException()
+    public void Ctor_SearchQueryValueProviderIsNull_ThrowsException()
     {
       // Arrange
       Func<Item> getSearchQueryRootItem = null;
@@ -51,10 +51,10 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       })
       {
         Item searchQueryRootItem = null;
-        var provider = new SitecoreSearchQueryElementProvider(() => searchQueryRootItem);
+        var sut = new SitecoreSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
-        Action act = () => provider.GetSearchQueryElementRoot<TestIndexableEntity>();
+        Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
 
         // Assert
         act.ShouldThrow<ArgumentException>();
@@ -72,10 +72,10 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.SearchQueryElement
       })
       {
         var searchQueryRootItem = db.GetItem("/sitecore/content/invalidsearchqueryrootitem");
-        var provider = new SitecoreSearchQueryElementProvider(() => searchQueryRootItem);
+        var sut = new SitecoreSearchQueryElementProvider(() => searchQueryRootItem);
 
         // Act
-        Action act = () => provider.GetSearchQueryElementRoot<TestIndexableEntity>();
+        Action act = () => sut.GetSearchQueryElementRoot<TestIndexableEntity>();
 
         // Assert
         act.ShouldThrow<ArgumentException>();
