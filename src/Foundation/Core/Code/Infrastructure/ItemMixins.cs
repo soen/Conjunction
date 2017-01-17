@@ -8,7 +8,7 @@ namespace Conjunction.Foundation.Core.Infrastructure
   /// <summary>
   /// Provides extension functionalities for working with Sitecore <see cref="Item"/> types.
   /// </summary>
-  public static class ItemMixins
+  internal static class ItemMixins
   {
     public static bool IsDerived([NotNull] this Item item, [NotNull] ID templateId)
     {

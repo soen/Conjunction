@@ -8,7 +8,7 @@ namespace Conjunction.Foundation.Core.Infrastructure
   /// Provides extension functionalities for the <see cref="IQueryable{T}"/> type to be used
   /// in the context of working with <see cref="SearchResultItem"/> types.
   /// </summary>
-  public static class QueryableMixins
+  internal static class QueryableMixins
   {
     public static IQueryable<T> IsContentItem<T>(this IQueryable<T> query) where T : SearchResultItem
     {

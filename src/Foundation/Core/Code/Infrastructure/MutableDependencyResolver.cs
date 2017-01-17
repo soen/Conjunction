@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Conjunction.Foundation.Core.Infrastructure
 {
-  public class MutableDependencyResolver : IMutableDependencyResolver
+  internal sealed class MutableDependencyResolver : IMutableDependencyResolver
   {
     private readonly Dictionary<Type, Func<object>> _registrations = new Dictionary<Type, Func<object>>();
 

@@ -2,7 +2,7 @@
 
 namespace Conjunction.Foundation.Core.Infrastructure
 {
-  public interface IMutableDependencyResolver : IDependencyResolver
+  internal interface IMutableDependencyResolver : IDependencyResolver
   {
     void Register<TService>(Func<TService> instanceFactory);
     void Register<TService, TImpl>() where TImpl : TService;
