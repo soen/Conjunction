@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Conjunction.Foundation.Core.Tests.Model.Providers.Indexing
 {
-  public class DefaultSitecoreIndexNameProviderTests
+  public class SitecoreMasterOrWebIndexNameProviderTests
   {
     [RequireLicense]
     [Theory]
@@ -19,7 +19,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Providers.Indexing
       var fakeSite = new FakeSiteContext(new StringDictionary { {"database", dbName } });
       using (new SiteContextSwitcher(fakeSite))
       {
-        var sut = new DefaultSitecoreIndexNameProvider();
+        var sut = new SitecoreMasterOrWebIndexNameProvider();
 
         // Act
         var actual = sut.IndexName;

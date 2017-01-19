@@ -10,12 +10,12 @@ using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Processing
 {
-  public class DefaultSearchQueryPredicateBuilder<T> : ISearchQueryPredicateBuilder<T> where T : IndexableEntity, new()
+  public class SearchQueryPredicateBuilder<T> : ISearchQueryPredicateBuilder<T> where T : IndexableEntity, new()
   {
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;
     private Expression<Func<T, bool>> _outputPredicate;
     
-    public DefaultSearchQueryPredicateBuilder(ISearchQueryValueProvider searchQueryValueProvider)
+    public SearchQueryPredicateBuilder(ISearchQueryValueProvider searchQueryValueProvider)
     {
       Assert.ArgumentNotNull(searchQueryValueProvider, "searchQueryValueProvider");
 
@@ -25,6 +25,8 @@ namespace Conjunction.Foundation.Core.Model.Processing
 
     public void VisitSearchQueryGroupingBegin(SearchQueryGrouping<T> searchQueryGrouping)
     {
+      Assert.ArgumentNotNull(searchQueryGrouping, "searchQueryGrouping");
+
       Expression<Func<T, bool>> predicate;
 
       switch (searchQueryGrouping.LogicalOperator)
@@ -57,6 +59,8 @@ namespace Conjunction.Foundation.Core.Model.Processing
 
     public void VisitSearchQueryRule(SearchQueryRule<T> searchQueryRule)
     {
+      Assert.ArgumentNotNull(searchQueryRule, "searchQueryRule");
+
       var value = SearchQueryValueProvider.GetValueForSearchQueryRule(searchQueryRule);
       if (value == null)
         return;
@@ -151,7 +155,7 @@ namespace Conjunction.Foundation.Core.Model.Processing
     }
 
     /// <summary>
-    /// Represents the context being used within the <see cref="DefaultSearchQueryPredicateBuilder{T}"/>
+    /// Represents the context being used within the <see cref="SearchQueryPredicateBuilder{T}"/>
     /// </summary>
     private sealed class PredicateBuilderContext
     {

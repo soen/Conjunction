@@ -14,7 +14,7 @@ namespace Conjunction.Foundation.Core.Model
     private readonly Type _searchQueryPredicateBuilderType;
 
     public SearchResultRepositoryBuilder() 
-      : this(typeof(DefaultSitecoreIndexNameProvider), typeof(DefaultSearchQueryPredicateBuilder<T>))
+      : this(typeof(SitecoreMasterOrWebIndexNameProvider), typeof(SearchQueryPredicateBuilder<T>))
     {
     }
 

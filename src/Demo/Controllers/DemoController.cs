@@ -26,7 +26,7 @@ namespace Demo.Controllers
       var valueProvider = new NameValuePairSearchQueryValueProvider(() => Request.QueryString);
 
       var builder = new SearchResultRepositoryBuilder<T>()
-                       .WithIndexNameProvider<DefaultSitecoreIndexNameProvider>();
+                       .WithIndexNameProvider<SitecoreMasterOrWebIndexNameProvider>();
 
       return builder.Create(elementProvider, valueProvider);
     }

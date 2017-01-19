@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Conjunction.Foundation.Core.Model.Processing;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model
 {
@@ -20,6 +21,8 @@ namespace Conjunction.Foundation.Core.Model
                            string dynamicValueProvidingParameter = null,
                            string defaultValue = null)
     {
+      Assert.ArgumentNotNull(propertySelector, "propertySelector");
+
       PropertySelector = propertySelector;
       ComparisonOperator = comparisonOperator;
       DynamicValueProvidingParameter = dynamicValueProvidingParameter;

@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Conjunction.Foundation.Core.Tests.Model.Processing
 {
-  public class DefaultSearchQueryPredicateBuilderTests
+  public class SearchQueryPredicateBuilderTests
   {
     [Fact]
     public void Ctor_SearchQueryRootItemFuncIsNull_ThrowsException()
@@ -21,7 +21,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       ISearchQueryValueProvider valueProvider = null;
 
       // Act
-      Action act = () => new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProvider);
+      Action act = () => new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProvider);
 
       // Assert
       act.ShouldThrow<ArgumentNullException>();
@@ -41,7 +41,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       var searchQueryGrouping = new SearchQueryGrouping<TestIndexableEntity>(logicalOperator);
       
 
-      var sut = new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
 
       // Act
       searchQueryGrouping.Accept(sut);
@@ -64,7 +64,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       searchQueryRoot.SearchQueryElements.Add(searchQueryGrouping);
 
       var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
-      var sut = new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
 
       // Act
       searchQueryRoot.Accept(sut);
@@ -93,7 +93,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       valueProviderMock.GetValueForSearchQueryRule(integerEqualsRule).Returns(1);
       valueProviderMock.GetValueForSearchQueryRule(booleanEqualsRule).Returns(false);
 
-      var sut = new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
 
       // Act
       searchQueryGrouping.Accept(sut);
@@ -112,7 +112,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
       valueProviderMock.GetValueForSearchQueryRule(searchQueryRule).Returns(x => null);
 
-      var sut = new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
 
       // Act
       searchQueryRule.Accept(sut);
@@ -137,7 +137,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
       valueProviderMock.GetValueForSearchQueryRule(searchQueryRule).Returns(x => value);
 
-      var sut = new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
 
       // Act
       searchRootItem.Accept(sut);
@@ -194,7 +194,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
       valueProviderMock.GetValueForSearchQueryRule(searchQueryRule).Returns(value);
 
-      var sut = new DefaultSearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
 
       // Act
       searchRootItem.Accept(sut);

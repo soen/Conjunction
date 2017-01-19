@@ -124,13 +124,14 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Model\Processing\DefaultSearchQueryPredicateBuilderTests.cs" />
+    <Compile Include="Model\SearchResultRepositoryBuilderTests.cs" />
+    <Compile Include="Model\Processing\SearchQueryPredicateBuilderTests.cs" />
     <Compile Include="Model\Repositories\SearchResultRepositoryTests.cs" />
     <Compile Include="Model\Services\ExpressionConversionServiceTests.cs" />
     <Compile Include="Model\Services\SearchQueryValueConversionServiceTests.cs" />
     <Compile Include="RequireLicenseDiscoverer.cs" />
     <Compile Include="Infrastructure\ExpressionUtilsTests.cs" />
-    <Compile Include="Model\Providers\Indexing\DefaultSitecoreIndexNameProvider.cs" />
+    <Compile Include="Model\Providers\Indexing\SitecoreMasterOrWebIndexNameProviderTests.cs" />
     <Compile Include="Model\Providers\SearchQueryElement\SitecoreSearchQueryElementProviderTests.cs" />
     <Compile Include="Model\Providers\SearchQueryValue\NameValuePairSearchQueryValueProviderTests.cs" />
     <Compile Include="Model\TestIndexableEntity.cs" />
