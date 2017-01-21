@@ -27,22 +27,16 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       act.ShouldThrow<ArgumentNullException>();
     }
 
-    [Theory]
-    [InlineData(LogicalOperator.And, true)]
-    [InlineData(LogicalOperator.Or, false)]
-    public void VisitSearchQueryGrouping_EmptySearchQueryGrouping_ReturnExpression(LogicalOperator logicalOperator, bool exceptedBooleanExpressionValue)
+    [Theory, DefaultAutoData]
+    public void VisitSearchQueryGrouping_EmptySearchQueryGrouping_ReturnExpression(
+      SearchQueryPredicateBuilder<TestIndexableEntity> sut)
     {
       // Arrange
-      Expression<Func<TestIndexableEntity, bool>> expected = x => exceptedBooleanExpressionValue;
-
-      var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
+      Expression<Func<TestIndexableEntity, bool>> expected = x => true;
 
       var indexableEntity = new TestIndexableEntity();
-      var searchQueryGrouping = new SearchQueryGrouping<TestIndexableEntity>(logicalOperator);
+      var searchQueryGrouping = new SearchQueryGrouping<TestIndexableEntity>(LogicalOperator.And);
       
-
-      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
-
       // Act
       searchQueryGrouping.Accept(sut);
       Expression<Func<TestIndexableEntity, bool>> actual = sut.GetOutput();
@@ -51,8 +45,9 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       Assert.Equal(actual.Compile().Invoke(indexableEntity), expected.Compile().Invoke(indexableEntity));
     }
 
-    [Fact]
-    public void VisitSearchQueryGrouping_NestedSearchQueryGrouping_ReturnExpression()
+    [Theory, DefaultAutoData]
+    public void VisitSearchQueryGrouping_NestedSearchQueryGrouping_ReturnExpression(
+      SearchQueryPredicateBuilder<TestIndexableEntity> sut)
     {
       // Arrange
       Expression<Func<TestIndexableEntity, bool>> expected = x => false && true;
@@ -63,9 +58,6 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       var searchQueryGrouping = new SearchQueryGrouping<TestIndexableEntity>(LogicalOperator.Or);
       searchQueryRoot.SearchQueryElements.Add(searchQueryGrouping);
 
-      var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
-      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
-
       // Act
       searchQueryRoot.Accept(sut);
       Expression<Func<TestIndexableEntity, bool>> actual = sut.GetOutput();
@@ -73,47 +65,51 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       // Assert
       Assert.Equal(actual.Compile().Invoke(indexableEntity), expected.Compile().Invoke(indexableEntity));
     }
-
-    [Fact]
-    public void VisitSearchQueryGrouping_WithRules_ReturnExpression()
+    
+    [Theory, DefaultAutoData]
+    public void VisitSearchQueryGrouping_WithRules_ReturnExpression(
+      SearchQueryPredicateBuilder<TestIndexableEntity> sut)
     {
       // Arrange
       Expression<Func<TestIndexableEntity, bool>> expected = x => (x.SomeInteger == 1 || x.SomeBoolean == false);
 
       var indexableEntity = new TestIndexableEntity();
 
-      var integerEqualsRule = new SearchQueryRule<TestIndexableEntity>(x => x.SomeInteger, ComparisonOperator.Equal, null, "1");
-      var booleanEqualsRule = new SearchQueryRule<TestIndexableEntity>(x => x.SomeBoolean, ComparisonOperator.Equal, null, "false");
+      var integerEqualsRule = new SearchQueryRule<TestIndexableEntity>(
+        x => x.SomeInteger, ComparisonOperator.Equal, null, "1"
+      );
+      var booleanEqualsRule = new SearchQueryRule<TestIndexableEntity>(
+        x => x.SomeBoolean, ComparisonOperator.Equal, null, "false"
+      );
 
       var searchQueryGrouping = new SearchQueryGrouping<TestIndexableEntity>(LogicalOperator.Or);
       searchQueryGrouping.SearchQueryElements.Add(integerEqualsRule);
       searchQueryGrouping.SearchQueryElements.Add(booleanEqualsRule);
 
-      var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
-      valueProviderMock.GetValueForSearchQueryRule(integerEqualsRule).Returns(1);
-      valueProviderMock.GetValueForSearchQueryRule(booleanEqualsRule).Returns(false);
-
-      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      sut.SearchQueryValueProvider.GetValueForSearchQueryRule(integerEqualsRule).Returns(1);
+      sut.SearchQueryValueProvider.GetValueForSearchQueryRule(booleanEqualsRule).Returns(false);
 
       // Act
       searchQueryGrouping.Accept(sut);
       Expression<Func<TestIndexableEntity, bool>> actual = sut.GetOutput();
 
       // Assert
-      Assert.Equal(actual.Compile().Invoke(indexableEntity), expected.Compile().Invoke(indexableEntity));
+      Assert.Equal(actual.Compile().Invoke(indexableEntity), 
+                   expected.Compile().Invoke(indexableEntity));
     }
 
-    [Fact]
-    public void VisitSearchQueryRule_DefaultOrDynamicValueNotFound_ReturnsNullExpression()
+    [Theory, DefaultAutoData]
+    public void VisitSearchQueryRule_DefaultOrDynamicValueNotFound_ReturnsNullExpression(
+      SearchQueryPredicateBuilder<TestIndexableEntity> sut)
     {
       // Arrange
       var searchQueryRule = new SearchQueryRule<TestIndexableEntity>(x => x.SomeInteger, ComparisonOperator.Equal);
 
-      var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
-      valueProviderMock.GetValueForSearchQueryRule(searchQueryRule).Returns(x => null);
-
-      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
-
+      sut
+        .SearchQueryValueProvider
+        .GetValueForSearchQueryRule(searchQueryRule)
+        .Returns(x => null);
+      
       // Act
       searchQueryRule.Accept(sut);
       Expression<Func<TestIndexableEntity, bool>> actual = sut.GetOutput();
@@ -122,8 +118,9 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       actual.Should().BeNull();
     }
 
-    [Fact]
-    public void VisitSearchQueryRule_DefaultOrDynamicValueFound_ReturnsExpression()
+    [Theory, DefaultAutoData]
+    public void VisitSearchQueryRule_DefaultOrDynamicValueFound_ReturnsExpression(
+      SearchQueryPredicateBuilder<TestIndexableEntity> sut)
     {
       // Arrange
       var value = 1;
@@ -134,10 +131,10 @@ namespace Conjunction.Foundation.Core.Tests.Model.Processing
       var searchRootItem = new SearchQueryGrouping<TestIndexableEntity>(LogicalOperator.And);
       searchRootItem.SearchQueryElements.Add(searchQueryRule);
 
-      var valueProviderMock = Substitute.For<ISearchQueryValueProvider>();
-      valueProviderMock.GetValueForSearchQueryRule(searchQueryRule).Returns(x => value);
-
-      var sut = new SearchQueryPredicateBuilder<TestIndexableEntity>(valueProviderMock);
+      sut
+        .SearchQueryValueProvider
+        .GetValueForSearchQueryRule(searchQueryRule)
+        .Returns(x => value);
 
       // Act
       searchRootItem.Accept(sut);
