@@ -143,6 +143,8 @@
     <Compile Include="Model\Repositories\SearchResultRepositoryTests.cs" />
     <Compile Include="Model\Services\ExpressionConversionServiceTests.cs" />
     <Compile Include="Model\Services\SearchQueryValueConversionServiceTests.cs" />
+    <Compile Include="Model\TestIndexNameProvider.cs" />
+    <Compile Include="Model\TestPredicateBuilder.cs" />
     <Compile Include="RequireLicenseDiscoverer.cs" />
     <Compile Include="Infrastructure\ExpressionUtilsTests.cs" />
     <Compile Include="Model\Providers\Indexing\SitecoreMasterOrWebIndexNameProviderTests.cs" />

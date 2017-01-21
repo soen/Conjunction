@@ -19,6 +19,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 {
   public class SearchResultRepositoryTests
   {
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void Ctor_SearchQueryElementProviderIsNull_ThrowsException(
       IIndexNameProvider indexNameProvider,
@@ -34,6 +35,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       act.ShouldThrow<ArgumentNullException>();
     }
 
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void Ctor_IndexNameProviderIsNull_ThrowsException(
       ISearchQueryElementProvider elementProvider,
@@ -50,6 +52,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       act.ShouldThrow<ArgumentNullException>();
     }
 
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void Ctor_SearchQueryPredicateBuilderIsNull_ThrowsException(
       ISearchQueryElementProvider elementProvider,
@@ -65,6 +68,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       act.ShouldThrow<ArgumentNullException>();
     }
 
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void GetSearchResult_NoFilter_ReturnContentItems(
       ISearchQueryElementProvider elementProvider,
@@ -106,6 +110,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       actual.Hits.First().Paths.Should().Contain(ItemIDs.ContentRoot);
     }
 
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void GetSearchResult_NoFilter_ReturnItemsWithCurrentLanguage(
       ISearchQueryElementProvider elementProvider,
@@ -147,6 +152,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       actual.Hits.First().Language.Should().Contain("en");
     }
 
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void GetSearchResult_NoFilter_ReturnItemsWithLatestVersion(
       ISearchQueryElementProvider elementProvider,
@@ -188,6 +194,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       actual.Hits.First().Fields["_latestversion"].Should().Be("1");
     }
 
+    [RequireLicense]
     [Theory, DefaultAutoData]
     public void GetSearchResult_FilterByPredicate_ReturnItemsFulfillingPredicate(
       ISearchQueryElementProvider elementProvider,
