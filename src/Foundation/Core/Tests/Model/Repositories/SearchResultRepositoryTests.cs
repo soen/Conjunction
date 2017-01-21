@@ -212,9 +212,8 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
       var queryable = new QueryProviderStub<TestIndexableEntity>(new[]
       {
-        CreateTestIndexableEntity("Faucet", paths: new List<ID> {ItemIDs.ContentRoot} ),
-        CreateTestIndexableEntity("Fence"),
-        CreateTestIndexableEntity("Baz")
+        CreateTestIndexableEntity("Faucet", paths: new List<ID> {ItemIDs.ContentRoot}),
+        CreateTestIndexableEntity("Clamp", paths: new List<ID> {ItemIDs.ContentRoot})
       }.AsQueryable());
 
       searchIndex
@@ -231,7 +230,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
       // Assert
       actual.TotalSearchResults.ShouldBeEquivalentTo(1);
-      actual.Hits.First().Name.ShouldAllBeEquivalentTo("Faucet");
+      actual.Hits.First().Name.Should().Contain("F");
     }
     
     private TestIndexableEntity CreateTestIndexableEntity(
