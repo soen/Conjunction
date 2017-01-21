@@ -27,8 +27,6 @@ namespace Demo
 
     public ISearchQueryPredicateBuilder<T> SearchQueryPredicateBuilder => _searchResultRepository.SearchQueryPredicateBuilder;
 
-    public ISearchIndex SearchIndex => _searchResultRepository.SearchIndex;
-
     public SearchResult<T> GetSearchResult(SearchCriteria searchCriteria)
     {
       // TODO: Add caching...

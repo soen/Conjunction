@@ -38,7 +38,7 @@ namespace Conjunction.Foundation.Core.Model.Repositories
     public ISearchQueryPredicateBuilder<T> SearchQueryPredicateBuilder { get; }
 
     public ISearchIndex SearchIndex => ContentSearchManager.GetIndex(IndexNameProvider.IndexName);
-    
+
     /// <summary>
     /// Performs a query using the provided <paramref name="searchCriteria"/> to retrieve a <see cref="SearchResult{T}"/>.
     /// </summary>
@@ -61,7 +61,7 @@ namespace Conjunction.Foundation.Core.Model.Repositories
                                  .IsContentItem()
                                  .IsContextLanguage()
                                  .IsLatestVersion()
-                                 .Filter(predicate);
+                                 .Where(predicate);
 
           var searchResults = queryable.GetResults();
           
