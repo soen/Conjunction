@@ -23,8 +23,14 @@ namespace Conjunction.Foundation.Core.Model
       SearchQueryElements = searchQueryElements;
     }
 
+    /// <summary>
+    /// Gets the <see cref="LogicalOperator"/> that is associated with the given search query grouping.
+    /// </summary>
     public LogicalOperator LogicalOperator { get; }
 
+    /// <summary>
+    /// Gets the search query elements children.
+    /// </summary>
     public ICollection<ISearchQueryElement<T>> SearchQueryElements { get; }
 
     public void Accept(ISearchQueryElementVisitor<T> visitor)

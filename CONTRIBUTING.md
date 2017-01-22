@@ -2,80 +2,74 @@
 
 When contributing to this repository, please first discuss the change you wish to make via issue before making a change. 
 
-Please note there is a code of conduct, please follow it in all your interactions with the project.
+Please note there is a [code of conduct](CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
 
-## Pull Request Process
+## Reporting Issues and Asking Questions
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. You may merge the Pull Request in once you have the sign-off of at least one other project maintainer, that has reviewed the changes you want to merge.
+Before opening an issue, please search the [issue tracker](https://github.com/soen/Conjunction/issues) to make sure your issue hasn't already been reported.
 
-## Code of Conduct
+## Development
 
-### Our Pledge
+Visit the [issue tracker](https://github.com/soen/Conjunction/issues) to find a list of open issues that need attention.
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of experience,
-nationality, personal appearance, race, religion, or sexual identity and
-orientation.
+Fork, then clone the repo:
 
-### Our Standards
+```
+git clone https://github.com/your-username/conjunction.git
+```
 
-Examples of behavior that contributes to creating a positive environment
-include:
+### Tests
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+Tests are located in the ``*.Tests`` projects and are using [xUnit.net](https://xunit.github.io/). By default, the test projects use [Visual Studio runner](https://github.com/xunit/visualstudio.xunit) to run the tests.
 
-Examples of unacceptable behavior by participants include:
+### Docs
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+Improvements to the documentation are always welcome. In the docs we abide by typographic rules, so instead of ' you should use '. Same goes for “ ” and dashes (—) where appropriate. These rules only apply to the text, not to code blocks.
 
-### Our Responsibilities
+#### Installing Gitbook
 
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
+To install the latest version of `gitbook` and prepare to build the documentation, run the following:
 
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
+```
+npm run docs:prepare
+```
 
-### Scope
+#### Building the Docs
 
-This Code of Conduct applies both within project spaces and in public spaces
-when an individual is representing the project or its community. Examples of
-representing a project or community include using an official project e-mail
-address, posting via an official social media account, or acting as an appointed
-representative at an online or offline event. Representation of a project may be
-further defined and clarified by project maintainers.
+To build the documentation, run the following:
 
-### Enforcement
+```
+npm run docs:build
+```
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+To watch and rebuild documentation when changes occur, run the following:
 
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+```
+npm run docs:watch
+```
 
-### Attribution
+The docs will be served at [http://localhost:4000](http://localhost:4000).
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at [http://contributor-covenant.org/version/1/4][version]
+#### Publishing the Docs
 
-[homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
+To publish the documentation, run the following:
+
+```
+npm run docs:publish
+```
+
+### Sending a Pull Request
+
+In general, the contribution workflow looks like this:
+
+* Open a new issue in the [issue tracker](https://github.com/soen/Conjunction/issues).
+* Fork the repo.
+* Create a new feature branch based off the master branch.
+* Make sure all tests pass.
+* Submit a pull request, referencing any issues it addresses.
+
+Please try to keep your pull request focused in scope and avoid including unrelated commits.
+
+After you have submitted your pull request, I'll get back to you as soon as possible.
+
+Thank you for contributing!

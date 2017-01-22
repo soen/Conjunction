@@ -5,6 +5,9 @@
   /// </summary>
   public interface IIndexNameProvider
   {
+    /// <summary>
+    /// Gets the name representing this index to query.
+    /// </summary>
     string IndexName { get; } 
   }
 }

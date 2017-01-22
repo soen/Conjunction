@@ -11,8 +11,15 @@ namespace Conjunction.Foundation.Core.Model.Processing
   /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
   public interface ISearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T> where T : IndexableEntity, new()
   {
+    /// <summary>
+    /// Gets the <see cref="ISearchQueryValueProvider"/> that is associated with the given predicate builder.
+    /// </summary>
     ISearchQueryValueProvider SearchQueryValueProvider { get; }
     
+    /// <summary>
+    /// Returns the aggregated output produced by the predicate builder.
+    /// </summary>
+    /// <returns>An aggregated predicate expression.</returns>
     Expression<Func<T, bool>> GetOutput();
   }
 }

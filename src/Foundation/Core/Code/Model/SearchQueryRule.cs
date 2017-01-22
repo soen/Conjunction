@@ -29,12 +29,24 @@ namespace Conjunction.Foundation.Core.Model
       DefaultValue = defaultValue;
     }
 
+    /// <summary>
+    /// Gets the property selector that is associated with the given search query rule.
+    /// </summary>
     public Expression<Func<T, object>> PropertySelector { get; }
 
+    /// <summary>
+    /// Gets the <see cref="ComparisonOperator"/> that is associated with the given search query rule.
+    /// </summary>
     public ComparisonOperator ComparisonOperator { get; }
 
+    /// <summary>
+    /// Gets the dynamic value providing parameter that is associated with the given search query rule.
+    /// </summary>
     public string DynamicValueProvidingParameter { get; }
 
+    /// <summary>
+    /// Gets the default value that is associated with the given search query rule.
+    /// </summary>
     public string DefaultValue { get; }
 
     public void Accept(ISearchQueryElementVisitor<T> visitor)

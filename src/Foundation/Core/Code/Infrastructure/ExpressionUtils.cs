@@ -10,6 +10,13 @@ namespace Conjunction.Foundation.Core.Infrastructure
   /// </summary>
   public static class ExpressionUtils
   {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TIn"></typeparam>
+    /// <typeparam name="TOut"></typeparam>
+    /// <param name="propertyName"></param>
+    /// <returns></returns>
     public static Expression<Func<TIn, TOut>> GetPropertySelector<TIn, TOut>(string propertyName)
     {
       Assert.ArgumentNotNullOrEmpty(propertyName, "propertyName");
@@ -26,6 +33,12 @@ namespace Conjunction.Foundation.Core.Infrastructure
       return Expression.Lambda<Func<TIn, TOut>>(body, param);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="propertySelector"></param>
+    /// <returns></returns>
     public static string GetPropertyNameFromPropertySelector<T>(Expression<Func<T, object>> propertySelector)
     {
       Assert.ArgumentNotNull(propertySelector, "propertySelector");
@@ -34,6 +47,12 @@ namespace Conjunction.Foundation.Core.Infrastructure
       return body.Member.Name;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="propertySelector"></param>
+    /// <returns></returns>
     public static Type GetPropertyTypeFromPropertySelector<T>(Expression<Func<T, object>> propertySelector)
     {
       Assert.ArgumentNotNull(propertySelector, "propertySelector");

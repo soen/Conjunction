@@ -3,6 +3,9 @@ using System.ComponentModel;
 
 namespace Conjunction.Foundation.Core.Model.Factories
 {
+  /// <summary>
+  /// Represents the default factory for building types of <see cref="ComparisonOperator"/>.
+  /// </summary>
   public class ComparisonOperatorFactory : IComparisonOperatorFactory
   {
     public ComparisonOperator Create(string rawComparisonOperator)

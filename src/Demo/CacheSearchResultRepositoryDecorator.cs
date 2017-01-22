@@ -1,9 +1,10 @@
-﻿using Conjunction.Foundation.Core.Model;
+﻿using System;
+using System.Runtime.Caching;
+using Conjunction.Foundation.Core.Model;
 using Conjunction.Foundation.Core.Model.Processing;
 using Conjunction.Foundation.Core.Model.Providers.Indexing;
 using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
 using Conjunction.Foundation.Core.Model.Repositories;
-using Sitecore.ContentSearch;
 
 namespace Demo
 {
@@ -12,8 +13,12 @@ namespace Demo
   /// of using caching.
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public class CacheSearchResultRepositoryDecorator<T> : ISearchResultRepository<T> where T : IndexableEntity, new()
+  public class CacheSearchResultRepositoryDecorator<T> : ISearchResultRepository<T>
+    where T : IndexableEntity, new()
   {
+    private const string CacheItemName = "__CachedSearchResult__";
+    private const int CacheTimeInMinutes = 5;
+
     private readonly ISearchResultRepository<T> _searchResultRepository;
 
     public CacheSearchResultRepositoryDecorator(ISearchResultRepository<T> searchResultRepository)
@@ -29,9 +34,24 @@ namespace Demo
 
     public SearchResult<T> GetSearchResult(SearchCriteria searchCriteria)
     {
-      // TODO: Add caching...
+      Func<SearchResult<T>> getSearchResult = () => _searchResultRepository.GetSearchResult(searchCriteria);
+      return GetSearchResultFromCache(getSearchResult);
+    }
 
-      return _searchResultRepository.GetSearchResult(searchCriteria);
+    private SearchResult<T> GetSearchResultFromCache(Func<SearchResult<T>> getSearchResult)
+    {
+      ObjectCache cache = MemoryCache.Default;
+      var cachedSearchResult = (SearchResult<T>)cache[CacheItemName];
+
+      if (cachedSearchResult == null)
+      {
+        CacheItemPolicy policy = new CacheItemPolicy();
+        policy.AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(CacheTimeInMinutes);
+        cachedSearchResult = getSearchResult();
+        cache.Set(CacheItemName, cachedSearchResult, policy);
+      }
+
+      return cachedSearchResult;
     }
   }
 }

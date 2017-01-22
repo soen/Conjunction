@@ -2,6 +2,9 @@
 
 namespace Conjunction.Foundation.Core.Model.Factories
 {
+  /// <summary>
+  /// Represents the default factory for building instances of type <see cref="SearchQueryGrouping{T}"/>.
+  /// </summary>
   public class SearchQueryGroupingFactory : ISearchQueryGroupingFactory
   {
     public SearchQueryGroupingFactory() 

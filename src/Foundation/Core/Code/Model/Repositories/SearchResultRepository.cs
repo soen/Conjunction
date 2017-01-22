@@ -16,6 +16,7 @@ namespace Conjunction.Foundation.Core.Model.Repositories
   /// Represents the main entry point for retrieving a <see cref="SearchResult{T}"/>
   /// from a given <see cref="SearchCriteria"/>.
   /// </summary>
+  /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
   public class SearchResultRepository<T> : ISearchResultRepository<T> where T : IndexableEntity, new()
   {
     public SearchResultRepository(ISearchQueryElementProvider searchQueryElementProvider, 
@@ -39,12 +40,6 @@ namespace Conjunction.Foundation.Core.Model.Repositories
 
     public ISearchIndex SearchIndex => ContentSearchManager.GetIndex(IndexNameProvider.IndexName);
 
-    /// <summary>
-    /// Performs a query using the provided <paramref name="searchCriteria"/> to retrieve a <see cref="SearchResult{T}"/>.
-    /// </summary>
-    /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
-    /// <param name="searchCriteria"></param>
-    /// <returns>A <see cref="SearchResult{T}"/></returns>
     public SearchResult<T> GetSearchResult(SearchCriteria searchCriteria)
     {
       Assert.ArgumentNotNull(searchCriteria, "searchCriteria");
