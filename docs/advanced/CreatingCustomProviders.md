@@ -8,7 +8,7 @@ By default, Conjunction ships with a search query element provider that allows C
 
 If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new type that implements the [``ISearchQueryElementProvider``](../api/README.md#isearchqueryelementprovider) interface. 
 
-> **Note**: You can find more inspiration on creating your own implementation by refering to the [``SitecoreConfiguredSearchQueryElementProvider``](../api/README.md#sitecoreconfiguredsearchqueryelementprovider) implementation.
+> **Note**: You can find more inspiration on creating your own implementation by refering to the [``SitecoreSearchQueryElementProvider``](../api/README.md#SitecoreSearchQueryElementProvider) implementation.
 
 ## Custom search query element value provider
 
@@ -58,7 +58,7 @@ Assuming that we want to leverage as much of the built-in functionality as possi
 }
 ```
 
-If you want to go with option number one, we recommend that you take a closer look on how the [``SearchQueryValueProviderBase``](../api/README.md#searchqueryvalueproviderbase) and [``QueryStringSearchQueryValueProvider``](../api/README.md#querystringsearchqueryvalueprovider) types are implemented.
+If you want to go with option number one, we recommend that you take a closer look on how the [``SearchQueryValueProviderBase``](../api/README.md#searchqueryvalueproviderbase) and [``NameValuePairSearchQueryValueProvider``](../api/README.md#NameValuePairSearchQueryValueProvider) types are implemented.
 
 ## A Domain Index Name Provider
 
