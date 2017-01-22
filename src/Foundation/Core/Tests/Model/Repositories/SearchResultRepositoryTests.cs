@@ -70,7 +70,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
     [RequireLicense]
     [Theory, DefaultAutoData]
-    public void GetSearchResult_NoFilter_ReturnContentItems(
+    public void GetSearchResult_ItemsBothContentAndNonContent_ReturnContentItems(
       ISearchQueryElementProvider elementProvider,
       IIndexNameProvider indexNameProvider,
       ISearchQueryPredicateBuilder<TestIndexableEntity> predicateBuilder,
@@ -112,7 +112,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
     [RequireLicense]
     [Theory, DefaultAutoData]
-    public void GetSearchResult_NoFilter_ReturnItemsWithCurrentLanguage(
+    public void GetSearchResult_ItemsWithDifferentContextLanguage_ReturnItemsWithCurrentContextLanguage(
       ISearchQueryElementProvider elementProvider,
       IIndexNameProvider indexNameProvider,
       ISearchQueryPredicateBuilder<TestIndexableEntity> predicateBuilder,
@@ -132,7 +132,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
       var queryable = new QueryProviderStub<TestIndexableEntity>(new[]
       {
         CreateTestIndexableEntity("Faucet", paths: new List<ID> { ItemIDs.ContentRoot }, language: "en"),
-        CreateTestIndexableEntity("Fence", paths: new List<ID> { ItemIDs.ContentRoot }, language: "de"),
+        CreateTestIndexableEntity("Fence", paths: new List<ID> { ItemIDs.ContentRoot }, language: "noncontext"),
       }.AsQueryable());
 
       searchIndex
@@ -154,7 +154,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
     [RequireLicense]
     [Theory, DefaultAutoData]
-    public void GetSearchResult_NoFilter_ReturnItemsWithLatestVersion(
+    public void GetSearchResult_ItemsWithDiffentVersions_ReturnItemsWithLatestVersion(
       ISearchQueryElementProvider elementProvider,
       IIndexNameProvider indexNameProvider,
       ISearchQueryPredicateBuilder<TestIndexableEntity> predicateBuilder,
@@ -196,7 +196,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
     [RequireLicense]
     [Theory, DefaultAutoData]
-    public void GetSearchResult_FilterByPredicate_ReturnItemsFulfillingPredicate(
+    public void GetSearchResult_ItemsWithDifferentProperties_ReturnItemsFulfillingPredicate(
       ISearchQueryElementProvider elementProvider,
       IIndexNameProvider indexNameProvider,
       ISearchQueryPredicateBuilder<TestIndexableEntity> predicateBuilder,
@@ -211,7 +211,7 @@ namespace Conjunction.Foundation.Core.Tests.Model.Repositories
 
       indexNameProvider
         .IndexName
-        .Returns("testIndex");
+        .Returns("predicateTestIndex");
       
       predicateBuilder
         .GetOutput()
