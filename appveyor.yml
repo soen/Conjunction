@@ -6,3 +6,7 @@ build:
 platform: Any CPU
 before_build:
   - nuget restore
+test:
+  categories:
+    except:
+    - RequireLicense
