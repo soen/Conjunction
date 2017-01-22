@@ -12,6 +12,7 @@
 * [Advanced](/docs/advanced/README.md)
   * [Nested Search Queries](/docs/advanced/NestedSearchQueries.md)
   * [Creating Custom Providers](/docs/advanced/CreatingCustomProviders.md)
+  * [Creating Search Result Repository Decorators](/docs/advanced/CreatingSearchResultRepositoryDecorators.md)
 * [FAQ](/docs/faq/README.md)
 * [Troubleshooting](/docs/Troubleshooting.md)
 * [Glossary](/docs/Glossary.md)
