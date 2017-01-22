@@ -3,6 +3,9 @@ using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Factories
 {
+  /// <summary>
+  /// Represents the default factory for building instances of type <see cref="SearchQueryRule{T}"/>.
+  /// </summary>
   public class SearchQueryRuleFactory : ISearchQueryRuleFactory
   {
     public SearchQueryRuleFactory() 

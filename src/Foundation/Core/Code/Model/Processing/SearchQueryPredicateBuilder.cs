@@ -10,6 +10,10 @@ using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Processing
 {
+  /// <summary>
+  /// Represents the default <see cref="ISearchQueryPredicateBuilder{T}"/> implementation.
+  /// </summary>
+  /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
   public class SearchQueryPredicateBuilder<T> : ISearchQueryPredicateBuilder<T> where T : IndexableEntity, new()
   {
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;

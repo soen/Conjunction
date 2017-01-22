@@ -6,10 +6,16 @@ using Sitecore.Diagnostics;
 namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
 {
   /// <summary>
-  /// 
+  /// Represents the base class of an search query value provider.
   /// </summary>
   public abstract class SearchQueryValueProviderBase : ISearchQueryValueProvider
   {
+    /// <summary>
+    /// Returns the value needed by the search query value.
+    /// </summary>
+    /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
+    /// <param name="searchQueryRule">The specifed search query rule</param>
+    /// <returns>A typed value</returns>
     public object GetValueForSearchQueryRule<T>(SearchQueryRule<T> searchQueryRule) where T : IndexableEntity, new()
     {
       Assert.ArgumentNotNull(searchQueryRule, "searchQueryRule");
@@ -36,6 +42,12 @@ namespace Conjunction.Foundation.Core.Model.Providers.SearchQueryValue
       return retVal;
     }
 
+    /// <summary>
+    /// Retruns the raw value of either the default or dynamically provided value.
+    /// </summary>
+    /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
+    /// <param name="searchQueryRule">The specifed search query rule</param>
+    /// <returns>A raw string value of either the default or dynamically provided value</returns>
     protected abstract string GetRawDefaultOrDynamicValueProvidedByParameter<T>(SearchQueryRule<T> searchQueryRule) where T : IndexableEntity, new();
   }
 }
