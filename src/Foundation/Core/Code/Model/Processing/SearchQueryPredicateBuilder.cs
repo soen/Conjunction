@@ -3,32 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Conjunction.Foundation.Core.Infrastructure;
-using Conjunction.Foundation.Core.Model.Providers;
+using Conjunction.Foundation.Core.Model.Providers.SearchQueryValue;
 using Conjunction.Foundation.Core.Model.Services;
 using Sitecore.ContentSearch.Linq.Utilities;
+using Sitecore.Diagnostics;
 
-namespace Conjunction.Foundation.Core.Model.Processing.Processors
+namespace Conjunction.Foundation.Core.Model.Processing
 {
-  /// <summary>
-  /// Represents a visitor that can build up a predicate of type <see cref="Expression{T}" /> 
-  /// of <see cref="Func{T, Boolean}" /> from search query elements.
-  /// </summary>
-  /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
-  public class SearchQueryPredicateBuilder<T> : ISearchQueryElementVisitor<T> where T : IndexableEntity, new()
+  public class SearchQueryPredicateBuilder<T> : ISearchQueryPredicateBuilder<T> where T : IndexableEntity, new()
   {
     private readonly Stack<PredicateBuilderContext> _predicateBuilderContext;
-    private readonly ISearchQueryValueProvider _searchQueryValueProvider;
-
     private Expression<Func<T, bool>> _outputPredicate;
     
     public SearchQueryPredicateBuilder(ISearchQueryValueProvider searchQueryValueProvider)
     {
+      Assert.ArgumentNotNull(searchQueryValueProvider, "searchQueryValueProvider");
+
+      SearchQueryValueProvider = searchQueryValueProvider;
       _predicateBuilderContext = new Stack<PredicateBuilderContext>();
-      _searchQueryValueProvider = searchQueryValueProvider;
     }
 
     public void VisitSearchQueryGroupingBegin(SearchQueryGrouping<T> searchQueryGrouping)
     {
+      Assert.ArgumentNotNull(searchQueryGrouping, "searchQueryGrouping");
+
       Expression<Func<T, bool>> predicate;
 
       switch (searchQueryGrouping.LogicalOperator)
@@ -61,14 +59,13 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
 
     public void VisitSearchQueryRule(SearchQueryRule<T> searchQueryRule)
     {
-      var value = _searchQueryValueProvider.GetValueForSearchQueryRule(searchQueryRule);
+      Assert.ArgumentNotNull(searchQueryRule, "searchQueryRule");
+
+      var value = SearchQueryValueProvider.GetValueForSearchQueryRule(searchQueryRule);
       if (value == null)
         return;
 
       var predicate = GetPredicateFromSearchQueryRule(searchQueryRule, value);
-      if (predicate == null)
-        return;
-
       var builderContext = _predicateBuilderContext.Peek();
 
       switch (builderContext.LogicalOperator)
@@ -88,7 +85,7 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
 
     private static Expression<Func<T, bool>> GetPredicateFromSearchQueryRule(SearchQueryRule<T> searchQueryRule, object value)
     {
-      Expression<Func<T, bool>> predicate = null;
+      Expression<Func<T, bool>> predicate;
             
       switch (searchQueryRule.ComparisonOperator)
       {
@@ -109,9 +106,8 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
           break;
 
         case ComparisonOperator.Between:
-          var rangeValue = value as RangeValue;
-          if (rangeValue != null)
-            predicate = ExpressionConversionService.ToBetween(searchQueryRule.PropertySelector, rangeValue.LowerValue, rangeValue.UpperValue);
+          var rangeValue = (RangeValue) value;
+          predicate = ExpressionConversionService.ToBetween(searchQueryRule.PropertySelector, rangeValue.LowerValue, rangeValue.UpperValue);
           break;
 
         case ComparisonOperator.GreaterThan:
@@ -151,7 +147,9 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
       return predicate;
     }
 
-    public Expression<Func<T, bool>> GetPredicate()
+    public ISearchQueryValueProvider SearchQueryValueProvider { get; }
+
+    public Expression<Func<T, bool>> GetOutput()
     {
       return _outputPredicate;
     }
@@ -159,7 +157,7 @@ namespace Conjunction.Foundation.Core.Model.Processing.Processors
     /// <summary>
     /// Represents the context being used within the <see cref="SearchQueryPredicateBuilder{T}"/>
     /// </summary>
-    private class PredicateBuilderContext
+    private sealed class PredicateBuilderContext
     {
       public PredicateBuilderContext(Expression<Func<T, bool>> predicate, LogicalOperator logicalOperator)
       {

@@ -6,3 +6,8 @@ build:
 platform: Any CPU
 before_build:
   - nuget restore
+test:
+  assemblies: '**\*.Tests.dll'
+  categories:
+    except:
+    - RequireLicense

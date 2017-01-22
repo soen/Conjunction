@@ -8,7 +8,7 @@ namespace Conjunction.Foundation.Core.Infrastructure
   /// <summary>
   /// Provides extension functionalities for working with Sitecore <see cref="Template"/> types.
   /// </summary>
-  public static class TemplateExtensions
+  internal static class TemplateMixins
   {
     public static bool IsDerived([NotNull] this Template template, [NotNull] ID templateId)
     {

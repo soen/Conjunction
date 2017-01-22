@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using Conjunction.Foundation.Core.Infrastructure.TypeConverters;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model.Services
 {
@@ -24,6 +25,8 @@ namespace Conjunction.Foundation.Core.Model.Services
     /// <returns></returns>
     public static object ToTypedValue(Type valueType, string value)
     {
+      Assert.ArgumentNotNull(valueType, "The specified value type cannot be null");
+
       object retVal = null;
       var type = valueType;
 
@@ -34,7 +37,7 @@ namespace Conjunction.Foundation.Core.Model.Services
       {
         var typeConverter = TypeDescriptor.GetConverter(type);
         if (typeConverter.CanConvertFrom(value.GetType()))
-          retVal = typeConverter.ConvertFromString(value);
+          retVal = typeConverter.ConvertFromInvariantString(value);
       }
       catch
       {
@@ -56,6 +59,8 @@ namespace Conjunction.Foundation.Core.Model.Services
     /// <returns></returns>
     public static bool TryConvertToRangeValueParts(string value, out Tuple<string, string> rangeValueParts)
     {
+      Assert.ArgumentNotNull(value, "The specified value cannot be null");
+
       bool retVal;
       const string rangeValuePattern = @"^\[([^\.]+)(;|:)([^\.]+)\]$";
 

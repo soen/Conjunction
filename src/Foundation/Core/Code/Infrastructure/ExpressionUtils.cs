@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Infrastructure
 {
@@ -11,6 +12,8 @@ namespace Conjunction.Foundation.Core.Infrastructure
   {
     public static Expression<Func<TIn, TOut>> GetPropertySelector<TIn, TOut>(string propertyName)
     {
+      Assert.ArgumentNotNullOrEmpty(propertyName, "propertyName");
+
       ParameterExpression param = Expression.Parameter(typeof(TIn));
       Expression body = Expression.Property(param, propertyName);
 
@@ -25,12 +28,16 @@ namespace Conjunction.Foundation.Core.Infrastructure
 
     public static string GetPropertyNameFromPropertySelector<T>(Expression<Func<T, object>> propertySelector)
     {
+      Assert.ArgumentNotNull(propertySelector, "propertySelector");
+
       var body = GetBodyFromExpression(propertySelector);
       return body.Member.Name;
     }
 
     public static Type GetPropertyTypeFromPropertySelector<T>(Expression<Func<T, object>> propertySelector)
     {
+      Assert.ArgumentNotNull(propertySelector, "propertySelector");
+
       var body = GetBodyFromExpression(propertySelector);
       var propertyInfo = (PropertyInfo)body.Member;
 

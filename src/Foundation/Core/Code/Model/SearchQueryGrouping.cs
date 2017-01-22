@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Conjunction.Foundation.Core.Model.Processing;
+using Sitecore.Diagnostics;
 
 namespace Conjunction.Foundation.Core.Model
 {
@@ -16,6 +17,8 @@ namespace Conjunction.Foundation.Core.Model
 
     public SearchQueryGrouping(LogicalOperator logicalOperator, ICollection<ISearchQueryElement<T>> searchQueryElements)
     {
+      Assert.ArgumentNotNull(searchQueryElements, "searchQueryElements");
+
       LogicalOperator = logicalOperator;
       SearchQueryElements = searchQueryElements;
     }
@@ -26,6 +29,8 @@ namespace Conjunction.Foundation.Core.Model
 
     public void Accept(ISearchQueryElementVisitor<T> visitor)
     {
+      Assert.ArgumentNotNull(visitor, "visitor");
+
       visitor.VisitSearchQueryGroupingBegin(this);
 
       foreach (var searchQueryElement in SearchQueryElements)

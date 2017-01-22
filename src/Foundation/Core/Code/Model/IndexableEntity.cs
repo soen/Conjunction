@@ -9,7 +9,7 @@ namespace Conjunction.Foundation.Core.Model
   {
     // TODO: Create computed index field to handle multi-site solution item url's
     //
-    // This can be done by From what I've been able to figure out, the most clean way to go about this involves:
+    // The most clean way to go about this involves:
     //
     // 1. Getting the item being viewed
     // 2. Getting all sites
