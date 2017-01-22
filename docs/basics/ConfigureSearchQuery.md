@@ -20,7 +20,9 @@ In addition, the logical operator field defines the *logical relationship betwee
 
 ## Creating a set of Search Query Rules
 
-With the search query root configured, the next step is to create a few **Search Query Rule** items. In this example, we'll be creating two search query rules that each demonstrates the different kind of configuration you can use. 
+With the search query root configured, the next step is to create a few **Search Query Rule** items. In this example, we'll be creating two search query rules that each demonstrates the different kind of configuration you can use
+
+> **Note**: In this example, the search query root functions implicitly as a search query grouping. That said, you can create as many or as little search query groupings under the search query root item, but you can always create search query rules as direct descendants.
 
 ### Rule #1: Make sure we only get results from a specific date
 

@@ -7,7 +7,7 @@ Conjunction is a utility for Sitecore that solves the issue of creating configur
 [![Build status](https://ci.appveyor.com/api/projects/status/bpm85mumoj38gk4h?svg=true)](https://ci.appveyor.com/project/soen/conjunction)
 
 ## Features
-Conjunction has some interesting parts that are worth mentioning, including:
+Conjunction has some interesting parts that are worth mentioning, as it:
 
 - Enables search query configuration without code changes
 - Allows specifying nested search query structures for complex queries

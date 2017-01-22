@@ -10,7 +10,7 @@ As the name implies, configurable search revolves around the idea of making sear
   <img src="images/conjunction_concept.png">
 </p>
 
-The power user configures the search queries to fit the business requirements. Once the search queries have been configured, these are readable from Conjunction. When an end-user tries to view the search results, a request is send to Conjunction to retrieve the results of the configured search queries, combined with the information provided as input to the search queries from the end-user. Having the the configured search query decorated with the input from the end-user, Conjunction dispatches a request to the underlying search index technology, which then evaluate the decorated search query, and finally returns a set of matching search results that can be presented to the (happy) end-user.
+The power user configures the search queries to fit the business requirements. Once the search queries have been configured, these are readable from Conjunction. When an end-user tries to view the search results, a request is send to Conjunction to retrieve the results of the configured search queries, combined with the information provided as input to the search queries from the end-user. Having the configured search query decorated with the input from the end-user, Conjunction dispatches a request to the underlying search index technology, which then evaluate the decorated search query, and finally returns a set of matching search results that can be presented to the (happy) end-user.
 
 ## The search query root, grouping and rule
 

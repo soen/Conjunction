@@ -7,11 +7,11 @@ In this section, we'll be looking at how we can create search result repository 
 The following example code shows how you can decorate the default search result repository to include caching:
 
 ```csharp
-  public class CacheSearchResultRepositoryDecorator<T> : ISearchResultRepository<T> 
+  public class CacheSearchResultRepositoryDecorator<T> : ISearchResultRepository<T>
     where T : IndexableEntity, new()
   {
     private const string CacheItemName = "__CachedSearchResult__";
-    private const string int CacheTimeInMinutes = 5;
+    private const int CacheTimeInMinutes = 5;
 
     private readonly ISearchResultRepository<T> _searchResultRepository;
 
@@ -32,11 +32,11 @@ The following example code shows how you can decorate the default search result 
       return GetSearchResultFromCache(getSearchResult);
     }
 
-    private T GetSearchResultFromCache<T>(Func<SearchResult<T>> getSearchResult)
+    private SearchResult<T> GetSearchResultFromCache(Func<SearchResult<T>> getSearchResult)
     {
       ObjectCache cache = MemoryCache.Default;
-      var cachedSearchResult = (T)cache[CacheItemName];
-      
+      var cachedSearchResult = (SearchResult<T>)cache[CacheItemName];
+
       if (cachedSearchResult == null)
       {
         CacheItemPolicy policy = new CacheItemPolicy();

@@ -1,1 +1,0 @@
-# Introducing Search Result Caching
