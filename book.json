@@ -1,5 +1,11 @@
 { 
   "gitbook": ">=3.2.1",
   "title": "Conjunction",
-  "plugins": ["anchorjs", "-highlight", "sunlight-highlighter"]
+  "plugins": ["anchorjs", "-highlight", "sunlight-highlighter", "github-edit"],
+  "pluginsConfig": {
+        "github-edit": {
+            "repo": "soen/Conjunction",
+            "branch": "master"
+        }
+    }
 }
