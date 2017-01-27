@@ -1,0 +1,518 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Configuring the Search Query · Conjunction</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sunlight-highlighter/sunlight.default.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="RetrieveSearchResults.html" />
+    
+    
+    <link rel="prev" href="CreateIndexableEntityModel.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Read Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
+            
+                <a href="../introduction/Motivation.html">
+            
+                    
+                    Motivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/CoreConcepts.html">
+            
+                <a href="../introduction/CoreConcepts.html">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="CreateIndexableEntityModel.html">
+            
+                <a href="CreateIndexableEntityModel.html">
+            
+                    
+                    Creating the Indexable Entity Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="ConfigureSearchQuery.html">
+            
+                <a href="ConfigureSearchQuery.html">
+            
+                    
+                    Configuring the Search Query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="RetrieveSearchResults.html">
+            
+                <a href="RetrieveSearchResults.html">
+            
+                    
+                    Retrieving the Search Results
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/NestedSearchQueries.html">
+            
+                <a href="../advanced/NestedSearchQueries.html">
+            
+                    
+                    Nested Search Queries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/CreatingCustomProviders.html">
+            
+                <a href="../advanced/CreatingCustomProviders.html">
+            
+                    
+                    Creating Custom Providers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                <a href="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                    
+                    Creating Search Result Repository Decorators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../CHANGELOG.html">
+            
+                <a href="../../CHANGELOG.html">
+            
+                    
+                    Change Log
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Configuring the Search Query</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="configuring-the-search-query">Configuring the Search Query</h1>
+<p>With the custom <code>ToyBall</code> indexable model in place, the next step is to configure the search query elements inside Sitecore.</p>
+<h2 id="creating-the-search-query-root">Creating the Search Query Root</h2>
+<p>Navigate over to the Content Editor in your Sitecore solution and create a new <em>search query root</em> item by right-clicking anywhere in the content tree, select the insert option and click <em>Insert from template</em>. From here, open the folder <em>/Conjunction/Foundation</em>, and from here select the template named <strong>Search Query Root</strong>:</p>
+<p><img src="images/basic-insert-search-query-root.png" alt=""></p>
+<p>When the template has been selected, enter a given name and click on the <em>Insert</em> button to create the search query root item. Once you have created the search query root item, select it in the content tree in order to edit its fields:</p>
+<p><img src="images/basic-configure-search-query-root.png" alt=""></p>
+<p>By default, the search query root item has two fields that needs to be configured, the <strong>configured indexable entity type</strong> and the <strong>logical operator</strong>. The configured indexable entity type is used to specify the indexable entity model being used when configuring search query rules. Set the name of the configured indexable entity type to be the fully qualified name of the <code>ToyBall</code> type we just created in the previous step </p>
+<blockquote>
+<p><strong>Note</strong>: In this example, the assembly containing the <code>ToyBall</code> type reside in the assembly <code>Demo</code> under the namespace <code>Demo.Model</code>. Your fully qualified name may vary depending on your assembly name. </p>
+</blockquote>
+<p>In addition, the logical operator field defines the <em>logical relationship between the child search query elements</em>. For now, simply set it to <em>And</em>, meaning that the overall search query will use a logical <em>AND</em> operator to determine the logical relationship between the individual search queries from its child search query elements.</p>
+<h2 id="creating-a-set-of-search-query-rules">Creating a set of Search Query Rules</h2>
+<p>With the search query root configured, the next step is to create a few <strong>Search Query Rule</strong> items. In this example, we&apos;ll be creating two search query rules that each demonstrates the different kind of configuration you can use</p>
+<blockquote>
+<p><strong>Note</strong>: In this example, the search query root functions implicitly as a search query grouping. That said, you can create as many or as little search query groupings under the search query root item, but you can always create search query rules as direct descendants.</p>
+</blockquote>
+<h3 id="rule-1-make-sure-we-only-get-results-from-a-specific-date">Rule #1: Make sure we only get results from a specific date</h3>
+<p>The first search query rule we are going to create will be named <em>WhereCreatedDateIsGreaterThanOrEqual</em>. In order to do so, right-click the newly created search query root item, select the insert option and select <em>Search Query Rule</em>:</p>
+<p><img src="images/basic-insert-search-query-rule.png" alt=""></p>
+<p>with the following field configuration:</p>
+<p><img src="images/basic-configure-search-query-rule-defaultvalue.png" alt=""></p>
+<p>Taking it from the top, the first field <em>Associated Property Name</em> ties the search query rule together with a given property that is defined on the indexable entity model specified on the search query root item. In this example, we say that the search query rule should be querying the property named <code>CreatedDate</code> of the indexable entity model.</p>
+<blockquote>
+<p><strong>Note</strong>: You can only select associated properties that exists on the configured indexable entity type, which is defined on the search query root item. </p>
+</blockquote>
+<p>The next field <em>Comparison Operator</em> specifies, how the associated property should be compared (using binary operators) to a given value, this can either be dynamic or static. Using a dynamic value, we need to specify the name of the dynamic value we want to retrieve using the <em>Dynamic Value Providing Parameter</em> field. For default values, we simply need to provide the raw value that will be used by the search query rule, using the <em>Default Value</em> field. </p>
+<p>If we look at this perticular rule as a whole it says that the associated property <code>CreatedDate</code> should be <em>greater than or equal</em> to a given default value of the 1st of January in year one. While not the most intriguing search query rule, this search query rule demonstrates how we can utilize default values for feeding in static configuration to our search query definitions. </p>
+<blockquote>
+<p><strong>Tip</strong>: Another concrete example of using statically defined default values, would be to constraint the search result query to include (or exclude) items of a specific Sitecore data template.</p>
+</blockquote>
+<h3 id="rule-2-only-include-results-named">Rule #2: Only include results named...</h3>
+<p>The second search query rule we will be creating will be named <em>WhereNameEquals</em>, which has the following field configuration:</p>
+<p><img src="images/basic-configure-search-query-rule-dynamicvalue.png" alt=""></p>
+<p>Like the first search query rule we defined, this search query rule is set to use the property <code>Name</code> of the defined indexable entity model, which should be <em>equal</em> to the value being dynamically delivered by the dynamic value providing parameter, named <code>$x</code>. </p>
+<p>In contrary to using the default value, as we saw in the first search query rule, this search query rule will react to changes to the value being provided by the parameter <code>$x</code>. During runtime, Conjunction will swap in the value it finds for that parameter and use it as part of the seach query, before making the actual comparison. This technique is usable for feeding in informations that requires involment of dynamic sources, such as the end-user providing the name of the indexable entity model.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>Next, we&apos;ll look into how you can execute a query to the underlying search engine, using the configured search query from Sitecore together with the Conjunction&apos;s API.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CreateIndexableEntityModel.html" class="navigation navigation-prev " aria-label="Previous page: Creating the Indexable Entity Model">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="RetrieveSearchResults.html" class="navigation navigation-next " aria-label="Next page: Retrieving the Search Results">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Configuring the Search Query","level":"1.3.2","depth":2,"next":{"title":"Retrieving the Search Results","level":"1.3.3","depth":2,"path":"docs/basics/RetrieveSearchResults.md","ref":"docs/basics/RetrieveSearchResults.md","articles":[]},"previous":{"title":"Creating the Indexable Entity Model","level":"1.3.1","depth":2,"path":"docs/basics/CreateIndexableEntityModel.md","ref":"docs/basics/CreateIndexableEntityModel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","-highlight","sunlight-highlighter","github-edit"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"github-edit":{"repo":"soen/Conjunction","branch":"master"},"anchorjs":{},"sunlight-highlighter":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Conjunction","gitbook":">=3.2.1"},"file":{"path":"docs/basics/ConfigureSearchQuery.md","mtime":"2017-01-22T22:44:07.767Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-27T15:07:26.811Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-edit/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

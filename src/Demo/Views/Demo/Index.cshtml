@@ -1,0 +1,12 @@
+﻿@model Demo.ViewModels.DemoViewModel
+
+<div>
+  <p><span>Total count: </span>@Model.TotalCount</p>
+  <p>Hits:</p>
+  <ul>
+    @foreach (var hit in Model.Hits)
+    {
+      <li>@hit.Name</li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+		<id>Conjunction.Foundation.Core</id>
+		<version>$version$</version>
+		<authors>Søren Engel</authors>
+		<owners>Søren Engel</owners>
+		<licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+		<projectUrl>https://github.com/soen/Conjunction</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Core functionalities required to use Conjunction. Conjunction is a utility for Sitecore that solves the issue of creating configurable and personalizable queries for either the Lucene or Solr search engine, using Sitecore's ContentSearch API as the backbone.</description>
+		<copyright>Copyright 2016</copyright>
+		<tags>sitecore contentsearch</tags>
+		<dependencies>
+			<dependency id="Conjunction.Foundation.Core" version="$version$" />
+		</dependencies>
+	</metadata>
+	<files>		
+	</files>
+</package>

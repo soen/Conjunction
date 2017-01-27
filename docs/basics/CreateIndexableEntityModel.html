@@ -1,0 +1,498 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Creating the Indexable Entity Model · Conjunction</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sunlight-highlighter/sunlight.default.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ConfigureSearchQuery.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Read Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
+            
+                <a href="../introduction/Motivation.html">
+            
+                    
+                    Motivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/CoreConcepts.html">
+            
+                <a href="../introduction/CoreConcepts.html">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="CreateIndexableEntityModel.html">
+            
+                <a href="CreateIndexableEntityModel.html">
+            
+                    
+                    Creating the Indexable Entity Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ConfigureSearchQuery.html">
+            
+                <a href="ConfigureSearchQuery.html">
+            
+                    
+                    Configuring the Search Query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="RetrieveSearchResults.html">
+            
+                <a href="RetrieveSearchResults.html">
+            
+                    
+                    Retrieving the Search Results
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/NestedSearchQueries.html">
+            
+                <a href="../advanced/NestedSearchQueries.html">
+            
+                    
+                    Nested Search Queries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/CreatingCustomProviders.html">
+            
+                <a href="../advanced/CreatingCustomProviders.html">
+            
+                    
+                    Creating Custom Providers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                <a href="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                    
+                    Creating Search Result Repository Decorators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../CHANGELOG.html">
+            
+                <a href="../../CHANGELOG.html">
+            
+                    
+                    Change Log
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Creating the Indexable Entity Model</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="creating-the-indexable-entity-model">Creating the Indexable Entity Model</h1>
+<p>Before configuring the search queries within Sitecore, the first thing we have to do is create our own indexable entity model. The indexable entity model is primarily used for two things:</p>
+<ol>
+<li>For defining the overall indexable entity model that will be used for enforcing, that only valid properties of the indexable entity model implementation can be selected when configuring search query rules</li>
+<li>For querying data from the search index, this model is used as the source type for the underlying ContentSearch API </li>
+</ol>
+<p>Assuming that you already have a Visual Studio Web project with Conjunction installed using the <a href="https://www.nuget.org/packages/Conjunction.Foundation.Core/" target="_blank">Conjunction.Foundation.Core</a> package, create a new type that inherits from the <a href="../api/#indexableentity"><code>IndexableEntity</code></a> type named <code>ToyBall</code>:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-keyword">using</span>&#xA0;<span class="sunlight-ident">Conjunction</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Foundation</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Core</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Model</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;<span class="sunlight-keyword">public</span>&#xA0;<span class="sunlight-keyword">class</span>&#xA0;<span class="sunlight-named-ident">ToyBall</span>&#xA0;<span class="sunlight-operator">:</span>&#xA0;<span class="sunlight-named-ident">IndexableEntity</span>
+&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-comment">//&#xA0;code&#xA0;omitted&#xA0;for&#xA0;now&#xA0;...&#xA0;&#xA0;&#xA0;&#xA0;</span>
+&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+</span></code></pre>
+<p>For now we won&apos;t include any custom index field properties on the <code>ToyBall</code> model type, but instead rely on using the properties that ships with the default <a href="../api/#indexableentity"><code>IndexableEntity</code></a> type (which is a subtype of Sitecore&apos;s own <code>SearchResultItem</code> type). However, you can easily extend the indexable entity model type just like you would do so when <a href="https://soen.ghost.io/extending-the-default-contentsearch-functionality-in-sitecore#rollingyourowncustomsearchresultitemimplementation" target="_blank">creating your own custom <code>SearchResultItem</code></a> implementation.</p>
+<p>Wrapping up, the last thing for you to do before moving on is to deploy the newly created indexable model code to your local Sitecore website IIS folder.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>Next, we&apos;ll look into how you can configure the search query from Sitecore, using the newly created indexable model.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Basics">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ConfigureSearchQuery.html" class="navigation navigation-next " aria-label="Next page: Configuring the Search Query">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Creating the Indexable Entity Model","level":"1.3.1","depth":2,"next":{"title":"Configuring the Search Query","level":"1.3.2","depth":2,"path":"docs/basics/ConfigureSearchQuery.md","ref":"docs/basics/ConfigureSearchQuery.md","articles":[]},"previous":{"title":"Basics","level":"1.3","depth":1,"path":"docs/basics/README.md","ref":"docs/basics/README.md","articles":[{"title":"Creating the Indexable Entity Model","level":"1.3.1","depth":2,"path":"docs/basics/CreateIndexableEntityModel.md","ref":"docs/basics/CreateIndexableEntityModel.md","articles":[]},{"title":"Configuring the Search Query","level":"1.3.2","depth":2,"path":"docs/basics/ConfigureSearchQuery.md","ref":"docs/basics/ConfigureSearchQuery.md","articles":[]},{"title":"Retrieving the Search Results","level":"1.3.3","depth":2,"path":"docs/basics/RetrieveSearchResults.md","ref":"docs/basics/RetrieveSearchResults.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","-highlight","sunlight-highlighter","github-edit"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"github-edit":{"repo":"soen/Conjunction","branch":"master"},"anchorjs":{},"sunlight-highlighter":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Conjunction","gitbook":">=3.2.1"},"file":{"path":"docs/basics/CreateIndexableEntityModel.md","mtime":"2017-01-22T22:44:07.767Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-27T15:07:26.811Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-edit/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

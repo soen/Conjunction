@@ -1,0 +1,558 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Creating Custom Providers · Conjunction</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sunlight-highlighter/sunlight.default.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="CreatingSearchResultRepositoryDecorators.html" />
+    
+    
+    <link rel="prev" href="NestedSearchQueries.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Read Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
+            
+                <a href="../introduction/Motivation.html">
+            
+                    
+                    Motivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/CoreConcepts.html">
+            
+                <a href="../introduction/CoreConcepts.html">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/CreateIndexableEntityModel.html">
+            
+                <a href="../basics/CreateIndexableEntityModel.html">
+            
+                    
+                    Creating the Indexable Entity Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/ConfigureSearchQuery.html">
+            
+                <a href="../basics/ConfigureSearchQuery.html">
+            
+                    
+                    Configuring the Search Query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basics/RetrieveSearchResults.html">
+            
+                <a href="../basics/RetrieveSearchResults.html">
+            
+                    
+                    Retrieving the Search Results
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Advanced
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="NestedSearchQueries.html">
+            
+                <a href="NestedSearchQueries.html">
+            
+                    
+                    Nested Search Queries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="CreatingCustomProviders.html">
+            
+                <a href="CreatingCustomProviders.html">
+            
+                    
+                    Creating Custom Providers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="CreatingSearchResultRepositoryDecorators.html">
+            
+                <a href="CreatingSearchResultRepositoryDecorators.html">
+            
+                    
+                    Creating Search Result Repository Decorators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../CHANGELOG.html">
+            
+                <a href="../../CHANGELOG.html">
+            
+                    
+                    Change Log
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Creating Custom Providers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="creating-custom-providers">Creating Custom Providers</h1>
+<p>In this section, we&apos;ll be looking at how to create your own custom provider implementations for retrieval of search query elements, dynamic values and index names.</p>
+<h2 id="custom-search-query-element-provider">Custom search query element provider</h2>
+<p>By default, Conjunction ships with a search query element provider that allows Conjunction to consume a Sitecore configured search query root, along with all its children.</p>
+<p>If you want to consume other search query root configurations, you can implement your own custom search query element provider by creating a new type that implements the <a href="../api/#isearchqueryelementprovider"><code>ISearchQueryElementProvider</code></a> interface. </p>
+<blockquote>
+<p><strong>Note</strong>: You can find more inspiration on creating your own implementation by refering to the <a href="../api/#sitecoresearchqueryelementprovider"><code>SitecoreSearchQueryElementProvider</code></a> implementation.</p>
+</blockquote>
+<h2 id="custom-search-query-element-value-provider">Custom search query element value provider</h2>
+<p>So far we&apos;ve seen that Conjunction ships with a default value provider that allows search query rules to fetch dynamically provided values from the query string. However, there may be situations where you don&apos;t want to use the query string for providing the dynamic values, whereas you can instead create your own implementation.</p>
+<p>There are two ways you can do this:</p>
+<ol>
+<li>Create a new implementation that implements the <a href="../api/#isearchqueryvalueprovider"><code>ISearchQueryValueProvider</code></a> interface</li>
+<li>Extend the <a href="../api/#searchqueryvalueproviderbase"><code>SearchQueryValueProviderBase</code></a> type</li>
+</ol>
+<p>Choosing option one will give you full control over how the value provider works, and whether you want it to react to single or range values, or something completely new. Option two gives you a bit more functionality out-of-the-box, such as converting the dynamic value found from some given source, into a typed single, or ranged, value that the search query rule can use.</p>
+<p>In this example, let&apos;s assume that we want to create our own custom value provider, capable of delivering values from fields in a custom database. In the database we have a table with two columns, <em>name</em> and <em>value</em>. Furthermore, assuming that we already have a repository that enables retrieving the value of given row, where the name matches some input. </p>
+<p>Assuming that we want to leverage as much of the built-in functionality as possible, we&apos;ll choose to go with option number two for the implementation. This could look something like this: </p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-keyword">using</span>&#xA0;<span class="sunlight-ident">Conjunction</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Foundation</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Core</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Model</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Providers</span><span class="sunlight-operator">.</span><span class="sunlight-ident">SearchQueryValue</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;<span class="sunlight-keyword">public</span>&#xA0;<span class="sunlight-keyword">class</span>&#xA0;<span class="sunlight-named-ident">DatabaseSearchQueryValueProvider</span>&#xA0;<span class="sunlight-operator">:</span>&#xA0;<span class="sunlight-named-ident">SearchQueryValueProviderBase</span>
+&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-comment">//&#xA0;NOTE:&#xA0;The&#xA0;custom&#xA0;database&#xA0;repository&#xA0;would&#xA0;be&#xA0;some&#xA0;custom&#xA0;logic&#xA0;implemented&#xA0;in&#xA0;your&#xA0;solution</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">private</span>&#xA0;<span class="sunlight-keyword">readonly</span>&#xA0;<span class="sunlight-named-ident">ICustomDatabaseRepository</span>&#xA0;<span class="sunlight-ident">_customDatabaseRepository</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">public</span>&#xA0;<span class="sunlight-named-ident">DatabaseSearchQueryValueProvider</span><span class="sunlight-punctuation">(</span><span class="sunlight-named-ident">ICustomDatabaseRepository</span>&#xA0;<span class="sunlight-ident">customDatabaseRepository</span><span class="sunlight-punctuation">)</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-ident">_customDatabaseRepository</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">customDatabaseRepository</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-comment">//&#xA0;NOTE:&#xA0;We&apos;ll&#xA0;need&#xA0;to&#xA0;implement&#xA0;this&#xA0;method&#xA0;responsible&#xA0;for&#xA0;extracting&#xA0;the&#xA0;value&#xA0;required&#xA0;by&#xA0;a&#xA0;given&#xA0;dynamic&#xA0;value&#xA0;providing&#xA0;parameter</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">protected</span>&#xA0;<span class="sunlight-keyword">override</span>&#xA0;<span class="sunlight-keyword">string</span>&#xA0;<span class="sunlight-ident">GetDefaultValueOrDynamicValueProvidedByParameter</span><span class="sunlight-operator">&lt;</span><span class="sunlight-ident">T</span><span class="sunlight-operator">&gt;</span><span class="sunlight-punctuation">(</span><span class="sunlight-named-ident">SearchQueryRule</span><span class="sunlight-operator">&lt;</span><span class="sunlight-ident">T</span><span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">searchQueryRule</span><span class="sunlight-punctuation">)</span>&#xA0;
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">where</span>&#xA0;<span class="sunlight-ident">T</span>&#xA0;<span class="sunlight-operator">:</span>&#xA0;<span class="sunlight-named-ident">IndexableEntity</span><span class="sunlight-punctuation">,</span>&#xA0;<span class="sunlight-keyword">new</span><span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">string</span>&#xA0;<span class="sunlight-ident">value</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">if</span>&#xA0;<span class="sunlight-punctuation">(</span><span class="sunlight-keyword">string</span><span class="sunlight-operator">.</span><span class="sunlight-ident">IsNullOrWhiteSpace</span><span class="sunlight-punctuation">(</span><span class="sunlight-ident">searchQueryRule</span><span class="sunlight-operator">.</span><span class="sunlight-ident">DynamicValueProvidingParameter</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">)</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-ident">value</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">searchQueryRule</span><span class="sunlight-operator">.</span><span class="sunlight-ident">DefaultValue</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">else</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">var</span>&#xA0;<span class="sunlight-ident">valueProviderParameterName</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">searchQueryRule</span><span class="sunlight-operator">.</span><span class="sunlight-ident">DynamicValueProvidingParameter</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-ident">value</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">_customDatabaseRepository</span><span class="sunlight-operator">.</span><span class="sunlight-ident">GetValueForName</span><span class="sunlight-punctuation">(</span><span class="sunlight-ident">valueProviderParameterName</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">return</span>&#xA0;<span class="sunlight-ident">value</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+<span class="sunlight-punctuation">}</span>
+</span></code></pre>
+<p>If you want to go with option number one, we recommend that you take a closer look on how the <a href="../api/#searchqueryvalueproviderbase"><code>SearchQueryValueProviderBase</code></a> and <a href="../api/#namevaluepairsearchqueryvalueprovider"><code>NameValuePairSearchQueryValueProvider</code></a> types are implemented.</p>
+<h2 id="a-domain-index-name-provider">A Domain Index Name Provider</h2>
+<p>In the <a href="../basics/RetrieveSearchResults.html#the-three-providers">basics</a> walkthrough there is a note saying, that you should favor using <a href="https://soen.ghost.io/tackling-the-challenges-of-architecting-a-search-indexing-infrastructure-in-sitecore-part-2#howshouldthesearchindexesbeorganized" target="_blank"><em>domain indexes</em></a>, as they give you much smaller, yet concise and cohesive indexes to work with.</p>
+<p>The following code snippet shows an example on how you can create your own custom index name provider using the <a href="../api/#iindexnameprovider"><code>IIndexNameProvider</code></a> interface, which follows the domain index pattern for the toy domain that we have seen in the previous examples:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-keyword">using</span>&#xA0;<span class="sunlight-ident">Conjunction</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Foundation</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Core</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Model</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Providers</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;<span class="sunlight-keyword">public</span>&#xA0;<span class="sunlight-keyword">class</span>&#xA0;<span class="sunlight-named-ident">ToyIndexNameProvider</span>&#xA0;<span class="sunlight-operator">:</span>&#xA0;<span class="sunlight-named-ident">IIndexNameProvider</span>
+&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">private</span>&#xA0;<span class="sunlight-keyword">readonly</span>&#xA0;<span class="sunlight-ident">Sitecore</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Data</span><span class="sunlight-operator">.</span><span class="sunlight-named-ident">Database</span>&#xA0;<span class="sunlight-ident">_contentOrContextDatabase</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">public</span>&#xA0;<span class="sunlight-named-ident">ToyIndexNameProvider</span><span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-ident">_contentOrContextDatabase</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">Sitecore</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Context</span><span class="sunlight-operator">.</span><span class="sunlight-ident">ContentDatabase</span>&#xA0;<span class="sunlight-operator">??</span>&#xA0;<span class="sunlight-ident">Sitecore</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Context</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Database</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">public</span>&#xA0;<span class="sunlight-keyword">string</span>&#xA0;<span class="sunlight-ident">IndexName</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">get</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">{</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">string</span>&#xA0;<span class="sunlight-ident">databaseName</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">_contentOrContextDatabase</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Name</span><span class="sunlight-operator">.</span><span class="sunlight-ident">ToLowerInvariant</span><span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-keyword">return</span>&#xA0;<span class="sunlight-punctuation">$</span><span class="sunlight-string">&quot;toy_{databaseName}_index&quot;</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+&#xA0;&#xA0;<span class="sunlight-punctuation">}</span>
+</span></code></pre>
+<p>In essence, when creating a custom index name provider, the only thing you have to worry about implementing is the property named <em>IndexName</em>. In this code snippet, we simply say that we want to return an index name which follows the following naming convention <em>toy_databaseName_index</em>. If we are running in the context of the Web database, the name of the index will be <em>toy_web_index</em>, etc. </p>
+<blockquote>
+<p><strong>Tip</strong>: If all of your domain indexes follows the same naming convention, you could extend this code snippet, such that the constructor takes in the name of a given index, making a more generic domain index name provider - that is up to you.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="NestedSearchQueries.html" class="navigation navigation-prev " aria-label="Previous page: Nested Search Queries">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="CreatingSearchResultRepositoryDecorators.html" class="navigation navigation-next " aria-label="Next page: Creating Search Result Repository Decorators">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Creating Custom Providers","level":"1.4.2","depth":2,"next":{"title":"Creating Search Result Repository Decorators","level":"1.4.3","depth":2,"path":"docs/advanced/CreatingSearchResultRepositoryDecorators.md","ref":"docs/advanced/CreatingSearchResultRepositoryDecorators.md","articles":[]},"previous":{"title":"Nested Search Queries","level":"1.4.1","depth":2,"path":"docs/advanced/NestedSearchQueries.md","ref":"docs/advanced/NestedSearchQueries.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","-highlight","sunlight-highlighter","github-edit"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"github-edit":{"repo":"soen/Conjunction","branch":"master"},"anchorjs":{},"sunlight-highlighter":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Conjunction","gitbook":">=3.2.1"},"file":{"path":"docs/advanced/CreatingCustomProviders.md","mtime":"2017-01-22T22:44:07.749Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-27T15:07:26.811Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-edit/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

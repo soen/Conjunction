@@ -1,0 +1,1188 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>API Reference · Conjunction</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sunlight-highlighter/sunlight.default.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../CHANGELOG.html" />
+    
+    
+    <link rel="prev" href="../Glossary.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Read Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
+            
+                <a href="../introduction/Motivation.html">
+            
+                    
+                    Motivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/CoreConcepts.html">
+            
+                <a href="../introduction/CoreConcepts.html">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/CreateIndexableEntityModel.html">
+            
+                <a href="../basics/CreateIndexableEntityModel.html">
+            
+                    
+                    Creating the Indexable Entity Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/ConfigureSearchQuery.html">
+            
+                <a href="../basics/ConfigureSearchQuery.html">
+            
+                    
+                    Configuring the Search Query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basics/RetrieveSearchResults.html">
+            
+                <a href="../basics/RetrieveSearchResults.html">
+            
+                    
+                    Retrieving the Search Results
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/NestedSearchQueries.html">
+            
+                <a href="../advanced/NestedSearchQueries.html">
+            
+                    
+                    Nested Search Queries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/CreatingCustomProviders.html">
+            
+                <a href="../advanced/CreatingCustomProviders.html">
+            
+                    
+                    Creating Custom Providers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                <a href="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                    
+                    Creating Search Result Repository Decorators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../CHANGELOG.html">
+            
+                <a href="../../CHANGELOG.html">
+            
+                    
+                    Change Log
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >API Reference</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="api-reference">API Reference</h1>
+<p>This section documents the complete Conjunction API.</p>
+<table>
+<tbody>
+<tr>
+<td><a href="#iindexnameprovider">IIndexNameProvider</a></td>
+<td><a href="#comparisonoperator">ComparisonOperator</a></td>
+</tr>
+<tr>
+<td><a href="#comparisonoperatorfactory">ComparisonOperatorFactory</a></td>
+<td><a href="#icomparisonoperatorfactory">IComparisonOperatorFactory</a></td>
+</tr>
+<tr>
+<td><a href="#ilogicaloperatorfactory">ILogicalOperatorFactory</a></td>
+<td><a href="#isearchquerygroupingfactory">ISearchQueryGroupingFactory</a></td>
+</tr>
+<tr>
+<td><a href="#isearchqueryrulefactory">ISearchQueryRuleFactory</a></td>
+<td><a href="#logicaloperatorfactory">LogicalOperatorFactory</a></td>
+</tr>
+<tr>
+<td><a href="#searchquerygroupingfactory">SearchQueryGroupingFactory</a></td>
+<td><a href="#searchqueryrulefactory">SearchQueryRuleFactory</a></td>
+</tr>
+<tr>
+<td><a href="#indexableentity">IndexableEntity</a></td>
+<td><a href="#isearchqueryelementt">ISearchQueryElement&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a href="#logicaloperator">LogicalOperator</a></td>
+<td><a href="#isearchqueryelementvisitort">ISearchQueryElementVisitor&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a href="#isearchquerypredicatebuildert">ISearchQueryPredicateBuilder&lt;T&gt;</a></td>
+<td><a href="#searchquerypredicatebuildert">SearchQueryPredicateBuilder&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a href="#sitecoremasterorwebindexnameprovider">SitecoreMasterOrWebIndexNameProvider</a></td>
+<td><a href="#isearchqueryelementprovider">ISearchQueryElementProvider</a></td>
+</tr>
+<tr>
+<td><a href="#sitecoresearchqueryelementprovider">SitecoreSearchQueryElementProvider</a></td>
+<td><a href="#isearchqueryvalueprovider">ISearchQueryValueProvider</a></td>
+</tr>
+<tr>
+<td><a href="#namevaluepairsearchqueryvalueprovider">NameValuePairSearchQueryValueProvider</a></td>
+<td><a href="#searchqueryvalueproviderbase">SearchQueryValueProviderBase</a></td>
+</tr>
+<tr>
+<td><a href="#isearchresultrepositoryt">ISearchResultRepository&lt;T&gt;</a></td>
+<td><a href="#searchresultrepositoryt">SearchResultRepository&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a href="#searchcriteria">SearchCriteria</a></td>
+<td><a href="#searchquerygroupingt">SearchQueryGrouping&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a href="#searchqueryrulet">SearchQueryRule&lt;T&gt;</a></td>
+<td><a href="#searchresultt">SearchResult&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a href="#searchresultrepositorybuildert">SearchResultRepositoryBuilder&lt;T&gt;</a></td>
+<td><a href="#expressionconversionservice">ExpressionConversionService</a></td>
+</tr>
+<tr>
+<td><a href="#searchqueryvalueconversionservice">SearchQueryValueConversionService</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="comparisonoperator"><code>ComparisonOperator</code></h2>
+<p>Represents the set of comparison operators a <a href="#searchqueryrulet">SearchQueryRule<t></t></a> can be configured to use, when comparing its selected property against its dynamically provided value or default value.</p>
+<h3 id="between">Between</h3>
+<p>The operator represents a &quot;set that contains just the specified&quot; comparison.</p>
+<h3 id="contains">Contains</h3>
+<p>The operator represents a &quot;contains&quot; comparison.</p>
+<h3 id="equal">Equal</h3>
+<p>The operator represents a &quot;equal&quot; comparison.</p>
+<h3 id="greaterthan">GreaterThan</h3>
+<p>The operator represents a &quot;greater than&quot; comparison.</p>
+<h3 id="greaterthanorequal">GreaterThanOrEqual</h3>
+<p>The operator represents a &quot;greater than or equal&quot; comparison.</p>
+<h3 id="lessthan">LessThan</h3>
+<p>The operator represents a &quot;less than&quot; comparison.</p>
+<h3 id="lessthanorequal">LessThanOrEqual</h3>
+<p>The operator represents a &quot;less than or equal&quot; comparison.</p>
+<h3 id="notbetween">NotBetween</h3>
+<p>The operator represents a &quot;set that contains everything except the specified&quot; comparison.</p>
+<h3 id="notcontains">NotContains</h3>
+<p>The operator represents a &quot;not contains&quot; comparison.</p>
+<h3 id="notequal">NotEqual</h3>
+<p>The operator represents a &quot;not equal&quot; comparison.</p>
+<h2 id="comparisonoperatorfactory"><code>ComparisonOperatorFactory</code></h2>
+<p>Represents the default factory for building types of <a href="#comparisonoperator">ComparisonOperator</a>.</p>
+<h2 id="icomparisonoperatorfactory"><code>IComparisonOperatorFactory</code></h2>
+<p>Provides functionality to build types of <a href="#comparisonoperator">ComparisonOperator</a>.</p>
+<h3 id="createrawcomparisonoperator">Create(rawComparisonOperator)</h3>
+<p>Creates a new <a href="#comparisonoperator">ComparisonOperator</a> based on the raw comparison operator value.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rawComparisonOperator</td>
+<td><em>System.String</em><br>The raw logical operator value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A comparison operator type.</p>
+<h2 id="ilogicaloperatorfactory"><code>ILogicalOperatorFactory</code></h2>
+<p>Provides functionality to build types of <a href="#logicaloperator">LogicalOperator</a>.</p>
+<h3 id="createrawlogicaloperator">Create(rawLogicalOperator)</h3>
+<p>Creates a new <a href="#logicaloperator">LogicalOperator</a> based on the raw logical operator value.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rawLogicalOperator</td>
+<td><em>System.String</em><br>The raw logical operator value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A logical operator type.</p>
+<h2 id="isearchquerygroupingfactory"><code>ISearchQueryGroupingFactory</code></h2>
+<p>Provides functionality to build instances of type <a href="#searchquerygroupingt">SearchQueryGrouping<t></t></a>.</p>
+<h3 id="createconfiguredlogicaloperator">Create<t>(configuredLogicalOperator)</t></h3>
+<p>Creates a new <a href="#searchquerygroupingt">SearchQueryGrouping<t></t></a> based on the logical operator.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configuredLogicalOperator</td>
+<td><em>System.String</em><br>The raw logical operator value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A search query grouping instance.</p>
+<h3 id="logicaloperatorfactory">LogicalOperatorFactory</h3>
+<p>Gets the <a href="#ilogicaloperatorfactory">ILogicalOperatorFactory</a> that is associated with the given search query grouping factory.</p>
+<h2 id="isearchqueryrulefactory"><code>ISearchQueryRuleFactory</code></h2>
+<p>Provides functionality to build instances of type <a href="#searchqueryrulet">SearchQueryRule<t></t></a>.</p>
+<h3 id="comparisonoperatorfactory">ComparisonOperatorFactory</h3>
+<p>Gets the <a href="#icomparisonoperatorfactory">IComparisonOperatorFactory</a> that is associated with the given search query rule factory.</p>
+<h3 id="createassociatedpropertyname-configuredcomparisonoperator-dynamicvalueprovidingparameter-defaultvalue">Create<t>(associatedPropertyName, configuredComparisonOperator, dynamicValueProvidingParameter, defaultValue)</t></h3>
+<p>Creates a new <a href="#searchqueryrulet">SearchQueryRule<t></t></a> based on the comparison operator.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>associatedPropertyName</td>
+<td><em>System.String</em><br>The associated property name of T.</td>
+</tr>
+<tr>
+<td>configuredComparisonOperator</td>
+<td><em>System.String</em><br>The configured comparison operator.</td>
+</tr>
+<tr>
+<td>dynamicValueProvidingParameter</td>
+<td><em>System.String</em><br>The dynamic value providing parameter (optional).</td>
+</tr>
+<tr>
+<td>defaultValue</td>
+<td><em>System.String</em><br>The default value (optional).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A search query rule instance.</p>
+<h2 id="logicaloperatorfactory"><code>LogicalOperatorFactory</code></h2>
+<p>Represents the default factory for building types of <a href="#logicaloperator">LogicalOperator</a>.</p>
+<h2 id="searchquerygroupingfactory"><code>SearchQueryGroupingFactory</code></h2>
+<p>Represents the default factory for building instances of type <a href="#searchquerygroupingt">SearchQueryGrouping<t></t></a>.</p>
+<h2 id="searchqueryrulefactory"><code>SearchQueryRuleFactory</code></h2>
+<p>Represents the default factory for building instances of type <a href="#searchqueryrulet">SearchQueryRule<t></t></a>.</p>
+<h2 id="indexableentity"><code>IndexableEntity</code></h2>
+<p>Represents the base class of an indexable entity that is used when querying data from the search index.</p>
+<h2 id="isearchqueryelementt"><code>ISearchQueryElement&lt;T&gt;</code></h2>
+<p>The base abstraction for all search query elements.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="acceptvisitor">Accept(visitor)</h3>
+<p>Dispatches to the specific visit method for this search query element type. For example, <a href="#searchqueryrulet">SearchQueryRule<t></t></a> will call into Processing.ISearchQueryElementVisitor<t>.VisitSearchQueryRule(SearchQueryRule<t>).</t></t></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visitor</td>
+<td><em>Processing.ISearchQueryElementVisitor&lt;T&gt;</em><br>The visitor to visit this search query element with.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logicaloperator"><code>LogicalOperator</code></h2>
+<p>Represents the set of logical operators a <a href="#searchquerygroupingt">SearchQueryGrouping<t></t></a> can be configured to use, in order to determine the logical relationship between its children.</p>
+<h3 id="and">And</h3>
+<p>The operator represents a &quot;logical AND&quot;.</p>
+<h3 id="or">Or</h3>
+<p>The operator represents a &quot;logical OR&quot;.</p>
+<h2 id="isearchqueryelementvisitort"><code>ISearchQueryElementVisitor&lt;T&gt;</code></h2>
+<p>Represents a visitor for search query elements.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="visitsearchquerygroupingbeginsearchquerygrouping">VisitSearchQueryGroupingBegin(searchQueryGrouping)</h3>
+<p>Visits the <a href="#searchquerygroupingt">SearchQueryGrouping<t></t></a> before it visits its children.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchQueryGrouping</td>
+<td><em>SearchQueryGrouping&lt;T&gt;</em><br>The search query grouping to visit.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visitsearchquerygroupingend">VisitSearchQueryGroupingEnd</h3>
+<p>Visits the <a href="#searchquerygroupingt">SearchQueryGrouping<t></t></a> after it has visited its children.</p>
+<h3 id="visitsearchqueryrulesearchqueryrule">VisitSearchQueryRule(searchQueryRule)</h3>
+<p>Visits the <a href="#searchqueryrulet">SearchQueryRule<t></t></a>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchQueryRule</td>
+<td><em>SearchQueryRule&lt;T&gt;</em><br>The search query rule to visit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="isearchquerypredicatebuildert"><code>ISearchQueryPredicateBuilder&lt;T&gt;</code></h2>
+<p>Represents a specialized visitor that can build up a predicate of type Expression<func<t, bool="">&gt; from search query elements.</func<t,></p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="getoutput">GetOutput</h3>
+<p>Returns the aggregated output produced by the predicate builder.</p>
+<h4 id="returns">Returns</h4>
+<p>An aggregated predicate expression.</p>
+<h3 id="searchqueryvalueprovider">SearchQueryValueProvider</h3>
+<p>Gets the <a href="#isearchqueryvalueprovider">ISearchQueryValueProvider</a> that is associated with the given predicate builder.</p>
+<h2 id="searchquerypredicatebuildert"><code>SearchQueryPredicateBuilder&lt;T&gt;</code></h2>
+<p>Represents the default <a href="#isearchquerypredicatebuildert">ISearchQueryPredicateBuilder<t></t></a> implementation.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h2 id="iindexnameprovider"><code>IIndexNameProvider</code></h2>
+<p>Provides functionality to deliver the index name that will be used when performing search queries.</p>
+<h3 id="indexname">IndexName</h3>
+<p>Gets the name representing this index to query.</p>
+<h2 id="sitecoremasterorwebindexnameprovider"><code>SitecoreMasterOrWebIndexNameProvider</code></h2>
+<p>Represents the index name provider for Sitecore that, based on the Sitecore.Context, will resolve the either the Master or Web index.</p>
+<h2 id="isearchqueryelementprovider"><code>ISearchQueryElementProvider</code></h2>
+<p>Provides functionality to retrieve a <a href="#isearchqueryelementt">ISearchQueryElement<t></t></a> root element from a given configuration.</p>
+<h3 id="getsearchqueryelementroot">GetSearchQueryElementRoot<t></t></h3>
+<p>Returns the search query element root.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h4 id="returns">Returns</h4>
+<p>The search query element root</p>
+<h3 id="searchquerygroupingfactory">SearchQueryGroupingFactory</h3>
+<p>Gets the <a href="#isearchquerygroupingfactory">ISearchQueryGroupingFactory</a> that is associated with the given provider.</p>
+<h3 id="searchqueryrulefactory">SearchQueryRuleFactory</h3>
+<p>Gets the <a href="#isearchqueryrulefactory">ISearchQueryRuleFactory</a> that is associated with the given provider.</p>
+<h2 id="sitecoresearchqueryelementprovider"><code>SitecoreSearchQueryElementProvider</code></h2>
+<p>Represents a Sitecore configured search query element provider, accepting a Sitecore.Data.Items.Item root, which gets transformed into a <a href="#isearchqueryelementt">ISearchQueryElement<t></t></a> root.</p>
+<h2 id="isearchqueryvalueprovider"><code>ISearchQueryValueProvider</code></h2>
+<p>Provides functionality for retrieving dynamically provided values used by <a href="#searchqueryrulet">SearchQueryRule<t></t></a> elements.</p>
+<h3 id="getvalueforsearchqueryrulesearchqueryrule">GetValueForSearchQueryRule<t>(searchQueryRule)</t></h3>
+<p>Returns the value needed by the search query rule, which can either be a default or dynamically provided value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchQueryRule</td>
+<td><em>SearchQueryRule&lt;T&gt;</em><br>The specified search query rule.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A typed value.</p>
+<h2 id="namevaluepairsearchqueryvalueprovider"><code>NameValuePairSearchQueryValueProvider</code></h2>
+<p>Represents a name/value pair based value provider, where the dynamic values required by the <a href="#searchqueryrulet">SearchQueryRule<t></t></a> elements are resolved from name/value pairs, like query strings etc.</p>
+<h2 id="searchqueryvalueproviderbase"><code>SearchQueryValueProviderBase</code></h2>
+<p>Represents the base class of an search query value provider.</p>
+<h3 id="getrawdefaultordynamicvalueprovidedbyparametersearchqueryrule">GetRawDefaultOrDynamicValueProvidedByParameter<t>(searchQueryRule)</t></h3>
+<p>Retruns the raw value of either the default or dynamically provided value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchQueryRule</td>
+<td><em>SearchQueryRule&lt;T&gt;</em><br>The specifed search query rule</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A raw string value of either the default or dynamically provided value</p>
+<h3 id="getvalueforsearchqueryrulesearchqueryrule">GetValueForSearchQueryRule<t>(searchQueryRule)</t></h3>
+<p>Returns the value needed by the search query value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchQueryRule</td>
+<td><em>SearchQueryRule&lt;T&gt;</em><br>The specifed search query rule</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A typed value</p>
+<h2 id="isearchresultrepositoryt"><code>ISearchResultRepository&lt;T&gt;</code></h2>
+<p>Provides functionality to retrievin a <a href="#searchresultt">SearchResult<t></t></a> from a given <a href="#searchcriteria">SearchCriteria</a>.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="getsearchresultsearchcriteria">GetSearchResult(searchCriteria)</h3>
+<p>Performs a query using the provided searchCriteria to retrieve a <a href="#searchresultr">SearchResult<t></t></a>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchCriteria</td>
+<td><em>SearchCriteria</em><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>A <a href="#searchresultt">SearchResult<t></t></a> containing the search result</p>
+<h3 id="indexnameprovider">IndexNameProvider</h3>
+<p>Gets the <a href="#iindexnameprovider">IIndexNameProvider</a> that is associated with the given search result repository.</p>
+<h3 id="searchqueryelementprovider">SearchQueryElementProvider</h3>
+<p>Gets the <a href="#isearchqueryelementprovider">ISearchQueryElementProvider</a> that is associated with the given search result repository.</p>
+<h3 id="searchquerypredicatebuilder">SearchQueryPredicateBuilder</h3>
+<p>Gets the <a href="#isearchquerypredicatebuildert">ISearchQueryPredicateBuilder<t></t></a> that is associated with the given search result repository.</p>
+<h2 id="searchresultrepositoryt"><code>SearchResultRepository&lt;T&gt;</code></h2>
+<p>Represents the main entry point for retrieving a <a href="#searchresultt">SearchResult<t></t></a> from a given <a href="#searchcriteria">SearchCriteria</a>.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h2 id="searchcriteria"><code>SearchCriteria</code></h2>
+<p>Represents the search criteria used by <a href="#isearchresultrepositoryt">ISearchResultRepository<t></t></a> implementations</p>
+<h3 id="searchpath">SearchPath</h3>
+<p>Gets the search path used to constraint where to look for documents in the search index.</p>
+<h2 id="searchquerygroupingt"><code>SearchQueryGrouping&lt;T&gt;</code></h2>
+<p>Represents a search query grouping that defines a group of one or more search query elements, and their logical relationship to each other.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="logicaloperator">LogicalOperator</h3>
+<p>Gets the <a href="#logicaloperator">LogicalOperator</a> that is associated with the given search query grouping.</p>
+<h3 id="searchqueryelements">SearchQueryElements</h3>
+<p>Gets the search query elements children.</p>
+<h2 id="searchqueryrulet"><code>SearchQueryRule&lt;T&gt;</code></h2>
+<p>Represents a search query rule that defines how a given property of type T should be compared againts either a dynamically provided value or default value.</p>
+<h4 id="remarks">Remarks</h4>
+<p>This class could eventually also include whether to use fuzzy search or not, and if so, how much fuzzyness to use (number).</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="comparisonoperator">ComparisonOperator</h3>
+<p>Gets the <a href="#comparisonoperator">ComparisonOperator</a> that is associated with the given search query rule.</p>
+<h3 id="defaultvalue">DefaultValue</h3>
+<p>Gets the default value that is associated with the given search query rule.</p>
+<h3 id="dynamicvalueprovidingparameter">DynamicValueProvidingParameter</h3>
+<p>Gets the dynamic value providing parameter that is associated with the given search query rule.</p>
+<h3 id="propertyselector">PropertySelector</h3>
+<p>Gets the property selector that is associated with the given search query rule.</p>
+<h2 id="searchresultt"><code>SearchResult&lt;T&gt;</code></h2>
+<p>Represents the search result returned from querying a specific <a href="#searchcriteria">SearchCriteria</a> using the <a href="#searchresultrepositoryt">SearchResultRepository<t></t></a>.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="hits">Hits</h3>
+<p>Gets the hits found.</p>
+<h3 id="totalsearchresults">TotalSearchResults</h3>
+<p>Gets the total number of search results found.</p>
+<h2 id="searchresultrepositorybuildert"><code>SearchResultRepositoryBuilder&lt;T&gt;</code></h2>
+<p>Provides functionalities to build new <a href="#isearchresultrepositoryt">ISearchResultRepository<t></t></a> instances using a specified configuration.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<h3 id="createsearchqueryelementprovider-searchqueryvalueprovider">Create(searchQueryElementProvider, searchQueryValueProvider)</h3>
+<p>Creates a new <a href="#isearchresultrepositoryt">ISearchResultRepository<t></t></a> instance using the specified builder configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchQueryElementProvider</td>
+<td><em>Providers.SearchQueryElement.ISearchQueryElementProvider</em><br></td>
+</tr>
+<tr>
+<td>searchQueryValueProvider</td>
+<td><em>Providers.SearchQueryValue.ISearchQueryValueProvider</em><br></td>
+</tr>
+</tbody>
+</table>
+<h3 id="withindexnameprovider">WithIndexNameProvider<tindexnameprovider></tindexnameprovider></h3>
+<p>Configures the builder to use a given <a href="#iindexnameprovider">IIndexNameProvider</a> type.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>TIndexNameProvider - The type of <a href="#iindexnameprovider">IIndexNameProvider</a> to use.</li>
+</ul>
+<h3 id="withpredicatebuilder">WithPredicateBuilder<tsearchquerypredicatebuilder></tsearchquerypredicatebuilder></h3>
+<p>Configures the builder to use a given <a href="#isearchquerypredicatebuildert">ISearchQueryPredicateBuilder<t></t></a> type.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>TSearchQueryPredicateBuilder - The type of <a href="#isearchquerypredicatebuildert">ISearchQueryPredicateBuilder<t></t></a> to use.</li>
+</ul>
+<h2 id="expressionconversionservice"><code>ExpressionConversionService</code></h2>
+<p>Provides functionalities for constructing expression trees, based on a given property selector and value.</p>
+<h3 id="tobetweenpropertyselector-lowervalue-uppervalue-inclusion">ToBetween<t>(propertySelector, lowerValue, upperValue, inclusion)</t></h3>
+<p>Converts the specified propertySelector to an &apos;between&apos; expression using the given lowerValue and upperValue.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propertySelector</td>
+<td><em>System.Linq.Expressions.Expression{System.Func{T,System.Object}}</em><br>The property selector</td>
+</tr>
+<tr>
+<td>lowerValue</td>
+<td><em>System.Object</em><br>The lower-bound value</td>
+</tr>
+<tr>
+<td>upperValue</td>
+<td><em>System.Object</em><br>The upper-bound value</td>
+</tr>
+<tr>
+<td>inclusion</td>
+<td><em>Sitecore.ContentSearch.Linq.Inclusion</em><br>The state of how the bounds are included</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tocontainspropertyselector-value">ToContains<t>(propertySelector, value)</t></h3>
+<p>Converts the specified propertySelector to an &apos;contains&apos; expression using the given value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propertySelector</td>
+<td><em>System.Linq.Expressions.Expression{System.Func{T,System.Object}}</em><br>The property selector</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>System.String</em><br>The value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>An expression on the form &apos;nameOfPropertySelector contains value&apos;</p>
+<h3 id="toenumerablecontainspropertyselector-value">ToEnumerableContains<t>(propertySelector, value)</t></h3>
+<p>Converts the specified propertySelector of type System.Collections.IEnumerable to an &apos;contains&apos; expression using the given value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propertySelector</td>
+<td><em>System.Linq.Expressions.Expression{System.Func{T,System.Object}}</em><br>The property selector (must be of type System.Collections.IEnumerable)</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>System.Object</em><br>The value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>An expression on the form &apos;nameOfPropertySelector contains value&apos;</p>
+<h3 id="toequalspropertyselector-value">ToEquals<t>(propertySelector, value)</t></h3>
+<p>Converts the specified propertySelector to an &apos;equals&apos; expression using the given value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propertySelector</td>
+<td><em>System.Linq.Expressions.Expression{System.Func{T,System.Object}}</em><br>The property selector</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>System.Object</em><br>The value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>An expression on the form &apos;nameOfPropertySelector equals value&apos;</p>
+<h3 id="togreaterthanorequalpropertyselector-value">ToGreaterThanOrEqual<t>(propertySelector, value)</t></h3>
+<p>Converts the specified propertySelector to an &apos;greater-than-or-equals&apos; expression using the given value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propertySelector</td>
+<td><em>System.Linq.Expressions.Expression{System.Func{T,System.Object}}</em><br>The property selector</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>System.Object</em><br>The value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>An expression on the form &apos;nameOfPropertySelector greater-than-or-equals value&apos;</p>
+<h3 id="tolessthanorequalpropertyselector-value">ToLessThanOrEqual<t>(propertySelector, value)</t></h3>
+<p>Converts the specified propertySelector to an &apos;less-than-or-equals&apos; expression using the given value.</p>
+<h4 id="type-parameters">Type Parameters</h4>
+<ul>
+<li>T - The type of <a href="#indexableentity">IndexableEntity</a> implementation to use.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propertySelector</td>
+<td><em>System.Linq.Expressions.Expression{System.Func{T,System.Object}}</em><br>The property selector</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>System.Object</em><br>The value</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns</h4>
+<p>An expression on the form &apos;nameOfPropertySelector less-than-or-equals value&apos;</p>
+<h2 id="searchqueryvalueconversionservice"><code>SearchQueryValueConversionService</code></h2>
+<p>Provides functionalities for converting raw System.String values into typed values.</p>
+<h3 id="totypedvaluevaluetype-value">ToTypedValue(valueType, value)</h3>
+<p>Converts the value to the specified valueType.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>valueType</td>
+<td><em>System.Type</em><br>The value type that the specified value needs to be converted into.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><em>System.String</em><br>The value that needs to be converted.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tryconverttorangevaluepartsvalue-rangevalueparts">TryConvertToRangeValueParts(value, rangeValueParts)</h3>
+<p>Tries to convert the specified value into range value parts.</p>
+<h4 id="remarks">Remarks</h4>
+<p>The output parameter rangeValueParts is intended to be used within the RangeValue type.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><em>System.String</em><br>The value that needs to be converted.</td>
+</tr>
+<tr>
+<td>rangeValueParts</td>
+<td><em>System.Tuple{System.String,System.String}</em><br>The range value parts ressembling the range values, if converted.</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../Glossary.html" class="navigation navigation-prev " aria-label="Previous page: Glossary">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../CHANGELOG.html" class="navigation navigation-next " aria-label="Next page: Change Log">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"API Reference","level":"1.8","depth":1,"next":{"title":"Change Log","level":"1.9","depth":1,"path":"CHANGELOG.md","ref":"CHANGELOG.md","articles":[]},"previous":{"title":"Glossary","level":"1.7","depth":1,"path":"docs/Glossary.md","ref":"docs/Glossary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","-highlight","sunlight-highlighter","github-edit"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"github-edit":{"repo":"soen/Conjunction","branch":"master"},"anchorjs":{},"sunlight-highlighter":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Conjunction","gitbook":">=3.2.1"},"file":{"path":"docs/api/README.md","mtime":"2017-01-22T22:44:07.761Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-27T15:07:26.811Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-edit/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

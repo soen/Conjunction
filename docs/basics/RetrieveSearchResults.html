@@ -1,0 +1,532 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Retrieving the Search Results · Conjunction</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sunlight-highlighter/sunlight.default.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../advanced/" />
+    
+    
+    <link rel="prev" href="ConfigureSearchQuery.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Read Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
+            
+                <a href="../introduction/Motivation.html">
+            
+                    
+                    Motivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/CoreConcepts.html">
+            
+                <a href="../introduction/CoreConcepts.html">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="CreateIndexableEntityModel.html">
+            
+                <a href="CreateIndexableEntityModel.html">
+            
+                    
+                    Creating the Indexable Entity Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ConfigureSearchQuery.html">
+            
+                <a href="ConfigureSearchQuery.html">
+            
+                    
+                    Configuring the Search Query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="RetrieveSearchResults.html">
+            
+                <a href="RetrieveSearchResults.html">
+            
+                    
+                    Retrieving the Search Results
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/NestedSearchQueries.html">
+            
+                <a href="../advanced/NestedSearchQueries.html">
+            
+                    
+                    Nested Search Queries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/CreatingCustomProviders.html">
+            
+                <a href="../advanced/CreatingCustomProviders.html">
+            
+                    
+                    Creating Custom Providers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                <a href="../advanced/CreatingSearchResultRepositoryDecorators.html">
+            
+                    
+                    Creating Search Result Repository Decorators
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Troubleshooting.html">
+            
+                <a href="../Troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../Glossary.html">
+            
+                <a href="../Glossary.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../api/">
+            
+                <a href="../api/">
+            
+                    
+                    API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../CHANGELOG.html">
+            
+                <a href="../../CHANGELOG.html">
+            
+                    
+                    Change Log
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Retrieving the Search Results</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="retrieving-the-search-results">Retrieving the Search Results</h1>
+<p>Now that we have our indexable entity model defined and the search query configured in Sitecore, the final step is to retrieve the search results that matches the configured search query.</p>
+<h2 id="the-three-providers">The Three Providers</h2>
+<p>In order to retrieve the search results, we first need to configure Conjunction to use the correct <em>providers</em>:</p>
+<ul>
+<li>Search Query Element Provider</li>
+<li>Search Query Element Value Provider</li>
+<li>Index Name Provider </li>
+</ul>
+<p>The <strong>Search Query Element Provider</strong> is resposible for retrieving a search query root from a given configuration. In this example, we want to retrieve the search query root from the previously configured search query root item in Sitecore, and for this we use the default Sitecore search query element provider implementation that ships with Conjunction.</p>
+<p>First we get the search query root item from Sitecore by fetching the search query root item using its ID. Once we have the search query root item, this has to get passed to the <a href="../api/#sitecoresearchqueryelementprovider"><code>SitecoreSearchQueryElementProvider</code></a> provider type, that will transform the configuration of the search query root item into an internal search query element representation that Conjunction can work with:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-named-ident">Func</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">Item</span><span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">searchQueryRootItemFactory</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">Sitecore</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Context</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Database</span><span class="sunlight-operator">.</span><span class="sunlight-ident">GetItem</span><span class="sunlight-punctuation">(</span><span class="sunlight-string">&quot;itemId&quot;</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;<span class="sunlight-keyword">var</span>&#xA0;<span class="sunlight-ident">elementProvider</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-keyword">new</span>&#xA0;<span class="sunlight-named-ident">SitecoreSearchQueryElementProvider</span><span class="sunlight-punctuation">(</span><span class="sunlight-ident">searchQueryRootItemFactory</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+</span></code></pre>
+<p>For retrieving dynamically provided values used by search query rule elements, we use a different provider named a <strong>Search Query Element Value Provider</strong>. In this example, we make use of another provider implementation that comes with Conjunction, which is capable of retrieving values from a query string, named <a href="../api/#namevaluepairsearchqueryvalueprovider"><code>NameValuePairSearchQueryValueProvider</code></a>:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-named-ident">Func</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">NameValueCollection</span><span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">nameValuePairFactory</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span>&#xA0;<span class="sunlight-operator">=&gt;</span>&#xA0;<span class="sunlight-ident">Request</span><span class="sunlight-operator">.</span><span class="sunlight-ident">QueryString</span>
+&#xA0;&#xA0;<span class="sunlight-keyword">var</span>&#xA0;<span class="sunlight-ident">valueProvider</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-keyword">new</span>&#xA0;<span class="sunlight-named-ident">NameValuePairSearchQueryValueProvider</span><span class="sunlight-punctuation">(</span><span class="sunlight-ident">nameValuePairFactory</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+</span></code></pre>
+<blockquote>
+<p><strong>Note</strong>: Essentially, the <a href="../api/#namevaluepairsearchqueryvalueprovider"><code>NameValuePairSearchQueryValueProvider</code></a> works by interpreting the name/value pairs, coming from the query string of a web request as dynamic values, making these ready for the search query rules. Once interpreted, these values gets served to the search query rules needing the value tied together with a given <em>dynamic value providing parameter</em>, when the search query is performed.</p>
+</blockquote>
+<p>The last bit of configuration that has to be set up is the <strong>Index Name Provider</strong> that is used to deliver the index name that will be used when performing search queries. In this example, we specify that we want to retrieve results from the default Sitecore master/web index, using the default Sitecore index name provider within Conjunction, named <a href="../api/#sitecoremasterorwebindexnameprovider"><code>SitecoreMasterOrWebIndexNameProvider</code></a>.</p>
+<blockquote>
+<p><strong>Tip</strong>: For real-life project you should favor using <a href="https://soen.ghost.io/tackling-the-challenges-of-architecting-a-search-indexing-infrastructure-in-sitecore-part-2#howshouldthesearchindexesbeorganized" target="_blank"><em>domain indexes</em></a>, as they give you much smaller, yet concise and cohesive indexes to work with, thus avoiding all of the disadvantages you get by using the more simpler solution of using the default Sitecore indexes. For more information on how you can create your own custom index name provider, see the advanced section <a href="../advanced/CreatingCustomProviders.html#a-domain-index-name-provider">Creating custom providers</a>. </p>
+</blockquote>
+<h2 id="configuring-the-search-result-repository">Configuring the Search Result Repository</h2>
+<p>With the providers in place, the next step is to configure a <strong>Search Result Repository</strong> to use the providers. This is done using the <a href="../api/#searchresultrepositorybuildert"><code>SearchResultRepositoryBuilder&lt;T&gt;</code></a> type, where the generic type <code>T</code> is constrained to be a subtype of the <a href="../api/#indexableentity"><code>IndexableEntity</code></a> type:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-keyword">var</span>&#xA0;<span class="sunlight-ident">builder</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-keyword">new</span>&#xA0;<span class="sunlight-named-ident">SearchResultRepositoryBuilder</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">TestIndexableEntity</span><span class="sunlight-operator">&gt;</span><span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<span class="sunlight-operator">.</span><span class="sunlight-ident">WithIndexNameProvider</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">SitecoreMasterOrWebIndexNameProvider</span><span class="sunlight-operator">&gt;</span><span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+
+&#xA0;&#xA0;<span class="sunlight-named-ident">ISearchResultRepository</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">TestIndexableEntity</span><span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">repository</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">builder</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Create</span><span class="sunlight-punctuation">(</span><span class="sunlight-ident">elementProvider</span><span class="sunlight-punctuation">,</span>&#xA0;<span class="sunlight-ident">valueProvider</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+</span></code></pre>
+<p>The builder works by first creating an instance of the builder, then it allows the developer to configure various optionals. In this case, we explicitly set the index name provider to use the <code>SitecoreMasterOrWebIndexNameProvider</code> implementation by calling the <code>WithIndexNameProvider&lt;TIndexNameProvider&gt;</code> method, where <code>TIndexNameProvider</code> is constrained be an implementation of <code>TIndexNameProvider</code>.</p>
+<blockquote>
+<p><strong>Note</strong>: If you don&apos;t configure the index name provider, Conjunction will automatically use the <code>SitecoreMasterOrWebIndexNameProvider</code> implementation.</p>
+</blockquote>
+<p>Once the optionals have been configured, the builder is used to create an instance of the search result repository by calling the <code>Create()</code> method, which takes in the specified element- and value provider instances.</p>
+<h2 id="retrieving-the-search-results">Retrieving the Search Results</h2>
+<p>Finally, we use the search result repository to retrieve the search result of type <a href="../api/#searchresultt"><code>SearchResult&lt;T&gt;</code></a> using the <code>GetSearchResult()</code> method. Again, the generic type <code>T</code> is constrained to be a subtype of the <a href="../api/#indexableentity"><code>IndexableEntity</code></a> type:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-keyword">var</span>&#xA0;<span class="sunlight-ident">criteria</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-keyword">new</span>&#xA0;<span class="sunlight-named-ident">SearchCriteria</span><span class="sunlight-punctuation">(</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+&#xA0;&#xA0;<span class="sunlight-named-ident">SearchResult</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">ToyBall</span><span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">searchResult</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">repository</span><span class="sunlight-operator">.</span><span class="sunlight-ident">GetSearchResult</span><span class="sunlight-punctuation">(</span><span class="sunlight-ident">criteria</span><span class="sunlight-punctuation">)</span><span class="sunlight-punctuation">;</span>
+</span></code></pre>
+<blockquote>
+<p><strong>Note</strong>: Notice that the <code>GetSearchResult()</code> method takes in an instance of type <code>SearchCriteria</code>. By default, the <code>SearchCriteria</code> type contains information about where to look for documents in the search index - however, this class will in the future contain information about sorting, pagination and alike. </p>
+</blockquote>
+<p>When the search result repository has retrieved the search result from the search index, you can then access the number of total hits found, as well as the actual hits, that matches the query performed:</p>
+<pre><code class="lang-csharp"><span class="sunlight-csharp">&#xA0;&#xA0;<span class="sunlight-keyword">int</span>&#xA0;<span class="sunlight-ident">totalSearchResultCount</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">searchResult</span><span class="sunlight-operator">.</span><span class="sunlight-ident">TotalSearchResults</span><span class="sunlight-punctuation">;</span>&#xA0;
+&#xA0;&#xA0;<span class="sunlight-named-ident">IEnumerable</span><span class="sunlight-operator">&lt;</span><span class="sunlight-named-ident">ToyBall</span><span class="sunlight-operator">&gt;</span>&#xA0;<span class="sunlight-ident">searchResults</span>&#xA0;<span class="sunlight-operator">=</span>&#xA0;<span class="sunlight-ident">searchResult</span><span class="sunlight-operator">.</span><span class="sunlight-ident">Hits</span><span class="sunlight-punctuation">;</span>
+</span></code></pre>
+<p>If you want a more complete example, showing how all the individual pieces fit together in a complete web application, please refer to the <a href="../introduction/Examples.html#the-mvc-demo-example">MVC demo example</a>.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>We have now covered the basics of using Conjunction to create an indexable entity model, configure the search query configuration in Sitecore and retrieve the matching search results - however, we have only scratched the surface of what you can do with Conjunction. Therefore, we encourage you to continue exploring how you can achieve even more advanced scenarios, by looking at the different walkthroughs described in the <a href="../advanced/">advanced</a> section.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ConfigureSearchQuery.html" class="navigation navigation-prev " aria-label="Previous page: Configuring the Search Query">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../advanced/" class="navigation navigation-next " aria-label="Next page: Advanced">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Retrieving the Search Results","level":"1.3.3","depth":2,"next":{"title":"Advanced","level":"1.4","depth":1,"path":"docs/advanced/README.md","ref":"docs/advanced/README.md","articles":[{"title":"Nested Search Queries","level":"1.4.1","depth":2,"path":"docs/advanced/NestedSearchQueries.md","ref":"docs/advanced/NestedSearchQueries.md","articles":[]},{"title":"Creating Custom Providers","level":"1.4.2","depth":2,"path":"docs/advanced/CreatingCustomProviders.md","ref":"docs/advanced/CreatingCustomProviders.md","articles":[]},{"title":"Creating Search Result Repository Decorators","level":"1.4.3","depth":2,"path":"docs/advanced/CreatingSearchResultRepositoryDecorators.md","ref":"docs/advanced/CreatingSearchResultRepositoryDecorators.md","articles":[]}]},"previous":{"title":"Configuring the Search Query","level":"1.3.2","depth":2,"path":"docs/basics/ConfigureSearchQuery.md","ref":"docs/basics/ConfigureSearchQuery.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","-highlight","sunlight-highlighter","github-edit"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"github-edit":{"repo":"soen/Conjunction","branch":"master"},"anchorjs":{},"sunlight-highlighter":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Conjunction","gitbook":">=3.2.1"},"file":{"path":"docs/basics/RetrieveSearchResults.md","mtime":"2017-01-25T20:04:24.451Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-27T15:07:26.811Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-edit/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
