@@ -18,6 +18,18 @@ Fork, then clone the repo:
 git clone https://github.com/your-username/conjunction.git
 ```
 
+### Unicorn
+
+The project uses [Unicorn](https://github.com/kamsar/Unicorn) to serialize Sitecore items related to Conjunction, i.e template items, settings etc. 
+
+In order to use Unicorn you need to do the following:
+
+1. Publish the Conjunction.Foundation.Content project, using a custom file system publish profile, to your local Sitecore instance
+2. Copy the ``Unicorn.CustomSerializationFolder.config.example`` file from the ``App_Config/Include/Unicorn`` folder to the ``App_Config/Include/z_Developer`` folder
+3. Rename the copied file to remove the ``.example`` extension
+4. Edit the file to point at the serialization folder beneath your working folder
+5. Run ``http://<yoursite>/unicorn.aspx`` and sync everything
+
 ### Tests
 
 Tests are located in the ``*.Tests`` projects and are using [xUnit.net](https://xunit.github.io/). By default, the test projects use [Visual Studio runner](https://github.com/xunit/visualstudio.xunit) to run the tests.
