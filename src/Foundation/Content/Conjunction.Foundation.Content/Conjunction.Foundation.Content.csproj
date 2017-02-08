@@ -86,6 +86,7 @@
     <Content Include="App_Config\Include\z_Conjunction\Unicorn.Configs.Conjunction.DeveloperOnly.config" />
     <Content Include="App_Config\Include\z_Conjunction\Unicorn.Configs.Conjunction.Foundation - Copy.config" />
     <None Include="Properties\PublishProfiles\Local - NM.pubxml" />
+    <None Include="Properties\PublishProfiles\wwwroot.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
