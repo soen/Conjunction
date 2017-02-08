@@ -1,0 +1,14 @@
+﻿---
+ID: "938dd76f-2063-4c46-aa93-8edff1b49e1f"
+Parent: "f64f305b-dfed-4f66-bbcb-d30dc8097e49"
+Template: "f6fdfd70-26d0-4472-a118-97b65a6bf189"
+Path: /sitecore/content/Home/Conjunction/Example Search Query Root/Search Query Rule
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170201T211509Z
