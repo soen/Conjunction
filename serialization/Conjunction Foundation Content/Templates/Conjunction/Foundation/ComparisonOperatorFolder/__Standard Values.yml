@@ -1,0 +1,23 @@
+﻿---
+ID: "3262c169-d38e-44bc-99f1-7bf1c5fbd087"
+Parent: "9d6ab533-b3b5-4799-a257-f1eae8b3c844"
+Template: "9d6ab533-b3b5-4799-a257-f1eae8b3c844"
+Path: /sitecore/templates/Conjunction/Foundation/ComparisonOperatorFolder/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{BBC556B4-5CC2-4DB2-AA25-36ACCA5E7333}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161118T163122Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

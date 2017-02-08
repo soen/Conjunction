@@ -1,0 +1,18 @@
+﻿---
+ID: "6ceb5f43-97f3-4bf5-b69f-f503d6d10a8f"
+Parent: "f6fdfd70-26d0-4472-a118-97b65a6bf189"
+Template: "f6fdfd70-26d0-4472-a118-97b65a6bf189"
+Path: /sitecore/templates/Conjunction/Foundation/SearchQueryRule/__Standard Values
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161116T202453Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

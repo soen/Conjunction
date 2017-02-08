@@ -1,0 +1,22 @@
+﻿---
+ID: "c1b93a34-44a6-41e9-a9f1-7cf30c38b9b6"
+Parent: "d5bb1dd5-647d-4d51-90c6-249a0ba53bd3"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Conjunction/Foundation/_IndexableEntityConfigurator/IndexableEntityConfigurator
+DB: master
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Indexable Entity Type Configurator
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161116T201857Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
