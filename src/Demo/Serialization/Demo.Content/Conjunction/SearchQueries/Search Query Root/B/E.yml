@@ -1,0 +1,14 @@
+﻿---
+ID: "545ad188-3b8d-4bec-8b90-63803f73cd72"
+Parent: "738aca6b-5a6e-4100-aaf5-b188ef0a5c49"
+Template: "159d9956-aadc-4b31-9f70-39bf74e14bf1"
+Path: /sitecore/content/Home/Conjunction/SearchQueries/Search Query Root/B/E
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170103T193940Z

@@ -1,0 +1,14 @@
+﻿<!--
+	This is an example of how to configure the source folder path needed for Unicorn item serialization.
+-->
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+  <sitecore>
+    <!--
+				The source folder is where the Conjunction source code is located on your machine (the working directory).
+        
+        The source folder must be an absolute filesystem path, e.g. c:\projects\Conjunction\src.
+        Be sure to keep the '\src' part of the path.        
+			-->
+    <sc.variable name="sourceFolder" value="C:\path-to-source\src" />
+  </sitecore>
+</configuration>

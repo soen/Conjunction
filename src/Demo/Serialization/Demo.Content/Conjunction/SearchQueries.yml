@@ -1,0 +1,18 @@
+﻿---
+ID: "ae864216-b2a5-4414-9dd7-74ba19058c2d"
+Parent: "6ceba9b3-868e-4689-bb4f-31dd39021081"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/Home/Conjunction/SearchQueries
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161116T203925Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

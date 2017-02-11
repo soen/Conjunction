@@ -1,0 +1,23 @@
+﻿---
+ID: "84f74033-3085-4044-98dd-3e3ef07ef2fb"
+Parent: "d6a82e1f-6687-495e-8243-d865b1bf28ba"
+Template: "f6fdfd70-26d0-4472-a118-97b65a6bf189"
+Path: /sitecore/content/Home/Conjunction/SearchQueries/SearchQueryRoot/WhereCreatedDateIsGreaterThanOrEqual
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20e7efe4-7460-4cbe-9352-7940fc5013d8"
+      Hint: SearchQueryRuleComparisonOperator
+      Value: GreaterThanOrEqual
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161118T184214Z
+    - ID: "b31481a1-8140-4e1a-b489-3dd21634c22d"
+      Hint: SearchQueryRuleAssociatedPropertyName
+      Value: CreatedDate
+    - ID: "bd5aabfb-a3dd-425b-8084-aeaa981fd3ee"
+      Hint: SearchQueryRuleDefaultValue
+      Value: "01-01-0001"

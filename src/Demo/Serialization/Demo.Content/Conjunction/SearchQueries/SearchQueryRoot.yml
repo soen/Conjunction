@@ -1,0 +1,20 @@
+﻿---
+ID: "d6a82e1f-6687-495e-8243-d865b1bf28ba"
+Parent: "ae864216-b2a5-4414-9dd7-74ba19058c2d"
+Template: "818a0ca7-1388-48bc-9e07-851314c288cb"
+Path: /sitecore/content/Home/Conjunction/SearchQueries/SearchQueryRoot
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161116T203936Z
+    - ID: "bee28558-0a5d-4ee1-b54f-a9d25596a249"
+      Hint: IndexableEntityConfiguratorConfiguredIndexableEntityType
+      Value: Demo.Model.MyClass,Demo
+    - ID: "f024eaf0-f10d-4ac9-a7da-a280b0ae1af9"
+      Hint: SearchQueryGroupingLogicalOperator
+      Value: And

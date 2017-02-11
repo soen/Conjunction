@@ -1,0 +1,23 @@
+﻿---
+ID: "55d4083f-8b8c-408c-8fe3-9bf81093d0f5"
+Parent: "d6a82e1f-6687-495e-8243-d865b1bf28ba"
+Template: "f6fdfd70-26d0-4472-a118-97b65a6bf189"
+Path: /sitecore/content/Home/Conjunction/SearchQueries/SearchQueryRoot/WhereItemIdEquals
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20e7efe4-7460-4cbe-9352-7940fc5013d8"
+      Hint: SearchQueryRuleComparisonOperator
+      Value: Equal
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161118T184141Z
+    - ID: "46660b55-18c3-4d3b-8f6e-7f3cb3949318"
+      Hint: SearchQueryRuleDynamicValueProvidingParameter
+      Value: $y
+    - ID: "b31481a1-8140-4e1a-b489-3dd21634c22d"
+      Hint: SearchQueryRuleAssociatedPropertyName
+      Value: ItemId

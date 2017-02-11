@@ -1,0 +1,17 @@
+﻿---
+ID: "740112fe-89dd-4588-a8a1-a0de137b88a7"
+Parent: "dc1cbc06-90c3-4cc1-8050-9cfe14ca608a"
+Template: "5c28b108-98f6-4840-ae14-f3633b2550ba"
+Path: /sitecore/system/Modules/Conjunction/Settings/LogicalOperators/Or
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161118T182744Z
+    - ID: "c736c637-704e-4b89-acd3-863e97c56300"
+      Hint: LogicalOperatorType
+      Value: Conjunction.Foundation.Core.Model.LogicalOperator.Or,Conjunction.Foundation.Core
