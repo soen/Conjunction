@@ -94,7 +94,9 @@
     <Content Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.config" />
     <Content Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
-    <None Include="App_Config\Include\Conjunction\Conjunction.Foundation.Serialization.DevSettings.config" />
+    <Content Include="App_Config\Include\Conjunction\Conjunction.Foundation.Serialization.DevSettings.config.example">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\wwwroot.pubxml" />
   </ItemGroup>
   <ItemGroup>
