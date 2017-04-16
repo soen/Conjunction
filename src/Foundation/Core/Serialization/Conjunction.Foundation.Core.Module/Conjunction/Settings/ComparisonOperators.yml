@@ -1,0 +1,18 @@
+﻿---
+ID: "ad18bf73-825d-482a-bb38-b1b6a339fb62"
+Parent: "ef59903b-6ba8-4cbb-b780-81b424650c12"
+Template: "9d6ab533-b3b5-4799-a257-f1eae8b3c844"
+Path: /sitecore/system/Modules/Conjunction/Settings/ComparisonOperators
+DB: master
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Comparison Operators
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161118T182653Z

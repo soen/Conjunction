@@ -18,17 +18,16 @@ Fork, then clone the repo:
 git clone https://github.com/your-username/conjunction.git
 ```
 
-### Unicorn
+### Item Serialization
 
 The project uses [Unicorn](https://github.com/kamsar/Unicorn) to serialize Sitecore items related to Conjunction, i.e template items, settings etc. 
 
-In order to use Unicorn you need to do the following:
+To get the item serialization working, you must perform the following steps:
 
-1. Publish the Conjunction.Foundation.Content project, using a custom file system publish profile, to your local Sitecore instance
-2. Copy the ``Unicorn.CustomSerializationFolder.config.example`` file from the ``App_Config/Include/Unicorn`` folder to the ``App_Config/Include/z_Developer`` folder
-3. Rename the copied file to remove the ``.example`` extension
-4. Edit the file to point at the serialization folder beneath your working folder
-5. Run ``http://<yoursite>/unicorn.aspx`` and sync everything
+1. Publish the ``Conjunction.Foundation.Serialization`` and ``Conjunction.Foundation.Core`` projects, using a custom filesystem publish profile, to your local Sitecore instance (IIS webroot folder)
+2. In the local Sitecore instance, locate the file ``.\Website\App_Config\Include\Conjunction\Conjunction.Foundation.Serialization.DevSettings.config.example`` and remove the ``.example`` extension
+3. Edit the ``Conjunction.Foundation.Serialization.DevSettings.config`` file and set the ``sourceFolder`` variable to point to where the Conjunction source code is located on your machine (the working directory)
+4. Run ``http://<yoursite>/unicorn.aspx`` and sync everything
 
 ### Tests
 

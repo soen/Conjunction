@@ -1,0 +1,21 @@
+﻿---
+ID: "d4391bc3-6086-46f0-99f9-e71053dfec1e"
+Parent: "ad18bf73-825d-482a-bb38-b1b6a339fb62"
+Template: "bbc556b4-5cc2-4db2-aa25-36acca5e7333"
+Path: /sitecore/system/Modules/Conjunction/Settings/ComparisonOperators/LessThanOrEqual
+DB: master
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Less than or equal
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0e2333a1-688d-4efa-beae-6ce1d835b36d"
+      Hint: ComparisonOperatorType
+      Value: Conjunction.Foundation.Core.Model.ComparisonOperator.LessThanOrEqual,Conjunction.Foundation.Core
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20161118T182823Z
