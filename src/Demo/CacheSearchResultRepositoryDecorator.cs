@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Runtime.Caching;
-using Conjunction.Foundation.Core.Model;
-using Conjunction.Foundation.Core.Model.Processing;
-using Conjunction.Foundation.Core.Model.Providers.Indexing;
-using Conjunction.Foundation.Core.Model.Providers.SearchQueryElement;
-using Conjunction.Foundation.Core.Model.Repositories;
+using Conjunction.Core.Model;
+using Conjunction.Core.Model.Processing;
+using Conjunction.Core.Model.Providers.Indexing;
+using Conjunction.Core.Model.Providers.SearchQueryElement;
+using Conjunction.Core.Model.Repositories;
+using Conjunction.Sitecore.Model;
 
 namespace Demo
 {
@@ -30,11 +31,11 @@ namespace Demo
 
     public IIndexNameProvider IndexNameProvider => _searchResultRepository.IndexNameProvider;
 
-    public ISearchQueryPredicateBuilder<T> SearchQueryPredicateBuilder => _searchResultRepository.SearchQueryPredicateBuilder;
+    public ISearchQueryElementVisitor<T> SearchQueryElementVisitor => _searchResultRepository.SearchQueryElementVisitor;
 
-    public SearchResult<T> GetSearchResult(SearchCriteria searchCriteria)
+    public SearchResult<T> GetSearchResult(SearchParameters searchParameters)
     {
-      Func<SearchResult<T>> getSearchResult = () => _searchResultRepository.GetSearchResult(searchCriteria);
+      Func<SearchResult<T>> getSearchResult = () => _searchResultRepository.GetSearchResult(searchParameters);
       return GetSearchResultFromCache(getSearchResult);
     }
 

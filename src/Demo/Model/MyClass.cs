@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Conjunction.Foundation.Core.Model;
+using Conjunction.Sitecore.Model;
 using Sitecore.Data;
 
 namespace Demo.Model
