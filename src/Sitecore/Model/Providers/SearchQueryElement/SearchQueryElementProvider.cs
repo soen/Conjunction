@@ -1,5 +1,6 @@
 ﻿using System;
 using Conjunction.Core;
+using Conjunction.Core.Infrastructure.Logging.Logging;
 using Conjunction.Core.Model;
 using Conjunction.Sitecore.Infrastructure;
 using Conjunction.Sitecore.Model.Factories;
@@ -7,118 +8,128 @@ using Sitecore.Data.Items;
 
 namespace Conjunction.Sitecore.Model.Providers.SearchQueryElement
 {
-  /// <summary>
-  /// Represents a Sitecore configured search query element provider, accepting a 
-  /// <see cref="Item"/> root, which gets transformed into a <see cref="ISearchQueryElement{T}"/> root.
-  /// </summary>
-  public class SearchQueryElementProvider : ISitecoreItemSearchQueryElementProvider
+	/// <summary>
+	/// Represents a Sitecore configured search query element provider, accepting a 
+	/// <see cref="Item"/> tree root, which gets transformed into a <see cref="ISearchQueryElement{T}"/> tree.
+	/// </summary>
+	public class SearchQueryElementProvider : ISitecoreItemSearchQueryElementProvider
+	{
+		private readonly Func<Item> _searchQueryRootItemFactory;
+		private readonly ILog _logger;
+
+		public SearchQueryElementProvider(Func<Item> searchQueryRootItemFactory)
+			: this(searchQueryRootItemFactory,
+				Locator.Current.GetInstance<ISearchQueryRuleFactory>(),
+				Locator.Current.GetInstance<ISearchQueryGroupingFactory>(),
+				Locator.Current.GetInstance<ILog>())
 		{
-    private readonly Func<Item> _searchQueryRootItemFactory;
+		}
 
-    public SearchQueryElementProvider(Func<Item> searchQueryRootItemFactory)
-      : this(searchQueryRootItemFactory, 
-             Locator.Current.GetInstance<ISearchQueryRuleFactory>(),
-             Locator.Current.GetInstance<ISearchQueryGroupingFactory>())
-    {
-    }
-
-    public SearchQueryElementProvider(Func<Item> searchQueryRootItemFactory,
+		public SearchQueryElementProvider(Func<Item> searchQueryRootItemFactory,
 																			ISearchQueryRuleFactory searchQueryRuleFactory,
-															        ISearchQueryGroupingFactory searchQueryGroupingFactory)
-    {
-	    if (searchQueryRootItemFactory == null)
+																			ISearchQueryGroupingFactory searchQueryGroupingFactory,
+																			ILog logger)
+		{
+			if (searchQueryRootItemFactory == null)
 				throw new ArgumentNullException(nameof(searchQueryRootItemFactory));
-	    if (searchQueryRuleFactory == null)
+			if (searchQueryRuleFactory == null)
 				throw new ArgumentNullException(nameof(searchQueryRuleFactory));
-	    if (searchQueryGroupingFactory == null)
+			if (searchQueryGroupingFactory == null)
 				throw new ArgumentNullException(nameof(searchQueryGroupingFactory));
-			
-	    _searchQueryRootItemFactory = searchQueryRootItemFactory;
-      SearchQueryRuleFactory = searchQueryRuleFactory;
-      SearchQueryGroupingFactory = searchQueryGroupingFactory;
-    }
+			if (logger == null)
+				throw new ArgumentNullException(nameof(logger));
 
-    public ISearchQueryRuleFactory SearchQueryRuleFactory { get; }
-    public ISearchQueryGroupingFactory SearchQueryGroupingFactory { get; }
+			_searchQueryRootItemFactory = searchQueryRootItemFactory;
+			SearchQueryRuleFactory = searchQueryRuleFactory;
+			SearchQueryGroupingFactory = searchQueryGroupingFactory;
+			_logger = logger;
+		}
 
-    public ISearchQueryElement<T> GetSearchQueryElementTree<T>() where T : IIndexableEntity, new()
-    {
-      Item searchQueryRootItem = _searchQueryRootItemFactory();
+		public ISearchQueryRuleFactory SearchQueryRuleFactory { get; }
+		public ISearchQueryGroupingFactory SearchQueryGroupingFactory { get; }
 
-      if (searchQueryRootItem == null)
-        throw new ArgumentException("The searchQueryRootItem cannot be null");
+		public ISearchQueryElement<T> GetSearchQueryElementTree<T>() where T : IIndexableEntity, new()
+		{
+			Item searchQueryRootItem = _searchQueryRootItemFactory();
 
-      if (searchQueryRootItem.IsDerived(Constants.Templates.SearchQueryRoot.TemplateId) == false)
-        throw new ArgumentException();
+			if (searchQueryRootItem == null)
+				throw new ArgumentException("The searchQueryRootItem cannot be null");
 
-      VerifyConfiguredIndexableEntityType<T>(searchQueryRootItem);
+			if (searchQueryRootItem.IsDerived(Constants.Templates.SearchQueryRoot.TemplateId) == false)
+				throw new ArgumentException();
 
-      return GetSearchQueryElementFor<T>(searchQueryRootItem);
-    }
+			VerifyConfiguredIndexableEntityType<T>(searchQueryRootItem);
 
-    private void VerifyConfiguredIndexableEntityType<T>(Item item) where T : IIndexableEntity, new()
-    {
-      var configuredIndexableEntityType =
-        item.Fields[Constants.Fields._IndexableEntityConfigurator.ConfiguredIndexableEntityType].Value;
+			return GetSearchQueryElementFor<T>(searchQueryRootItem);
+		}
 
-      Type type;
-      try
-      {
-        type = Type.GetType(configuredIndexableEntityType);        
-      }
-      catch (Exception ex)
-      {
-        var errorMessage = $"Cannot find the configured IndexableEntity type <{configuredIndexableEntityType}>";
+		private void VerifyConfiguredIndexableEntityType<T>(Item item) where T : IIndexableEntity, new()
+		{
+			var configuredIndexableEntityType =
+				item.Fields[Constants.Fields._IndexableEntityConfigurator.ConfiguredIndexableEntityType].Value;
 
-        //TODO: Fix logging Log.Error(errorMessage, this);
-        throw new InvalidOperationException(errorMessage, ex);
-      }
+			var cannotFindTypeErrorMessage = $"Cannot find the configured IndexableEntity type <{configuredIndexableEntityType}>";
 
-      if (type != typeof(T))
-        throw new ArgumentException($"The configured IndexableEntity type <{type}> does not match the specified generic type T: {typeof(T)}");      
+			Type type;
+			try
+			{
+				type = Type.GetType(configuredIndexableEntityType);
+			}
+			catch (Exception ex)
+			{
+				_logger.Error(ex.Message, ex, this);
+				throw new InvalidOperationException(cannotFindTypeErrorMessage, ex);
+			}
 
-			// TODO: Also check if the type is null!
-    }
+			if (type == null)
+			{
+				_logger.Error(cannotFindTypeErrorMessage, this);
+				throw new ArgumentNullException(cannotFindTypeErrorMessage);
+			}
 
-    private ISearchQueryElement<T> GetSearchQueryElementFor<T>(Item item)
-      where T : IIndexableEntity, new()
-    {
-      if (item.IsDerived(Constants.Templates._SearchQueryRule.TemplateId))
-        return GetSearchQueryElementFromItem<T>(item);
+			if (type != typeof(T))
+				throw new ArgumentException($"The configured IndexableEntity type <{type}> does not match the specified generic type T: {typeof(T)}");
+		}
 
-      var searchQueryGrouping = GetSearchQueryGroupingFromItem<T>(item);
+		private ISearchQueryElement<T> GetSearchQueryElementFor<T>(Item item)
+			where T : IIndexableEntity, new()
+		{
+			if (item.IsDerived(Constants.Templates._SearchQueryRule.TemplateId))
+				return GetSearchQueryElementFromItem<T>(item);
 
-      foreach (Item child in item.Children)
-      {
-        var searchQueryElement = GetSearchQueryElementFor<T>(child);
-        searchQueryGrouping.SearchQueryElements.Add(searchQueryElement);
-      }
+			var searchQueryGrouping = GetSearchQueryGroupingFromItem<T>(item);
 
-      return searchQueryGrouping;
-    }
+			foreach (Item child in item.Children)
+			{
+				var searchQueryElement = GetSearchQueryElementFor<T>(child);
+				searchQueryGrouping.SearchQueryElements.Add(searchQueryElement);
+			}
 
-    private SearchQueryRule<T> GetSearchQueryElementFromItem<T>(Item item) where T : IIndexableEntity, new()
-    {
-      var associatedPropertyName =
-        item.Fields[Constants.Fields._SearchQueryRule.AssociatedPropertyName].Value;
-      var configuredComparisonOperator =
-        item.Fields[Constants.Fields._SearchQueryRule.ComparisonOperator].Value;
-      var dynamicValueProvidingParameter =
-        item.Fields[Constants.Fields._SearchQueryRule.DynamicValueProvidingParameter].Value;
-      var defaultValue =
-        item.Fields[Constants.Fields._SearchQueryRule.DefaultValue].Value;
+			return searchQueryGrouping;
+		}
 
-      return SearchQueryRuleFactory.Create<T>(
-        associatedPropertyName, configuredComparisonOperator, dynamicValueProvidingParameter, defaultValue
+		private SearchQueryRule<T> GetSearchQueryElementFromItem<T>(Item item) where T : IIndexableEntity, new()
+		{
+			var associatedPropertyName =
+				item.Fields[Constants.Fields._SearchQueryRule.AssociatedPropertyName].Value;
+			var configuredComparisonOperator =
+				item.Fields[Constants.Fields._SearchQueryRule.ComparisonOperator].Value;
+			var dynamicValueProvidingParameter =
+				item.Fields[Constants.Fields._SearchQueryRule.DynamicValueProvidingParameter].Value;
+			var defaultValue =
+				item.Fields[Constants.Fields._SearchQueryRule.DefaultValue].Value;
+
+			return SearchQueryRuleFactory.Create<T>(
+				associatedPropertyName, configuredComparisonOperator, dynamicValueProvidingParameter, defaultValue
 			);
-    }
+		}
 
-    private SearchQueryGrouping<T> GetSearchQueryGroupingFromItem<T>(Item item) where T : IIndexableEntity, new()
-    {
-      var configuredLogicalOperator =
-        item.Fields[Constants.Fields._SearchQueryGrouping.SearchQueryGroupingLogicalOperator].Value;
+		private SearchQueryGrouping<T> GetSearchQueryGroupingFromItem<T>(Item item) where T : IIndexableEntity, new()
+		{
+			var configuredLogicalOperator =
+				item.Fields[Constants.Fields._SearchQueryGrouping.SearchQueryGroupingLogicalOperator].Value;
 
-      return SearchQueryGroupingFactory.Create<T>(configuredLogicalOperator);
-    }
-  }
+			return SearchQueryGroupingFactory.Create<T>(configuredLogicalOperator);
+		}
+	}
 }

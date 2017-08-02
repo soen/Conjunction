@@ -4,11 +4,11 @@ using Conjunction.Sitecore.Model.Factories;
 
 namespace Conjunction.Sitecore.Model.Providers.SearchQueryElement
 {
-		/// <summary>
-		/// Provides functionality to retrieve a <see cref="ISearchQueryElement{T}"/> root element
-		/// from a given configuration.
-		/// </summary>
-		public interface ISitecoreItemSearchQueryElementProvider : ISearchQueryElementProvider
+	/// <summary>
+	/// Provides functionality to retrieve a <see cref="ISearchQueryElement{T}"/> tree 
+	/// from a given configuration.
+	/// </summary>
+	public interface ISitecoreItemSearchQueryElementProvider : ISearchQueryElementProvider
 	{
 		/// <summary>
 		/// Gets the <see cref="ISearchQueryRuleFactory"/> that is associated with the given provider.

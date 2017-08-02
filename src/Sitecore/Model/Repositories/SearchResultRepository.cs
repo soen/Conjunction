@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using Conjunction.Core;
+using Conjunction.Core.Infrastructure.Logging.Logging;
 using Conjunction.Core.Model;
 using Conjunction.Core.Model.Processing;
 using Conjunction.Core.Model.Providers.Indexing;
@@ -21,9 +23,22 @@ namespace Conjunction.Sitecore.Model.Repositories
   /// <typeparam name="T">The type of <see cref="IndexableEntity"/> implementation to use.</typeparam>
   public class SearchResultRepository<T> : ISearchResultRepository<T> where T : IndexableEntity, new()
   {
+	  private readonly ILog _logger;
+		
 		public SearchResultRepository(ISearchQueryElementProvider searchQueryElementProvider, 
                                   IIndexNameProvider indexNameProvider,
 																	ISearchQueryPredicateBuilder<T> searchQueryPredicateBuilder)
+			: this(searchQueryElementProvider,
+						 indexNameProvider, 
+						 searchQueryPredicateBuilder, 
+						 Locator.Current.GetInstance<ILog>())
+    {
+    }
+		
+	  public SearchResultRepository(ISearchQueryElementProvider searchQueryElementProvider, 
+                                  IIndexNameProvider indexNameProvider,
+																	ISearchQueryPredicateBuilder<T> searchQueryPredicateBuilder,
+																	ILog logger)
     {
 	    if (searchQueryElementProvider == null)
 				throw new ArgumentNullException(nameof(searchQueryElementProvider));
@@ -31,10 +46,13 @@ namespace Conjunction.Sitecore.Model.Repositories
 				throw new ArgumentNullException(nameof(indexNameProvider));
 	    if (searchQueryPredicateBuilder == null)
 				throw new ArgumentNullException(nameof(searchQueryPredicateBuilder));
-			
+	    if (logger == null)
+				throw new ArgumentNullException(nameof(logger));
+
 	    SearchQueryElementProvider = searchQueryElementProvider;
       IndexNameProvider = indexNameProvider;
 			SearchQueryElementVisitor = searchQueryPredicateBuilder;
+			_logger = logger;
     }
 
     public ISearchQueryElementProvider SearchQueryElementProvider { get; }
@@ -71,7 +89,7 @@ namespace Conjunction.Sitecore.Model.Repositories
       }
       catch (Exception ex)
       {
-        //TODO: Fix logging Log.Error(ex.Message, ex, this);
+        _logger.Error(ex.Message, ex, this);
         throw;
       }
       return retVal;

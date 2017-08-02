@@ -106,7 +106,7 @@ namespace Conjunction.Sitecore.Tests.Model.Providers.SearchQueryElement
         Action act = () => sut.GetSearchQueryElementTree<TestIndexableEntity>();
 
         // Assert
-        act.ShouldThrow<ArgumentException>();
+        act.ShouldThrow<ArgumentNullException>();
       }
     }
 
@@ -135,7 +135,7 @@ namespace Conjunction.Sitecore.Tests.Model.Providers.SearchQueryElement
         Action act = () => sut.GetSearchQueryElementTree<TestIndexableEntity>();
 
         // Assert
-        act.ShouldThrow<ArgumentException>();
+        act.ShouldThrow<ArgumentNullException>();
       }
     }
 

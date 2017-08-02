@@ -1,5 +1,6 @@
 ﻿using System;
 using Conjunction.Core.Infrastructure;
+using Conjunction.Core.Infrastructure.Logging.Logging;
 using Conjunction.Core.Model.Services;
 
 namespace Conjunction.Core
@@ -29,7 +30,9 @@ namespace Conjunction.Core
 
 	  private static void Initialize()
     {
+			MutableDependencyResolver.Register(LogProvider.GetCurrentClassLogger);
 			MutableDependencyResolver.Register<ISearchQueryValueConversionService>(() => new SearchQueryValueConversionService());
+
 	    DependencyRegistrar?.Invoke(MutableDependencyResolver);
     }
   }
