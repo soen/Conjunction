@@ -153,9 +153,13 @@
     <Compile Include="ViewModels\DemoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Foundation\Core\Code\Conjunction.Foundation.Core.csproj">
-      <Project>{2aa8429a-7e52-481d-951c-8bf6acb05456}</Project>
-      <Name>Conjunction.Foundation.Core</Name>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{bbb2876d-c166-4f62-a3ee-cdb6ff526ea0}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sitecore\Sitecore.csproj">
+      <Project>{52835e39-6ac9-4e53-9c06-53faca27378d}</Project>
+      <Name>Sitecore</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
